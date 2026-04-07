@@ -4,39 +4,39 @@ import Product from '../../../../models/Product';
 
 const initialProducts = [
     {
-        name: "Classic Wheat Thekua",
-        price: 349,
-        description: "Our signature Thekua is handcrafted using premium whole wheat flour, pure desi ghee, and organic jaggery. Each piece is flavored with cardamom and dry fruits for an authentic homemade taste.",
-        type: "Thekua",
+        name: "Premium Kashmiri Almonds",
+        price: 699,
+        description: "Handpicked from the valleys of Kashmir, our premium almonds are rich in protein, healthy fats, and essential vitamins. Perfect for snacking and gifting.",
+        type: "Almonds",
         stock: 100,
-        features: ["Pure Desi Ghee", "Organic Jaggery", "High Fiber", "No Preservatives"],
+        features: ["Rich in Protein", "Natural & Unprocessed", "No Preservatives", "Premium Grade"],
         variants: [
-            { name: "Original Jaggery", hex: "#8B4513", image: "/snacks.png" },
-            { name: "Coconut Special", hex: "#F5DEB3", image: "/snacks.png" },
-            { name: "Dry Fruit Rich", hex: "#D2691E", image: "/snacks.png" }
+            { name: "Raw Natural", hex: "#D4A76A", image: "/snacks.png" },
+            { name: "Roasted Salted", hex: "#8B6914", image: "/snacks.png" },
+            { name: "Honey Glazed", hex: "#C8860A", image: "/snacks.png" }
         ]
     },
     {
-        name: "Royal Mawa Gujia",
-        price: 599,
-        description: "Exquisite handmade pastries filled with a rich mixture of roasted khoya, dry fruits, and aromatic cardamom. A sweet celebration of Indian heritage in every bite.",
-        type: "Gujia",
-        stock: 50,
-        features: ["Fresh Khoya", "Pure Saffron", "Handmade Artistry", "Festive Grade"],
+        name: "Royal Cashew W240",
+        price: 899,
+        description: "Whole, plump W240-grade cashews sourced from the finest farms. Buttery smooth, naturally sweet, and incredibly fresh \u2013 a true indulgence for nut lovers.",
+        type: "Cashews",
+        stock: 80,
+        features: ["W240 Grade", "Whole Kernels", "Naturally Sweet", "Freshly Packed"],
         variants: [
-            { name: "Saffron Classic", hex: "#FFD700", image: "/snacks.png" },
-            { name: "Chocolate Infused", hex: "#3C1E08", image: "/snacks.png" }
+            { name: "Natural Raw", hex: "#F5E6CA", image: "/snacks.png" },
+            { name: "Lightly Salted", hex: "#E8D5A3", image: "/snacks.png" }
         ]
     },
     {
-        name: "Spicy Masala Nimkin",
-        price: 249,
-        description: "Crunchy, savory salt-crusted snacks tempered with black pepper and nigella seeds. The quintessental Indian savory for your perfect cup of tea.",
-        type: "Nimkin",
-        stock: 150,
-        features: ["Extra Crunchy", "Stone-ground Spices", "Zero Trans Fat", "Tea-time Essential"],
+        name: "Mixed Dry Fruit Box",
+        price: 799,
+        description: "A curated blend of premium raisins, figs, dates, apricots, and berries. Each piece is selected for maximum flavour and nutritional value. Ideal for gifting.",
+        type: "Dry Fruits",
+        stock: 120,
+        features: ["7 Varieties", "Naturally Dried", "No Added Sugar", "Gift-Ready Pack"],
         variants: [
-            { name: "Black Pepper", hex: "#333333", image: "/snacks.png" }
+            { name: "Classic Mix", hex: "#8B2500", image: "/snacks.png" }
         ]
     }
 ];

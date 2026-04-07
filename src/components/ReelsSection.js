@@ -7,41 +7,41 @@ const REELS = [
     {
         id: 1,
         url: '/reels/1.mp4',
-        user: 'thekua.snacks',
+        user: 'fusiondriednutspvtltd',
         likes: '1.8k',
-        caption: 'Fresh thekua straight from our kitchen 🍪 #Thekua #IndianSnacks #Authentic',
-        emoji: '🍪'
+        caption: 'Premium dried fruits & nuts crafted for your health 🥜 #DriedNuts #HealthySnacks #FusionNuts',
+        emoji: '🥜'
     },
     {
         id: 2,
         url: '/reels/2.mp4',
-        user: 'thekua.snacks',
+        user: 'fusiondriednutspvtltd',
         likes: '2.1k',
-        caption: 'Crispy nimkin – the perfect tea-time companion ☕ #Nimkin #ChaiSnacks',
-        emoji: '☕'
+        caption: 'Crunchy almonds & cashews – nature\'s perfect snack 🌰 #Almonds #Cashews #HealthyBites',
+        emoji: '🌰'
     },
     {
         id: 3,
         url: '/reels/3.mp4',
-        user: 'thekua.snacks',
+        user: 'fusiondriednutspvtltd',
         likes: '3.4k',
-        caption: 'Our gujia filling is handmade with pure khoya & dry fruits 🤲 #Gujia #Holi',
+        caption: 'Our dried fruit mix is handpicked for pure quality & taste 🤲 #DriedFruits #PureQuality',
         emoji: '🤲'
     },
     {
         id: 4,
         url: '/reels/4.mp4',
-        user: 'thekua.snacks',
+        user: 'fusiondriednutspvtltd',
         likes: '1.5k',
-        caption: 'Packing love in every box – festive gifting now open! 🎁 #FestiveGifting',
+        caption: 'Packing health & love in every box – festive gifting now open! 🎁 #FestiveGifting #DriedNuts',
         emoji: '🎁'
     },
     {
         id: 5,
         url: '/reels/5.mp4',
-        user: 'thekua.snacks',
+        user: 'fusiondriednutspvtltd',
         likes: '4.2k',
-        caption: 'The crunch you hear miles away 😍 #MathriCrunch #TraditionalSnacks',
+        caption: 'The freshness you can taste from miles away 😍 #FreshNuts #HealthyLiving',
         emoji: '😍'
     },
 ];
@@ -247,7 +247,7 @@ export default function ReelsSection() {
                     className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1A0E05] dark:text-orange-100 mb-4"
                     style={{ fontFamily: 'var(--font-playfair), serif' }}
                 >
-                    THEKUA In Motion
+                    Fusion of Dried Nuts – In Motion
                 </h2>
                 <div className="flex items-center justify-center gap-3 mb-5">
                     <div className="h-px w-8 bg-[#E8730A]/30" />
@@ -255,8 +255,8 @@ export default function ReelsSection() {
                     <div className="h-px w-8 bg-[#E8730A]/30" />
                 </div>
                 <p className="text-[#8B4513]/60 dark:text-orange-300/50 text-sm font-normal max-w-sm mx-auto leading-relaxed">
-                    Watch us craft your favourite snacks, one batch at a time. Follow{' '}
-                    <span className="font-bold text-[#E8730A]">@thekua.snacks</span> for daily updates.
+                    Watch us craft your finest nut selections, one batch at a time. Follow{' '}
+                    <span className="font-bold text-[#E8730A]">@fusiondriednutspvtltd</span> for daily updates.
                 </p>
             </div>
 

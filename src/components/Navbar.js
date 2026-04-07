@@ -111,7 +111,7 @@ export default function Navbar() {
                       <input
                         autoFocus
                         type="text"
-                        placeholder="Search our traditional snacks (Thekua, Gujia...)"
+                        placeholder="Search our premium dried nuts & snacks..."
                         className="flex-grow bg-transparent border-none outline-none text-base font-bold text-gray-900 placeholder:text-gray-300 placeholder:font-medium"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}

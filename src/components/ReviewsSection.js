@@ -8,7 +8,7 @@ const REVIEWS = [
     name: "Anita Verma",
     location: "Lucknow",
     rating: 5,
-    text: "The thekua tasted exactly like my nani used to make! Perfectly crisp with just the right amount of jaggery. Transported me back to childhood.",
+    text: "The dry fruits tasted exactly like the finest quality I've ever had! Perfectly fresh with just the right balance of flavours. Completely worth every penny.",
     date: "March 2024",
     verified: true
   },

@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 export default function Footer() {
-  const [categories, setCategories] = useState(['Thekua', 'Gujia', 'Nimkin', 'Mathri', 'Laddoo']);
+  const [categories, setCategories] = useState(['Almonds', 'Cashews', 'Pistachios', 'Dry Fruits', 'Mixed Nuts']);
 
   useEffect(() => {
     const fetchCategories = async () => {

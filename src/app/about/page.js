@@ -47,7 +47,7 @@ export default function About() {
                     We decided to pivot back to the basics: wood-fired aromas, stone-ground flour, and the patience of slow-cooking. Our founders personally source every kilo of jaggery and every liter of ghee.
                   </p>
                   <p>
-                    Every Thekua, Nimkin, and Gujia we ship is a testament to this uncompromising standard of purity and taste.
+                    Every premium nut, dried fruit, and healthy snack we ship is a testament to this uncompromising standard of purity and quality.
                   </p>
                 </div>
               </div>

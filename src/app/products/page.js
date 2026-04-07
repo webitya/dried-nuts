@@ -91,7 +91,7 @@ function ProductsContent() {
                                     {query ? "No items found" : "Coming Soon"}
                                 </h3>
                                 <p className="text-xs text-gray-500 font-medium max-w-xs mx-auto">
-                                    {query ? "Try searching for a different keyword like 'Thekua' or 'Snack'." : "Our collection is currently being curated. Check back soon for fresh batches."}
+                                    {query ? "Try searching for a different keyword like 'Almonds' or 'Cashews'." : "Our collection is currently being curated. Check back soon for fresh batches."}
                                 </p>
                             </div>
                         )}

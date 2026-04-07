@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { ArrowRight, ShieldCheck, Truck, Zap } from 'lucide-react';
 
-const HIGHLIGHTS = ['Thekua', 'Gujia', 'Nimkin', 'Mathri', 'Laddoo'];
+const HIGHLIGHTS = ['Almonds', 'Cashews', 'Pistachios', 'Dry Fruits', 'Mixed Nuts'];
 
 export default function Hero() {
   const [currentHighlight, setCurrentHighlight] = useState(0);
@@ -98,7 +98,7 @@ export default function Hero() {
               />
               <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/40 to-transparent">
                 <p className="text-[9px] font-bold text-white/70 uppercase tracking-widest mb-1">Featured Artisanal Snack</p>
-                <p className="text-lg font-bold text-white">The Original Jaggery Thekua</p>
+                <p className="text-lg font-bold text-white">Premium Dried Fruits & Nuts</p>
               </div>
             </div>
           </div>

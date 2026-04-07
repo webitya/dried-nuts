@@ -239,7 +239,7 @@ export default function AdminProducts() {
             <div className="flex items-center justify-between border-b border-black pb-4">
                 <div>
                     <h2 className="text-xl font-black text-gray-900 uppercase tracking-widest leading-none">
-                        {isFormOpen ? (editingId ? 'Refine Recipe' : 'New Recipe') : 'Thekua Kitchen Registry'}
+                        {isFormOpen ? (editingId ? 'Edit Product' : 'New Product') : 'Fusion Nuts Product Registry'}
                     </h2>
                     <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] mt-1 font-bold">Catalogue / Product Management</p>
                 </div>
@@ -268,7 +268,7 @@ export default function AdminProducts() {
                         <Search size={14} className="text-gray-400" />
                         <input
                             type="text"
-                            placeholder="Filter Recipes (e.g. Classic Thekua)"
+                            placeholder="Filter Products (e.g. Premium Almonds)"
                             className="bg-transparent border-none outline-none text-[10px] font-black uppercase tracking-widest w-full placeholder:text-gray-300"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
@@ -295,7 +295,7 @@ export default function AdminProducts() {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-1">
                                             <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Snack Name</label>
-                                            <input required type="text" placeholder="e.g. PREMIUM DRY FRUIT THEKUA" className="w-full px-4 py-3 bg-white border border-black text-xs font-bold uppercase tracking-wide focus:bg-gray-50 outline-none" value={newProduct.name} onChange={e => setNewProduct({...newProduct, name: e.target.value})} />
+                                            <input required type="text" placeholder="e.g. PREMIUM KASHMIRI ALMONDS" className="w-full px-4 py-3 bg-white border border-black text-xs font-bold uppercase tracking-wide focus:bg-gray-50 outline-none" value={newProduct.name} onChange={e => setNewProduct({...newProduct, name: e.target.value})} />
                                         </div>
                                         <div className="space-y-1">
                                             <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Category / Tag</label>

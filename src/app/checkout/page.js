@@ -28,7 +28,7 @@ export default function CheckoutPage() {
 
     // 1. Load initial data (User Profile > LocalStorage > Default)
     useEffect(() => {
-        const savedData = localStorage.getItem('thekua_checkout_details');
+        const savedData = localStorage.getItem('fusion_nuts_checkout_details');
         let initialData = {};
 
         if (savedData) {
@@ -62,7 +62,7 @@ export default function CheckoutPage() {
         // Save to browser cache for easy re-filling (excluding payment method/sensitive info)
         const cacheData = { ...updatedData };
         delete cacheData.paymentMethod;
-        localStorage.setItem('thekua_checkout_details', JSON.stringify(cacheData));
+        localStorage.setItem('fusion_nuts_checkout_details', JSON.stringify(cacheData));
     };
 
     const handleSubmit = async (e) => {

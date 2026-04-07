@@ -11,7 +11,7 @@ export function CartProvider({ children }) {
 
     // Load cart from local storage on mount
     useEffect(() => {
-        const savedCart = localStorage.getItem('thekua-cart');
+        const savedCart = localStorage.getItem('fusion-nuts-cart');
         if (savedCart) {
             setCart(JSON.parse(savedCart));
         }
@@ -19,7 +19,7 @@ export function CartProvider({ children }) {
 
     // Save cart to local storage whenever it changes
     useEffect(() => {
-        localStorage.setItem('thekua-cart', JSON.stringify(cart));
+        localStorage.setItem('fusion-nuts-cart', JSON.stringify(cart));
     }, [cart]);
 
     const showNotification = (message) => {
