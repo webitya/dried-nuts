@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   Instagram, 
   Facebook, 
@@ -39,11 +40,19 @@ export default function Footer() {
           
           {/* Brand Section */}
           <div className="space-y-6">
-            <Link href="/" className="inline-block">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="relative h-12 w-12 overflow-hidden rounded-full border border-gray-100">
+                <Image 
+                  src="/brand-logo.png" 
+                  alt="Fusion of Dried Nuts Logo" 
+                  fill 
+                  className="object-cover"
+                />
+              </div>
               <span className="text-2xl font-bold text-gray-900 tracking-tight uppercase">Fusion of Dried Nuts</span>
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
-              Healthy Bites and Happy Moments. Delivering the finest quality dried nuts and traditional snacks handcrafted with love.
+              Healthy Bites and Happy Moments. Delivering the finest quality premium dried nuts and luxury fruits sourced with love.
             </p>
             <div className="flex space-x-4">
               {[Instagram, Facebook, Youtube, Twitter].map((Icon, i) => (

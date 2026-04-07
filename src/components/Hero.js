@@ -50,7 +50,7 @@ export default function Hero() {
             </div>
 
             <p className="text-base text-gray-500 font-medium leading-relaxed animate-fade-in max-w-lg mx-auto lg:mx-0">
-              Authentic Indian snacks, handcrafted in small batches with pure ingredients. Delivered fresh to your doorstep nationwide.
+              Premium selection of high-quality dried fruits and luxury nuts, sourced from the finest farms. Freshly packed and delivered to your doorstep nationwide for healthy bites and happy moments.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2 animate-fade-in">
@@ -90,14 +90,14 @@ export default function Hero() {
           <div className="flex-1 w-full max-w-lg lg:max-w-none relative animate-fade-in">
             <div className="relative aspect-[4/3] w-full rounded-[2rem] overflow-hidden shadow-2xl shadow-gray-100 border-4 border-white group">
               <Image
-                src="/snacks_hero.png"
-                alt="Traditional Indian Snacks"
+                src="/hero-collection.png"
+                alt="Premium Dried Nuts and Fruits"
                 fill
                 className="object-cover transition-transform duration-[15s] group-hover:scale-110"
                 priority
               />
               <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/40 to-transparent">
-                <p className="text-[9px] font-bold text-white/70 uppercase tracking-widest mb-1">Featured Artisanal Snack</p>
+                <p className="text-[9px] font-bold text-white/70 uppercase tracking-widest mb-1">Featured Premium Choice</p>
                 <p className="text-lg font-bold text-white">Premium Dried Fruits & Nuts</p>
               </div>
             </div>

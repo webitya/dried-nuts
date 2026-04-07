@@ -17,7 +17,7 @@ const REVIEWS = [
     name: "Rajan Sharma",
     location: "Patna",
     rating: 5,
-    text: "Ordered gujia for Holi and the whole family loved it. The filling was perfect — not too sweet, not too dry. Will definitely order again!",
+    text: "Ordered the mixed dry fruits for Diwali gifting and the whole family loved it. The quality was exceptional — perfectly fresh, not too sweet. Will definitely order again!",
     date: "Feb 2024",
     verified: true
   },
@@ -26,7 +26,7 @@ const REVIEWS = [
     name: "Sunita Mishra",
     location: "Varanasi",
     rating: 5,
-    text: "The nimkin is absolutely addictive! Crispy, flavorful, and packed so well. Even arrived fresh after 3 days of transit. Impressive quality.",
+    text: "The cashews are absolutely premium! Buttery, fresh, and packed so well. Even arrived fresh after 3 days of transit. Impressive quality.",
     date: "Jan 2024",
     verified: true
   }
@@ -72,7 +72,7 @@ export default function ReviewsSection() {
         {/* Header */}
         <div className="text-center mb-12 max-w-2xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4 tracking-tight">
-            Trusted by <span className="text-orange-600 italic font-medium">Snack Lovers.</span>
+            Trusted by <span className="text-orange-600 italic font-medium">Health Lovers.</span>
           </h2>
           <div className="flex items-center justify-center gap-3 text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">
             <div className="flex gap-0.5">
@@ -95,7 +95,7 @@ export default function ReviewsSection() {
         <div className="mt-16 pt-10 border-t border-gray-50 flex flex-wrap justify-center gap-10 md:gap-20">
           {[
             { label: 'All Natural', icon: Leaf },
-            { label: 'Handcrafted', icon: Heart },
+            { label: 'Naturally Sourced', icon: Heart },
             { label: 'Certified', icon: ShieldCheck },
             { label: 'Fast Delivery', icon: Truck },
           ].map(({ label, icon: Icon }) => (

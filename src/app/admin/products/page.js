@@ -24,7 +24,7 @@ export default function AdminProducts() {
         isVeg: true,
         allergenInfo: 'Made in a facility that processes nuts and dairy.',
         ingredients: [''],
-        features: ['Handcrafted', 'Pure Ghee'],
+        features: ['Premium Quality', 'Naturally Sourced'],
         images: [], // Gallery
         variants: [{ name: 'Standard Pack', weight: '500g', price: '', discountPrice: '', images: [] }]
     };
@@ -168,7 +168,7 @@ export default function AdminProducts() {
     };
 
     const handleDelete = async (id) => {
-        if (!confirm('Are you sure you want to delete this snack?')) return;
+        if (!confirm('Are you sure you want to delete this product?')) return;
         try {
             const res = await fetch(`/api/products/${id}`, { method: 'DELETE' });
             if (res.ok) fetchProducts();
@@ -249,7 +249,7 @@ export default function AdminProducts() {
                         className="flex items-center space-x-2 px-6 py-2.5 bg-black text-white hover:bg-orange-600 transition-all font-black text-[10px] uppercase tracking-widest cursor-pointer shadow-xl shadow-orange-50"
                     >
                         <Plus size={16} />
-                        <span>Add New Snack</span>
+                        <span>Add New Product</span>
                     </button>
                 ) : (
                     <button
@@ -280,7 +280,7 @@ export default function AdminProducts() {
             )}
 
             {isFormOpen ? (
-                /* Snack Creation/Edit Form */
+                /* Product Creation/Edit Form */
                 <div className="bg-white border border-black p-4 md:p-8 animate-in fade-in slide-in-from-bottom-2 duration-300">
                     <form onSubmit={handleSubmit} className="max-w-7xl mx-auto space-y-12">
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -294,7 +294,7 @@ export default function AdminProducts() {
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-1">
-                                            <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Snack Name</label>
+                                            <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Product Name</label>
                                             <input required type="text" placeholder="e.g. PREMIUM KASHMIRI ALMONDS" className="w-full px-4 py-3 bg-white border border-black text-xs font-bold uppercase tracking-wide focus:bg-gray-50 outline-none" value={newProduct.name} onChange={e => setNewProduct({...newProduct, name: e.target.value})} />
                                         </div>
                                         <div className="space-y-1">
@@ -304,11 +304,11 @@ export default function AdminProducts() {
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Product Story (Description)</label>
-                                        <textarea required rows={4} placeholder="Tell the tradition of this snack..." className="w-full px-4 py-3 bg-white border border-black text-xs font-medium leading-relaxed focus:bg-gray-50 outline-none resize-none" value={newProduct.description} onChange={e => setNewProduct({...newProduct, description: e.target.value})} />
+                                        <textarea required rows={4} placeholder="Describe the quality of this product..." className="w-full px-4 py-3 bg-white border border-black text-xs font-medium leading-relaxed focus:bg-gray-50 outline-none resize-none" value={newProduct.description} onChange={e => setNewProduct({...newProduct, description: e.target.value})} />
                                     </div>
                                 </div>
 
-                                {/* Snack Specifications */}
+                                {/* Product Specifications */}
                                 <div className="space-y-6 pt-6 border-t border-gray-100">
                                     <div className="flex items-center gap-2 text-black/40">
                                         <ShieldCheck size={14} />
@@ -495,7 +495,7 @@ export default function AdminProducts() {
                             <table className="w-full border-collapse min-w-[1000px]">
                                 <thead>
                                     <tr className="bg-gray-50 border-b border-black">
-                                        <th className="px-6 py-4 text-left text-[10px] font-bold uppercase tracking-widest text-gray-400">Snack Identity</th>
+                                        <th className="px-6 py-4 text-left text-[10px] font-bold uppercase tracking-widest text-gray-400">Product Identity</th>
                                         <th className="px-6 py-4 text-left text-[10px] font-bold uppercase tracking-widest text-gray-400">Specifications</th>
                                         <th className="px-6 py-4 text-left text-[10px] font-bold uppercase tracking-widest text-gray-400">Pricing</th>
                                         <th className="px-6 py-4 text-right text-[10px] font-bold uppercase tracking-widest text-gray-400">Actions</th>
@@ -537,7 +537,7 @@ export default function AdminProducts() {
                                     ))}
                                     {filteredProducts.length === 0 && (
                                         <tr>
-                                            <td colSpan="4" className="py-20 text-center text-[10px] font-bold text-gray-300 uppercase">No Snacks Registered</td>
+                                            <td colSpan="4" className="py-20 text-center text-[10px] font-bold text-gray-300 uppercase">No Products Registered</td>
                                         </tr>
                                     )}
                                 </tbody>

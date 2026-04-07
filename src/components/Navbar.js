@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { 
   ShoppingBag, 
@@ -44,7 +45,15 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-14 md:h-16">
           
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-full border border-gray-100">
+              <Image 
+                src="/brand-logo.png" 
+                alt="Fusion of Dried Nuts Logo" 
+                fill 
+                className="object-cover"
+              />
+            </div>
             <span className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight uppercase">
               Fusion of Dried Nuts
             </span>
@@ -111,7 +120,7 @@ export default function Navbar() {
                       <input
                         autoFocus
                         type="text"
-                        placeholder="Search our premium dried nuts & snacks..."
+                        placeholder="Search our premium dried nuts & fruits..."
                         className="flex-grow bg-transparent border-none outline-none text-base font-bold text-gray-900 placeholder:text-gray-300 placeholder:font-medium"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}

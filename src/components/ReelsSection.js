@@ -9,7 +9,7 @@ const REELS = [
         url: '/reels/1.mp4',
         user: 'fusiondriednutspvtltd',
         likes: '1.8k',
-        caption: 'Premium dried fruits & nuts crafted for your health 🥜 #DriedNuts #HealthySnacks #FusionNuts',
+        caption: 'Premium dried fruits & nuts crafted for your health 🥜 #DriedNuts #HealthyLiving #FusionNuts',
         emoji: '🥜'
     },
     {
@@ -17,7 +17,7 @@ const REELS = [
         url: '/reels/2.mp4',
         user: 'fusiondriednutspvtltd',
         likes: '2.1k',
-        caption: 'Crunchy almonds & cashews – nature\'s perfect snack 🌰 #Almonds #Cashews #HealthyBites',
+        caption: 'Crunchy almonds & cashews – nature\'s perfect choice 🌰 #Almonds #Cashews #HealthyBites',
         emoji: '🌰'
     },
     {

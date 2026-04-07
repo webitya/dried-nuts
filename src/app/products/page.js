@@ -56,9 +56,9 @@ function ProductsContent() {
                         </h1>
                         <p className="mt-4 text-gray-500 font-medium leading-relaxed">
                             {query ? (
-                                <>Showing artisanal snacks matching <span className="font-bold text-gray-900 uppercase">"{query}"</span></>
+                                <>Showing premium products matching <span className="font-bold text-gray-900 uppercase">"{query}"</span></>
                             ) : (
-                                <>Discover our curated collection of artisanal snacks—where traditional Indian recipes meet modern gourmet standards.</>
+                                <>Discover our curated collection of premium dried nuts and fruits—where nature's best meets modern gourmet standards.</>
                             )}
                         </p>
                     </div>

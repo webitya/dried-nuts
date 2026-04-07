@@ -16,13 +16,13 @@ const getStatusDetails = (status, order) => {
             return {
                 subject: 'High Five! Your order is confirmed 🥂',
                 title: 'Order Confirmed',
-                message: "Great news! Your payment was successful and your order is now officially confirmed. We're starting to prep your delicious snacks with care.",
+                message: "Great news! Your payment was successful and your order is now officially confirmed. We're starting to prep your premium collection with care.",
                 color: '#10b981',
                 icon: '✅'
             };
         case 'Processing':
             return {
-                subject: 'Preparing your treats... Order in Process 🕒',
+                subject: 'Preparing your collection... Order in Process 🕒',
                 title: 'Processing Order',
                 message: "We're currently gathering your items and preparing them for shipment. Quality checks are in progress to ensure everything meets our authentic taste standards.",
                 color: '#8b5cf6',
@@ -32,13 +32,13 @@ const getStatusDetails = (status, order) => {
             return {
                 subject: 'On its way! Your order has been shipped 🚚',
                 title: 'Order Shipped',
-                message: `Exciting news! Your order is out for delivery. You can track it using the details below. Stay ready for your delicious treats!`,
+                message: `Exciting news! Your order is out for delivery. You can track it using the details below. Stay ready for your healthy bites!`,
                 color: '#3b82f6',
                 icon: '🚚'
             };
         case 'Delivered':
             return {
-                subject: 'Delivered! Time to enjoy your snacks ✨',
+                subject: 'Delivered! Time to enjoy your collection ✨',
                 title: 'Order Delivered',
                 message: "Your Fusion of Dried Nuts package has arrived! We hope you love your healthy bites. Don't forget to share your treat with us on social media.",
                 color: '#22c55e',
@@ -257,7 +257,7 @@ export const sendOrderStatusEmail = async (order, customStatus = null) => {
                                     <td style="background-color: #fafafa; padding: 48px 40px; text-align: center;">
                                         <p style="margin: 0 0 24px 0; color: #0f172a; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Fusion of Dried Nuts</p>
                                         <p style="margin: 0 0 32px 0; color: #94a3b8; font-size: 12px; line-height: 1.8; max-width: 300px; margin-left: auto; margin-right: auto;">
-                                            Join the community of authentic Indian snack lovers and share the love.
+                                            Join the community of healthy bite lovers and share the love.
                                         </p>
                                         <div style="margin-bottom: 32px;">
                                             <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #e2e8f0; margin: 0 4px;"></span>

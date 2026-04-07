@@ -15,11 +15,11 @@ export default function About() {
         <section className="relative pt-20 pb-12 px-4 border-b border-gray-50">
           <div className="max-w-4xl mx-auto text-center space-y-4">
             <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight leading-none">
-              Traditional Snacks, <br />
+              Premium Nuts, <br />
               <span className="text-orange-600 italic font-medium">Modern Standards.</span>
             </h1>
             <p className="text-sm md:text-base text-gray-500 font-medium max-w-xl mx-auto leading-relaxed">
-              We are on a mission to preserve the authentic flavors of India's heritage, one handcrafted batch at a time.
+              We are on a mission to deliver the finest natural produce and premium nuts, curated for a healthier lifestyle.
             </p>
           </div>
         </section>
@@ -36,18 +36,18 @@ export default function About() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-600 text-xs md:text-sm font-medium leading-relaxed">
                 <div className="space-y-4">
                   <p className="text-gray-900 font-bold">
-                    Fusion of Dried Nuts was born from a simple longing — the taste of pure, healthy snacks that no supermarket shelf could replicate.
+                    Fusion of Dried Nuts was born from a simple longing — the taste of pure, healthy bites that no supermarket shelf could replicate.
                   </p>
                   <p>
-                    Started with a passion for health, our journey began with a focus on sourcing the finest nuts and traditional ingredients. We realized that the "soul" of authentic snacks was being lost in mass production.
+                    Started with a passion for health, our journey began with a focus on sourcing the finest nuts and traditional ingredients. We realized that the "soul" of authentic quality was being lost in mass production.
                   </p>
                 </div>
                 <div className="space-y-4">
                   <p>
-                    We decided to pivot back to the basics: wood-fired aromas, stone-ground flour, and the patience of slow-cooking. Our founders personally source every kilo of jaggery and every liter of ghee.
+                    We chose to go back to the basics: sourcing directly from farms, air-drying naturally, and preserving without chemicals. Our founders personally verify every batch of almonds, cashews, and dry fruits.
                   </p>
                   <p>
-                    Every premium nut, dried fruit, and healthy snack we ship is a testament to this uncompromising standard of purity and quality.
+                    Every premium nut, dried fruit, and healthy bite we ship is a testament to this uncompromising standard of purity and quality.
                   </p>
                 </div>
               </div>
@@ -72,7 +72,7 @@ export default function About() {
             {/* Compact Image Card */}
             <div className="relative h-[300px] lg:h-[450px] w-full rounded-2xl overflow-hidden shadow-xl shadow-gray-100 border border-gray-100">
               <Image
-                src="/snacks_hero.png"
+                src="/hero-collection.png"
                 alt="Our Tradition"
                 fill
                 className="object-cover transition-transform duration-1000 hover:scale-105"
@@ -126,7 +126,7 @@ export default function About() {
                   <span>Founders Vision</span>
                 </div>
                 <h3 className="text-3xl md:text-5xl font-black tracking-tight leading-tight italic">
-                  "We don't just sell snacks, we sell a piece of our heritage."
+                  "We don't just sell products, we sell a piece of our heritage."
                 </h3>
                 <p className="text-sm md:text-lg text-orange-100 font-medium leading-relaxed max-w-2xl opacity-90">
                   Our goal is to build Fusion of Dried Nuts into more than a brand. We want it to be a bridge between a fast-paced modern world and the healthy, wholesome recipes of our heritage. Purity is not a feature for us—it is our only path.
@@ -161,8 +161,8 @@ export default function About() {
               {[
                 { label: 'Artisans', value: '15+', icon: Utensils, desc: 'Skilled women from local villages' },
                 { label: 'Recipes', value: '40+', icon: History, desc: 'Historical family heritage' },
-                { label: 'Pure Ghee', value: '100%', icon: Sparkles, desc: 'Purest cow ghee used' },
-                { label: 'Community', value: '5K+', icon: Users, desc: 'Happy snack lovers daily' },
+                { label: 'Natural Sourcing', value: '100%', icon: Sparkles, desc: 'Farm-direct sourced produce' },
+                { label: 'Community', value: '5K+', icon: Users, desc: 'Healthy bite lovers daily' },
               ].map((stat) => (
                 <div key={stat.label} className="p-6 rounded-2xl bg-gray-50 space-y-3 transition-all hover:bg-orange-50 hover:shadow-xl hover:shadow-orange-100/30 group">
                   <div className="w-12 h-12 rounded-xl bg-white border border-gray-100 text-orange-600 flex items-center justify-center mx-auto group-hover:bg-orange-600 group-hover:text-white transition-all">

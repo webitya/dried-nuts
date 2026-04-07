@@ -11,13 +11,13 @@ const FAQS = [
   },
   {
     id: 2,
-    question: "Are your snacks made fresh and preservative-free?",
-    answer: "Yes! Our products are handcrafted in small batches using traditional recipes and only natural ingredients. We never use artificial preservatives."
+    question: "Are your products fresh and natural?",
+    answer: "Yes! Our products are handpicked and naturally sourced. We ensure premium quality by selecting the finest farms and avoiding any artificial preservatives."
   },
   {
     id: 3,
     question: "What is your return policy?",
-    answer: "Since our snacks are edible goods, we do not accept returns. If your order arrives damaged, contact us within 48 hours for a replacement."
+    answer: "Since our dried fruits and nuts are edible goods, we do not accept returns. If your order arrives damaged, contact us within 48 hours for a replacement."
   },
   {
     id: 4,

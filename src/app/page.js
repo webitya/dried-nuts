@@ -68,7 +68,7 @@ export default function Home() {
                 Our <span className="text-orange-600 italic font-medium underline decoration-orange-100 underline-offset-8">Bestsellers.</span>
               </h2>
               <p className="mt-4 text-base text-gray-500 font-medium leading-relaxed">
-                Handcrafted traditional snacks, prepared with authentic recipes and delivered fresh.
+                Premium selection of high-quality dried fruits and luxury nuts, sourced from the finest farms and delivered fresh.
               </p>
             </div>
             
@@ -116,9 +116,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
             {[
-              { icon: UtensilsCrossed, title: 'Handcrafted', desc: 'Made using age-old ancestral recipes from the heart of Bihar.' },
-              { icon: PackageSearch, title: 'Quality Checked', desc: 'Every snack undergoes strict quality control for purity and taste.' },
-              { icon: Timer, title: 'Made to Order', desc: 'We prepare snacks once confirmed for maximum freshness.' },
+              { icon: UtensilsCrossed, title: 'Premium Sourced', desc: 'Directly sourced from the finest farms to ensure superior quality and taste.' },
+              { icon: PackageSearch, title: 'Quality Checked', desc: 'Every nut and dried fruit undergoes strict quality control for purity and nutrition.' },
+              { icon: Timer, title: 'Freshly Packed', desc: 'We pack our collection once confirmed for maximum freshness and aroma.' },
             ].map((p, i) => (
               <div key={p.title} className="group flex flex-col items-center text-center space-y-4">
                 <div className="w-16 h-16 rounded-2xl bg-white text-orange-600 flex items-center justify-center mb-1 shadow-sm border border-gray-100 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-orange-100">

@@ -19,7 +19,7 @@ const ProductSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        required: [true, 'Please provide a category'], // e.g., "Classic Thekua", "Festive Gujia"
+        required: [true, 'Please provide a category'], // e.g., "Almonds", "Cashews", "Dry Fruits"
     },
     images: {
         type: [String], // Array of gallery image URLs

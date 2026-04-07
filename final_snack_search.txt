@@ -1,0 +1,22 @@
+﻿D:\dried-nuts\src\app\layout.js:10:   keywords: "dried nuts, fusion of dried nuts, healthy snacks, premium nuts, luxury dried fruits, kolkata nuts",
+D:\dried-nuts\src\app\about\page.js:39:                     Fusion of Dried Nuts was born from a simple longing — the taste of pure, healthy snacks that no supermarket shelf could replicate.
+D:\dried-nuts\src\app\about\page.js:42:                     Started with a passion for health, our journey began with a focus on sourcing the finest nuts and traditional ingredients. We realized that the "soul" of authentic snacks was being lost in mass production.
+D:\dried-nuts\src\app\about\page.js:50:                     Every premium nut, dried fruit, and healthy snack we ship is a testament to this uncompromising standard of purity and quality.
+D:\dried-nuts\src\app\about\page.js:129:                   "We don't just sell snacks, we sell a piece of our heritage."
+D:\dried-nuts\src\app\about\page.js:165:                 { label: 'Community', value: '5K+', icon: Users, desc: 'Happy snack lovers daily' },
+D:\dried-nuts\src\app\admin\products\page.js:171:         if (!confirm('Are you sure you want to delete this snack?')) return;
+D:\dried-nuts\src\app\admin\products\page.js:252:                         <span>Add New Snack</span>
+D:\dried-nuts\src\app\admin\products\page.js:283:                 /* Snack Creation/Edit Form */
+D:\dried-nuts\src\app\admin\products\page.js:297:                                             <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Snack Name</label>
+D:\dried-nuts\src\app\admin\products\page.js:307:                                         <textarea required rows={4} placeholder="Tell the tradition of this snack..." className="w-full px-4 py-3 bg-white border border-black text-xs font-medium leading-relaxed focus:bg-gray-50 outline-none resize-none" value={newProduct.description} onChange={e => setNewProduct({...newProduct, description: e.target.value})} />
+D:\dried-nuts\src\app\admin\products\page.js:311:                                 {/* Snack Specifications */}
+D:\dried-nuts\src\app\admin\products\page.js:498:                                         <th className="px-6 py-4 text-left text-[10px] font-bold uppercase tracking-widest text-gray-400">Snack Identity</th>
+D:\dried-nuts\src\app\admin\products\page.js:540:                                             <td colSpan="4" className="py-20 text-center text-[10px] font-bold text-gray-300 uppercase">No Snacks Registered</td>
+D:\dried-nuts\src\app\api\admin\seed\route.js:9:         description: "Handpicked from the valleys of Kashmir, our premium almonds are rich in protein, healthy fats, and essential vitamins. Perfect for snacking and gifting.",
+D:\dried-nuts\src\app\products\page.js:59:                                 <>Showing artisanal snacks matching <span className="font-bold text-gray-900 uppercase">"{query}"</span></>
+D:\dried-nuts\src\app\products\page.js:61:                                 <>Discover our curated collection of artisanal snacks—where traditional Indian recipes meet modern gourmet standards.</>
+D:\dried-nuts\src\components\Hero.js:94:                 alt="Traditional Indian Snacks"
+D:\dried-nuts\src\components\Hero.js:100:                 <p className="text-[9px] font-bold text-white/70 uppercase tracking-widest mb-1">Featured Artisanal Snack</p>
+D:\dried-nuts\src\components\Navbar.js:123:                         placeholder="Search our premium dried nuts & snacks..."
+D:\dried-nuts\src\components\ReelsSection.js:12:         caption: 'Premium dried fruits & nuts crafted for your health 🥜 #DriedNuts #HealthySnacks #FusionNuts',
+D:\dried-nuts\src\components\ReelsSection.js:20:         caption: 'Crunchy almonds & cashews – nature\'s perfect snack 🌰 #Almonds #Cashews #HealthyBites',

@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
   title: "Fusion of Dried Nuts | Healthy Bites and Happy Moments",
-  description: "Premium handcrafted dried nuts and traditional snacks. Order online from Fusion of Dried Nuts Private Limited for authentic taste and healthy bites.",
-  keywords: "dried nuts, fusion of dried nuts, healthy snacks, premium nuts, handcrafted snacks, kolkata snacks",
+  description: "Premium selection of high-quality dried fruits and luxury nuts from Fusion of Dried Nuts Private Limited. Healthy bites and happy moments delivered pan-India.",
+  keywords: "dried nuts, fusion of dried nuts, healthy living, premium nuts, luxury dried fruits, kolkata nuts",
 };
 
 export default function RootLayout({ children }) {
