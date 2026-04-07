@@ -9,10 +9,11 @@
   --brand-saffron: #E8730A;
   --brand-turmeric: #F2A52B;
   --brand-walnut: #8B4513;
+  --brand-pistachio: #93C572;
   --brand-cream: #FFF8E7;
-  --brand-dark: #1A0E05;
-  --brand-marigold: #FF8C00;
-  --brand-cardamom: #6B4C2A;
+  --brand-dark: #1A110B;
+  --brand-slate: #2D241E;
+  --brand-gold: #D4AF37;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -158,22 +159,40 @@ body {
     animation: warm-glow 3s ease-in-out infinite;
   }
 
-  /* Scrollbar Styling */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  /* Luxury Design Utilities */
+  .border-luxury {
+    border: 1px solid rgba(232, 115, 10, 0.15);
+  }
+  
+  .text-reveal {
+    overflow: hidden;
+  }
+  
+  .text-reveal span {
+    display: block;
+    animation: text-reveal-up 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    transform: translateY(100%);
+  }
+  
+  @keyframes text-reveal-up {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(0); }
   }
 
-  ::-webkit-scrollbar-track {
-    background: rgb(var(--background-start-rgb));
+  .mask-radial {
+    mask-image: radial-gradient(circle, black, transparent 80%);
   }
 
-  ::-webkit-scrollbar-thumb {
-    background: var(--brand-saffron);
-    border-radius: 3px;
+  .luxury-blur {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--brand-walnut);
+  .parallax-hover {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .parallax-hover:hover {
+    transform: scale(1.02) translateY(-10px);
   }
 }
