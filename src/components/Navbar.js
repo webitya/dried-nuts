@@ -140,6 +140,28 @@ export default function Navbar() {
                     <X size={16} />
                   </button>
                 )}
+
+                {/* Suggestions Dropdown */}
+                {suggestions.length > 0 && (
+                  <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-[150] overflow-hidden">
+                    {suggestions.map((p) => (
+                      <div 
+                        key={p._id}
+                        onClick={() => handleSuggestionClick(p._id)}
+                        className="flex items-center gap-4 px-4 py-3 hover:bg-orange-50 cursor-pointer transition-colors border-b last:border-0 border-gray-50"
+                      >
+                        <div className="relative h-10 w-10 shrink-0 bg-gray-100 rounded-lg overflow-hidden">
+                          <Image src={p.variants[0]?.images[0] || '/placeholder.png'} alt={p.name} fill className="object-cover" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs font-bold text-gray-900 truncate uppercase">{p.name}</p>
+                          <p className="text-[9px] text-orange-600 font-bold uppercase tracking-widest">{p.type}</p>
+                        </div>
+                        <Search size={12} className="text-gray-300" />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Desktop Cart */}
@@ -214,6 +236,28 @@ export default function Navbar() {
                 >
                   <X size={16} />
                 </button>
+              )}
+
+              {/* Mobile Suggestions Dropdown */}
+              {suggestions.length > 0 && (
+                <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-xl shadow-2xl z-[150] overflow-hidden">
+                  {suggestions.map((p) => (
+                    <div 
+                      key={p._id}
+                      onClick={() => handleSuggestionClick(p._id)}
+                      className="flex items-center gap-4 px-4 py-3 hover:bg-orange-50 cursor-pointer transition-colors border-b last:border-0 border-gray-50"
+                    >
+                      <div className="relative h-10 w-10 shrink-0 bg-gray-100 rounded-lg overflow-hidden">
+                        <Image src={(p.variants && p.variants[0]?.images && p.variants[0].images[0]) || '/placeholder.png'} alt={p.name} fill className="object-cover" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-bold text-gray-900 truncate uppercase">{p.name}</p>
+                        <p className="text-[9px] text-orange-600 font-bold uppercase tracking-widest">{p.type}</p>
+                      </div>
+                      <Search size={12} className="text-gray-300" />
+                    </div>
+                  ))}
+                </div>
               )}
             </div>
           </div>
