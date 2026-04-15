@@ -30,14 +30,6 @@ const ProductSchema = new mongoose.Schema({
         type: [String],
         default: [],
     },
-    shelfLife: {
-        type: String,
-        required: [true, 'Please specify shelf life'],
-    },
-    isVeg: {
-        type: Boolean,
-        default: true,
-    },
     allergenInfo: {
         type: String,
         default: 'Contains nuts and dairy.',

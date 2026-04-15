@@ -4,15 +4,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const categories = [
-  { name: 'CASHEWS', image: '/categoryicons/1.jpeg', href: '/products' },
-  { name: 'ALMONDS', image: '/categoryicons/2.jpeg', href: '/products' },
-  { name: 'WALNUTS', image: '/categoryicons/3.jpeg', href: '/products' },
-  { name: 'PISTACHIOS', image: '/categoryicons/4.jpeg', href: '/products' },
-  { name: 'DATES', image: '/categoryicons/5.jpeg', href: '/products' },
-  { name: 'APRICOTS', image: '/categoryicons/6.jpeg', href: '/products' },
-  { name: 'RAISINS', image: '/categoryicons/7.jpeg', href: '/products' },
-  { name: 'FIGS', image: '/categoryicons/8.jpeg', href: '/products' },
-  { name: 'MIXED NUTS', image: '/categoryicons/9.jpeg', href: '/products' }
+  { name: '', image: '/categoryicons/1.jpeg', href: '/products' },
+  { name: '', image: '/categoryicons/2.jpeg', href: '/products' },
+  { name: '', image: '/categoryicons/3.jpeg', href: '/products' },
+  { name: '', image: '/categoryicons/4.jpeg', href: '/products' },
+  { name: '', image: '/categoryicons/5.jpeg', href: '/products' },
+  { name: '', image: '/categoryicons/6.jpeg', href: '/products' },
+  { name: '', image: '/categoryicons/7.jpeg', href: '/products' },
+  { name: '', image: '/categoryicons/8.jpeg', href: '/products' },
+  { name: '', image: '/categoryicons/9.jpeg', href: '/products' }
 ];
 
 // Double the categories for seamless loop

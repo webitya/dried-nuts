@@ -51,10 +51,10 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-[1550px] mx-auto px-6 md:px-12 relative z-10">
 
           {loading ? (
-            <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3">
               {[...Array(8)].map((_, i) => (
                 <div key={i} className="flex flex-col animate-pulse">
                   <div className="w-full aspect-[4/5] bg-gray-50 rounded-3xl mb-4" />
@@ -66,7 +66,7 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-x-10 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 md:gap-10 lg:grid-cols-3">
               {featuredProducts.map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}

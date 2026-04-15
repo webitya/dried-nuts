@@ -43,10 +43,10 @@ function ProductsContent() {
         <div className="bg-white min-h-screen font-sans selection:bg-orange-100 selection:text-orange-900">
             <Navbar />
 
-            <main className="max-w-7xl mx-auto pt-12 pb-16 px-4 sm:px-6 lg:px-8">
+            <main className="max-w-[1550px] mx-auto pt-28 pb-16 px-4 sm:px-6 lg:px-8">
 
                 {loading ? (
-                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    <div className="grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3">
                         {[...Array(8)].map((_, i) => (
                             <div key={i} className="flex flex-col animate-pulse rounded-2xl p-3 border border-gray-50">
                                 <div className="w-full aspect-square bg-gray-50 rounded-xl mb-4" />
@@ -59,7 +59,7 @@ function ProductsContent() {
                     </div>
                 ) : (
                     <>
-                        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        <div className="grid grid-cols-2 gap-4 md:gap-10 lg:grid-cols-3">
                             {filteredProducts.map((product) => (
                                 <ProductCard key={product._id} product={product} />
                             ))}

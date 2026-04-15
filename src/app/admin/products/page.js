@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import {
-    Package, Plus, Search, Edit2, Trash2, ExternalLink, ChevronRight, X, Image as ImageIcon, Type, Tag, Layers, Warehouse, Upload, Loader2, ArrowLeft, Leaf, ShieldCheck, Clock, ListChecks, Info
+    Package, Plus, Search, Edit2, Trash2, ExternalLink, ChevronRight, X, Image as ImageIcon, Type, Tag, Layers, Warehouse, Upload, Loader2, ArrowLeft, Leaf, ShieldCheck, Clock, ListChecks, Info, Sparkles
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,8 +20,6 @@ export default function AdminProducts() {
         name: '',
         type: '', // Category
         description: '',
-        shelfLife: '30 Days',
-        isVeg: true,
         allergenInfo: 'Made in a facility that processes nuts and dairy.',
         ingredients: [''],
         features: ['Premium Quality', 'Naturally Sourced'],
@@ -189,8 +187,6 @@ export default function AdminProducts() {
                 name: newProduct.name,
                 type: newProduct.type,
                 description: newProduct.description,
-                shelfLife: newProduct.shelfLife,
-                isVeg: newProduct.isVeg,
                 allergenInfo: newProduct.allergenInfo,
                 ingredients: newProduct.ingredients,
                 images: newProduct.images, // Main Gallery Sync
@@ -308,27 +304,13 @@ export default function AdminProducts() {
                                     </div>
                                 </div>
 
-                                {/* Product Specifications */}
+                                {/* Quality & Standards */}
                                 <div className="space-y-6 pt-6 border-t border-gray-100">
                                     <div className="flex items-center gap-2 text-black/40">
                                         <ShieldCheck size={14} />
-                                        <h3 className="text-[10px] font-bold uppercase tracking-widest">Kitchen Specifications</h3>
+                                        <h3 className="text-[10px] font-bold uppercase tracking-widest">Quality & Standards</h3>
                                     </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                        <div className="space-y-1">
-                                            <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Shelf Life</label>
-                                            <div className="relative">
-                                                <input type="text" className="w-full px-4 py-3 bg-white border border-black text-xs font-bold uppercase focus:bg-gray-50 outline-none" value={newProduct.shelfLife} onChange={e => handleFieldChange('shelfLife', e.target.value)} />
-                                                <Clock className="absolute right-3 top-3 text-gray-300" size={14} />
-                                            </div>
-                                        </div>
-                                        <div className="space-y-1">
-                                            <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Dietary Preference</label>
-                                            <select className="w-full px-4 py-3 bg-white border border-black text-xs font-bold uppercase focus:bg-gray-50 outline-none appearance-none" value={newProduct.isVeg.toString()} onChange={e => handleFieldChange('isVeg', e.target.value === 'true')}>
-                                                <option value="true">100% PUREVEG (VEGETARIAN)</option>
-                                                <option value="false">NON-VEGETARIAN / EGGS</option>
-                                            </select>
-                                        </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                                         <div className="space-y-1">
                                             <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Allergen Disclaimer</label>
                                             <input type="text" className="w-full px-4 py-3 bg-white border border-black text-xs font-bold uppercase focus:bg-gray-50 outline-none" value={newProduct.allergenInfo} onChange={e => handleFieldChange('allergenInfo', e.target.value)} />
@@ -425,15 +407,15 @@ export default function AdminProducts() {
                                     <div className="space-y-4">
                                         <div className="flex items-center justify-between text-black/40">
                                             <div className="flex items-center gap-2">
-                                                <ListChecks size={14} />
-                                                <h3 className="text-[10px] font-bold uppercase tracking-widest">Base Ingredients</h3>
+                                                <Sparkles size={14} />
+                                                <h3 className="text-[10px] font-bold uppercase tracking-widest">Product Highlights</h3>
                                             </div>
                                             <button type="button" onClick={() => handleAddListItem('ingredients')} className="hover:text-black transition-colors"><Plus size={14} /></button>
                                         </div>
                                         <div className="space-y-1.5">
                                             {newProduct.ingredients.map((item, idx) => (
                                                 <div key={idx} className="flex gap-2 group">
-                                                    <input type="text" placeholder="Component..." className="flex-1 px-3 py-1.5 border border-black bg-white text-[10px] font-bold outline-none uppercase" value={item} onChange={e => handleListChange('ingredients', idx, e.target.value)} />
+                                                    <input type="text" placeholder="Feature (e.g. 100% Natural)" className="flex-1 px-3 py-1.5 border border-black bg-white text-[10px] font-bold outline-none uppercase" value={item} onChange={e => handleListChange('ingredients', idx, e.target.value)} />
                                                     <button type="button" onClick={() => handleRemoveListItem('ingredients', idx)} className="text-gray-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all"><X size={12} /></button>
                                                 </div>
                                             ))}
@@ -475,14 +457,10 @@ export default function AdminProducts() {
                                         <div className="text-[8px] text-gray-400 uppercase">{product.variants[0]?.weight}</div>
                                     </div>
                                 </div>
-                                <div className="flex items-center justify-between pt-3 border-t border-gray-50">
-                                    <div className="flex items-center gap-2">
-                                        <div className={`h-1.5 w-1.5 rounded-full ${product.isVeg ? "bg-green-500" : "bg-red-500"}`} />
-                                        <span className="text-[9px] font-bold text-gray-500 uppercase">{product.shelfLife} FRESH</span>
-                                    </div>
+                                <div className="flex items-center justify-end pt-3 border-t border-gray-50 uppercase">
                                     <div className="flex items-center space-x-3">
-                                        <button onClick={() => handleEdit(product)} className="text-[10px] font-bold text-black uppercase border-b border-black">Edit</button>
-                                        <button onClick={() => handleDelete(product._id)} className="text-[10px] font-bold text-red-600 uppercase">Remove</button>
+                                        <button type="button" onClick={() => handleEdit(product)} className="text-[10px] font-bold text-black uppercase border-b border-black">Edit</button>
+                                        <button type="button" onClick={() => handleDelete(product._id)} className="text-[10px] font-bold text-red-600 uppercase">Remove</button>
                                     </div>
                                 </div>
                             </div>
@@ -516,11 +494,6 @@ export default function AdminProducts() {
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4">
-                                                <div className="flex items-center gap-2">
-                                                    <div className={`h-2 w-2 rounded-full ${product.isVeg ? "bg-green-500" : "bg-red-500"}`} />
-                                                    <span className="text-[9px] font-bold text-gray-900 uppercase">{product.isVeg ? 'VEG' : 'NON-VEG'}</span>
-                                                    <span className="text-[8px] text-gray-400">/ {product.shelfLife}</span>
-                                                </div>
                                             </td>
                                             <td className="px-6 py-4">
                                                 <div className="text-sm font-bold text-gray-900">₹{(product.variants[0]?.discountPrice || product.variants[0]?.price)?.toLocaleString()}</div>

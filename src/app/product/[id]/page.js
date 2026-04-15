@@ -121,21 +121,6 @@ export default function ProductPage({ params }) {
                                     className="object-cover transition-transform duration-700 hover:scale-105"
                                     priority
                                 />
-                                {/* Veg Badge */}
-                                <div className="absolute top-6 left-6 flex items-center space-x-2 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-gray-100 shadow-xl">
-                                    <div className={classNames(
-                                        "h-3 w-3 rounded-full flex items-center justify-center p-0.5",
-                                        product.isVeg ? "border-2 border-green-600" : "border-2 border-red-600"
-                                    )}>
-                                        <div className={classNames(
-                                            "h-full w-full rounded-full",
-                                            product.isVeg ? "bg-green-600" : "bg-red-600"
-                                        )} />
-                                    </div>
-                                    <span className="text-[10px] font-bold text-gray-900">
-                                        {product.isVeg ? '100% Pure Veg' : 'Contains Egg'}
-                                    </span>
-                                </div>
                             </div>
 
                             {/* Thumbnail Grid */}
@@ -179,8 +164,8 @@ export default function ProductPage({ params }) {
                                 </div>
                             </div>
 
-                            {/* Quick Specs - Grid Style */}
-                            <div className="grid grid-cols-2 gap-4 border-y border-gray-50 py-2">
+                            {/* Quick Specs - Flex Style */}
+                            <div className="flex items-center space-x-8 border-y border-gray-50 py-3">
                                 <div className="flex items-center space-x-2.5 group">
                                     <div className="h-7 w-7 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors">
                                         <Scale size={14} strokeWidth={2.5} />
@@ -190,22 +175,12 @@ export default function ProductPage({ params }) {
                                         <p className="text-[10px] font-bold text-gray-900">{selectedVariant?.weight || product.variants[0].weight}</p>
                                     </div>
                                 </div>
-                                <div className="flex items-center space-x-2.5 group">
-                                    <div className="h-7 w-7 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors">
-                                        <Calendar size={14} strokeWidth={2.5} />
-                                    </div>
-                                    <div>
-                                        <p className="text-[7px] font-bold text-gray-400 leading-none mb-0.5">Shelf Life</p>
-                                        <p className="text-[10px] font-bold text-gray-900">{product.shelfLife}</p>
-                                    </div>
-                                </div>
                             </div>
 
                             {/* Pack Size Selection */}
                             <div className="space-y-3">
                                 <div className="flex justify-between items-center px-1">
                                     <h3 className="text-[9px] font-bold text-gray-400">Select Pack Size</h3>
-                                    <span className="text-[8px] font-medium text-gray-300 italic">Purely Handcrafted</span>
                                 </div>
                                 <div className="grid grid-cols-2 gap-3">
                                     {product.variants.map((v) => (
@@ -216,10 +191,10 @@ export default function ProductPage({ params }) {
                                                 setActiveImage(v.images?.[0] || '');
                                             }}
                                             className={classNames(
-                                                "relative p-4 text-left border transition-all cursor-pointer",
+                                                "relative p-4 text-left border transition-all cursor-pointer rounded-none",
                                                 selectedVariant?.name === v.name
-                                                    ? "border-orange-600 bg-orange-50/20 ring-4 ring-orange-50/50"
-                                                    : "border-gray-100 hover:border-gray-200"
+                                                    ? "border-orange-500 bg-orange-50/40 ring-1 ring-orange-500 shadow-sm"
+                                                    : "border-gray-200 hover:border-gray-300 bg-white"
                                             )}
                                         >
                                             <p className={classNames(
@@ -228,7 +203,7 @@ export default function ProductPage({ params }) {
                                             )}>{v.name}</p>
                                             <p className="text-[9px] font-medium text-gray-400">{v.weight}</p>
                                             {selectedVariant?.name === v.name && (
-                                                <div className="absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-orange-600" />
+                                                <div className="absolute top-3 right-3 h-1.5 w-1.5 rounded-full bg-orange-600 animate-pulse" />
                                             )}
                                         </button>
                                     ))}
@@ -260,10 +235,6 @@ export default function ProductPage({ params }) {
                                         <ShoppingBag size={14} strokeWidth={2.5} className={isAdding ? "animate-bounce" : ""} />
                                         <span>{isAdding ? 'Success!' : 'Add to Bag'}</span>
                                     </button>
-                                    <p className="text-center text-[7px] text-gray-400 font-bold mt-3 flex items-center justify-center space-x-1">
-                                        <ShieldCheck size={9} className="text-orange-500" />
-                                        <span>Quality Handcrafted Product</span>
-                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -282,29 +253,38 @@ export default function ProductPage({ params }) {
                                     {product.description}
                                 </p>
                             </div>
+
+                            {/* Allergen Disclaimer */}
+                            {product.allergenInfo && (
+                                <div className="mt-8 p-4 bg-gray-50 border-l-4 border-gray-200">
+                                    <div className="flex items-center space-x-2 text-gray-500 mb-1">
+                                        <ShieldCheck size={14} />
+                                        <span className="text-[10px] font-bold uppercase tracking-wider">Allergen Information</span>
+                                    </div>
+                                    <p className="text-[11px] text-gray-600 font-medium">
+                                        {product.allergenInfo}
+                                    </p>
+                                </div>
+                            )}
                         </div>
 
                         <div className="lg:col-span-5">
-                            <div className="bg-gray-50/50 border border-gray-100 rounded-2xl p-6 sticky top-32">
-                                <div className="flex items-center space-x-2 text-orange-600 mb-4">
-                                    <Sparkles size={18} strokeWidth={2.5} />
-                                    <h3 className="text-base font-bold">Premium Highlights</h3>
+                            {product.ingredients && product.ingredients.length > 0 && (
+                                <div className="bg-gray-50/50 border border-gray-100 rounded-2xl p-6 sticky top-32">
+                                    <div className="flex items-center space-x-2 text-orange-600 mb-4">
+                                        <Sparkles size={18} strokeWidth={2.5} />
+                                        <h3 className="text-base font-bold">Premium Highlights</h3>
+                                    </div>
+                                    <p className="text-[10px] text-gray-400 font-semibold mb-4">Uncompromising quality standards</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {product.ingredients.map((feature, i) => (
+                                            <span key={i} className="text-[9px] font-bold bg-white text-gray-900 px-3 py-1.5 rounded-lg border border-gray-100 shadow-sm transition-transform hover:scale-105">
+                                                {feature}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
-                                <p className="text-[10px] text-gray-400 font-semibold mb-4">Uncompromising quality standards</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {[
-                                        '100% Natural',
-                                        'No Chemicals',
-                                        'Premium Quality',
-                                        'Handpicked',
-                                        'Freshness Guaranteed'
-                                    ].map((feature, i) => (
-                                        <span key={i} className="text-[9px] font-bold bg-white text-gray-900 px-3 py-1.5 rounded-lg border border-gray-100 shadow-sm transition-transform hover:scale-105">
-                                            {feature}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
+                            )}
                         </div>
                     </div>
                 </div>

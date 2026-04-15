@@ -20,11 +20,11 @@ export default function ProductCard({ product }) {
     };
 
     return (
-        <div className="group relative flex flex-col bg-white border border-gray-100 rounded-[2rem] p-3 transition-all duration-500 hover:shadow-2xl hover:shadow-gray-100/50">
+        <div className="group relative flex flex-col bg-white border border-gray-200 rounded-[2rem] p-3 transition-all duration-500 hover:shadow-2xl hover:shadow-gray-200/50">
             {/* Image Section */}
             <Link
                 href={`/product/${product._id}`}
-                className="block relative w-full aspect-square bg-gray-50 rounded-[1.5rem] overflow-hidden mb-5 group-hover:scale-[0.98] transition-transform duration-500"
+                className="block relative w-full aspect-square bg-gray-50 rounded-[1.5rem] overflow-hidden mb-5 group-hover:scale-[0.98] transition-transform duration-500 cursor-pointer"
             >
                 <Image
                     src={(selectedVariant.images && selectedVariant.images[0]) || (product.variants[0].images && product.variants[0].images[0]) || '/placeholder.png'}
@@ -40,7 +40,7 @@ export default function ProductCard({ product }) {
                     <button 
                       key={v.name}
                       onClick={(e) => { e.preventDefault(); setSelectedVariant(v); }}
-                      className={`w-1.5 h-1.5 rounded-full transition-all ${selectedVariant.name === v.name ? 'bg-white w-4' : 'bg-white/60 hover:bg-white'}`}
+                      className={`w-1.5 h-1.5 rounded-full transition-all cursor-pointer ${selectedVariant.name === v.name ? 'bg-white w-4' : 'bg-white/60 hover:bg-white'}`}
                       title={v.weight}
                     />
                   ))}
@@ -51,7 +51,7 @@ export default function ProductCard({ product }) {
             <div className="space-y-4 px-2 pb-2">
                 <div className="flex justify-between items-start">
                     <div className="flex-1">
-                        <Link href={`/product/${product._id}`}>
+                        <Link href={`/product/${product._id}`} className="cursor-pointer">
                             <h3 className="text-lg font-bold text-gray-900 group-hover:text-orange-600 transition-colors line-clamp-1 uppercase tracking-tight">
                                 {product.name}
                             </h3>
@@ -59,7 +59,9 @@ export default function ProductCard({ product }) {
                         <div className="flex items-center space-x-2 mt-1">
                             <p className="text-[10px] font-semibold text-orange-600 uppercase tracking-widest">{product.type}</p>
                             <span className="h-1 w-1 rounded-full bg-gray-200" />
-                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{selectedVariant.weight}</p>
+                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">
+                                {Array.from(new Set(product.variants.map(v => v.weight))).join(', ')}
+                            </p>
                         </div>
                     </div>
                     <div className="text-right shrink-0">
@@ -87,18 +89,17 @@ export default function ProductCard({ product }) {
                 <div className="flex items-center gap-2 pt-2">
                     <button
                         onClick={handleBuyNow}
-                        className="flex-1 bg-black text-white text-[10px] font-bold uppercase tracking-wider py-3.5 rounded-xl hover:bg-orange-600 transition-all active:scale-95 flex items-center justify-center gap-2"
+                        className="flex-1 bg-black text-white text-[10px] font-bold uppercase tracking-wider py-3.5 rounded-xl hover:bg-orange-600 transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
                     >
                         Buy Now
                     </button>
                     <button
                         onClick={() => addToCart(product, selectedVariant)}
-                        className="p-3.5 bg-gray-50 text-gray-900 rounded-xl hover:bg-orange-50 hover:text-orange-600 transition-all active:scale-95"
+                        className="p-3.5 bg-gray-50 text-gray-900 rounded-xl hover:bg-orange-50 hover:text-orange-600 transition-all active:scale-95 cursor-pointer"
                         title="Add to Cart"
                     >
                         <ShoppingCart size={16} />
                     </button>
-
                 </div>
             </div>
         </div>
