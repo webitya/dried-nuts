@@ -12,11 +12,11 @@ export default function About() {
 
       <main>
         {/* Simple Hero Section */}
-        <section className="relative pt-32 pb-12 px-4 border-b border-gray-50">
+        <section className="relative pt-36 sm:pt-40 pb-12 px-4 border-b border-gray-50">
           <div className="max-w-4xl mx-auto text-center space-y-4">
-            <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight leading-none">
+            <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight leading-none uppercase">
               Premium Nuts, <br />
-              <span className="text-orange-600 italic font-medium">Modern Standards.</span>
+              <span className="text-orange-600 font-bold">Modern Standards.</span>
             </h1>
             <p className="text-sm md:text-base text-gray-500 font-medium max-w-xl mx-auto leading-relaxed">
               We are on a mission to deliver the finest natural produce and premium nuts, curated for a healthier lifestyle.
@@ -79,7 +79,7 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-6 right-6">
-                <h4 className="text-white text-xs font-bold italic mb-1">Guaranteed Authenticity</h4>
+                <h4 className="text-white text-xs font-bold mb-1 uppercase tracking-tight">Guaranteed Authenticity</h4>
                 <p className="text-white/70 text-[10px] uppercase tracking-widest font-bold">From our heart to your home.</p>
               </div>
             </div>
@@ -89,8 +89,8 @@ export default function About() {
         {/* Simpler CTA */}
         <section className="py-16 px-4 text-center">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight italic">
-              Taste the True India.
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-none uppercase">
+              Taste the Quality.
             </h2>
             <button
               onClick={() => window.location.href = '/products'}

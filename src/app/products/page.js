@@ -58,15 +58,16 @@ function ProductsContent() {
                 {loading ? (
                     <div className="grid grid-cols-2 gap-2 md:gap-10 lg:grid-cols-3">
                         {[...Array(6)].map((_, i) => (
-                            <div key={i} className="flex flex-col animate-pulse opacity-40">
-                                <div className="w-full aspect-[4/5] border-2 border-gray-100 rounded-2xl mb-4" />
-                                <div className="space-y-3 px-2">
-                                    <div className="h-4 w-full border border-gray-100 rounded-full" />
-                                    <div className="h-3 w-2/3 border border-gray-100/50 rounded-full" />
+                            <div key={i} className="flex flex-col animate-pulse">
+                                <div className="w-full aspect-square border border-gray-200 rounded-2xl mb-4" />
+                                <div className="space-y-2 px-1">
+                                    <div className="h-4 w-3/4 border border-gray-200 rounded-md" />
+                                    <div className="h-3 w-1/2 border border-gray-200/60 rounded-md" />
+                                    <div className="h-8 w-full border border-gray-200 rounded-xl mt-3" />
                                 </div>
                             </div>
                         ))}
-                    </div>
+                   </div>
                 ) : (
                     <>
                         <div className="grid grid-cols-2 gap-2 md:gap-10 lg:grid-cols-3">
