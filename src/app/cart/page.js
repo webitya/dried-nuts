@@ -40,7 +40,7 @@ export default function CartPage() {
                                             <div className="flex-shrink-0">
                                                 <div className="w-20 h-28 sm:w-24 sm:h-32 rounded-lg bg-gray-50 dark:bg-zinc-900 relative overflow-hidden shadow-sm">
                                                     <Image
-                                                        src={item.variant.image}
+                                                        src={(item.variant.images && item.variant.images[0]) || (item.images && item.images[0]) || '/placeholder.png'}
                                                         alt={item.name}
                                                         fill
                                                         className="object-cover"
@@ -107,12 +107,12 @@ export default function CartPage() {
 
                                 <div className="space-y-4">
                                     <div className="flex items-center justify-between text-sm">
-                                        <span className="text-gray-500">Subtotal</span>
-                                        <span className="font-bold text-gray-900 dark:text-white">₹{subtotal.toLocaleString()}</span>
+                                        <span className="text-gray-500 font-medium">Subtotal</span>
+                                        <span className="font-bold text-gray-900 dark:text-white uppercase tracking-tight">₹{subtotal.toLocaleString()}</span>
                                     </div>
-                                    <div className="flex items-center justify-between text-sm">
-                                        <span className="text-gray-500">Shipping</span>
-                                        <span className="text-green-600 font-bold uppercase text-[10px] tracking-widest">Calculated at checkout</span>
+                                    <div className="flex items-center justify-between text-sm border-b border-gray-50 dark:border-zinc-800 pb-4">
+                                        <span className="text-gray-500 font-medium">Shipping</span>
+                                        <span className="text-green-600 font-bold uppercase text-[10px] tracking-[0.2em]">FREE SHIPPING</span>
                                     </div>
                                     <div className="pt-4 border-t border-gray-100 dark:border-zinc-800 flex items-center justify-between">
                                         <span className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider">Estimated Total</span>

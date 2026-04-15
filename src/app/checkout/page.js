@@ -133,7 +133,7 @@ export default function CheckoutPage() {
                             contact: formData.phone
                         },
                         theme: {
-                            color: '#000000'
+                            color: '#ea580c'
                         },
                         modal: {
                             ondismiss: function () {
@@ -199,8 +199,8 @@ export default function CheckoutPage() {
             />
             <Navbar />
 
-            <main className="max-w-7xl mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
-                <h1 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-6">Checkout</h1>
+            <main className="max-w-7xl mx-auto pt-36 sm:pt-40 pb-16 px-4 sm:px-6 lg:px-8">
+                <h1 className="text-xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-8 uppercase tracking-tight">Checkout</h1>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-x-8">
                     <div className="lg:col-span-7 bg-gray-50 dark:bg-zinc-900 p-4 sm:p-5 rounded-lg border border-gray-100 dark:border-gray-800 order-2 lg:order-1">
@@ -219,8 +219,8 @@ export default function CheckoutPage() {
                                                 autoComplete="shipping name"
                                                 value={formData.name}
                                                 onChange={handleChange}
-                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-black dark:focus:border-white transition-all shadow-sm"
-                                                placeholder="As on your government ID"
+                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm"
+                                                placeholder="Enter your full name"
                                             />
                                         </div>
                                     </div>
@@ -236,8 +236,8 @@ export default function CheckoutPage() {
                                                 autoComplete="shipping email"
                                                 value={formData.email}
                                                 onChange={handleChange}
-                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-black dark:focus:border-white transition-all shadow-sm"
-                                                placeholder="For order updates"
+                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm"
+                                                placeholder="Enter your email address"
                                             />
                                         </div>
                                         <div>
@@ -250,8 +250,8 @@ export default function CheckoutPage() {
                                                 autoComplete="shipping tel"
                                                 value={formData.phone}
                                                 onChange={handleChange}
-                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-black dark:focus:border-white transition-all shadow-sm"
-                                                placeholder="For delivery coordination"
+                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm"
+                                                placeholder="Enter your phone number"
                                             />
                                         </div>
                                     </div>
@@ -267,7 +267,7 @@ export default function CheckoutPage() {
                                             value={formData.address}
                                             onChange={handleChange}
                                             className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-black dark:focus:border-white transition-all shadow-sm"
-                                            placeholder="House No, Building, Street Name"
+                                            placeholder="Enter your delivery address"
                                         />
                                     </div>
 
@@ -280,8 +280,8 @@ export default function CheckoutPage() {
                                                 id="landmark"
                                                 value={formData.landmark}
                                                 onChange={handleChange}
-                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-black dark:focus:border-white transition-all shadow-sm"
-                                                placeholder="Near by place"
+                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm"
+                                                placeholder="Enter a nearby landmark"
                                             />
                                         </div>
                                         <div>
@@ -294,8 +294,8 @@ export default function CheckoutPage() {
                                                 autoComplete="shipping postal-code"
                                                 value={formData.zip}
                                                 onChange={handleChange}
-                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-black dark:focus:border-white transition-all shadow-sm"
-                                                placeholder="6-digit ZIP"
+                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm"
+                                                placeholder="Enter 6-digit PIN code"
                                             />
                                         </div>
                                     </div>
@@ -311,7 +311,7 @@ export default function CheckoutPage() {
                                             value={formData.city}
                                             onChange={handleChange}
                                             className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-black dark:focus:border-white transition-all shadow-sm"
-                                            placeholder="Your City"
+                                            placeholder="Enter your city"
                                         />
                                     </div>
                                 </div>
@@ -321,15 +321,21 @@ export default function CheckoutPage() {
                                         <button
                                             type="button"
                                             onClick={() => setFormData({ ...formData, paymentMethod: 'ONLINE' })}
-                                            className={`flex items-center justify-center space-x-2 py-2 px-3 rounded-md border transition-all text-[11px] font-bold ${formData.paymentMethod === 'ONLINE' ? 'border-black bg-black text-white shadow-sm' : 'border-gray-300 bg-white text-gray-600 hover:border-gray-400'}`}
+                                            className={`flex items-center justify-center space-x-3 py-3 px-4 rounded-xl border transition-all text-xs font-bold ${formData.paymentMethod === 'ONLINE' ? 'border-orange-600 bg-orange-600 text-white shadow-lg' : 'border-gray-200 bg-white text-gray-600 hover:border-orange-200'}`}
                                         >
-                                            <CreditCard size={14} />
+                                            <div className="flex gap-1">
+                                                {['/p1.png', '/p2.png', '/p3.png'].map((img, i) => (
+                                                    <div key={i} className="h-5 w-5 rounded-full border border-white/20 overflow-hidden bg-white ring-2 ring-transparent">
+                                                        <img src={img} className="w-full h-full object-contain p-0.5" alt="Payment" />
+                                                    </div>
+                                                ))}
+                                            </div>
                                             <span>ONLINE PAY</span>
                                         </button>
                                         <button
                                             type="button"
                                             onClick={() => setFormData({ ...formData, paymentMethod: 'COD' })}
-                                            className={`flex items-center justify-center space-x-2 py-2 px-3 rounded-md border transition-all text-[11px] font-bold ${formData.paymentMethod === 'COD' ? 'border-black bg-black text-white shadow-sm' : 'border-gray-300 bg-white text-gray-600 hover:border-gray-400'}`}
+                                            className={`flex items-center justify-center space-x-2 py-3 px-4 rounded-xl border transition-all text-xs font-bold ${formData.paymentMethod === 'COD' ? 'border-orange-600 bg-orange-600 text-white shadow-lg' : 'border-gray-200 bg-white text-gray-600 hover:border-orange-200'}`}
                                         >
                                             <Banknote size={14} />
                                             <span>CASH (COD)</span>
@@ -342,7 +348,7 @@ export default function CheckoutPage() {
                                 <button
                                     type="submit"
                                     disabled={saving}
-                                    className="w-full bg-black text-white py-3 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-gray-800 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all cursor-pointer flex items-center justify-center shadow-md"
+                                    className="w-full bg-orange-600 text-white py-4 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-orange-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all cursor-pointer flex items-center justify-center shadow-xl shadow-orange-600/20"
                                 >
                                     {saving ? (
                                         <>
@@ -366,8 +372,8 @@ export default function CheckoutPage() {
                                     return (
                                         <li key={index} className="flex justify-between items-center">
                                             <div className="flex items-center space-x-3">
-                                                <div className="h-12 w-10 bg-white rounded-md overflow-hidden border border-gray-100 relative shrink-0">
-                                                    <img src={item.variant.image} alt={item.name} className="object-cover w-full h-full" />
+                                                <div className="h-14 w-12 bg-white rounded-lg overflow-hidden border border-gray-100 relative shrink-0">
+                                                    <img src={(item.variant.images && item.variant.images[0]) || (item.images && item.images[0]) || '/placeholder.png'} alt={item.name} className="object-cover w-full h-full" />
                                                 </div>
                                                 <div className="min-w-0">
                                                     <p className="text-xs font-bold text-gray-900 dark:text-white truncate">{item.name}</p>

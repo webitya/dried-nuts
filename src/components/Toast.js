@@ -16,12 +16,18 @@ export default function Toast({ message, isVisible, onClose }) {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed bottom-5 right-5 z-50 animate-fade-in">
-            <div className="bg-black dark:bg-white text-white dark:text-black px-6 py-4 rounded-lg shadow-lg flex items-center space-x-3">
-                <CheckCircleIcon className="h-6 w-6 text-green-500" />
-                <span className="font-medium">{message}</span>
-                <button onClick={onClose} className="ml-4 hover:opacity-75">
-                    <XMarkIcon className="h-4 w-4" />
+        <div className="fixed bottom-10 right-10 z-[300] animate-fade-in">
+            <div className="bg-white border border-gray-100 px-6 py-5 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.12)] flex items-center gap-5 min-w-[350px] relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1 h-full bg-orange-600" />
+                <div className="h-12 w-12 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 shrink-0">
+                    <CheckCircleIcon className="h-7 w-7" />
+                </div>
+                <div className="flex-1">
+                    <p className="text-[10px] font-bold text-orange-600 uppercase tracking-[0.2em] mb-1">Store Notification</p>
+                    <p className="text-sm font-bold text-gray-900 tracking-tight leading-snug">{message}</p>
+                </div>
+                <button onClick={onClose} className="p-2.5 hover:bg-gray-50 rounded-xl transition-all text-gray-300 hover:text-orange-600 cursor-pointer">
+                    <XMarkIcon className="h-5 w-5" />
                 </button>
             </div>
         </div>

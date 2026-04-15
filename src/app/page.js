@@ -51,7 +51,7 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="max-w-[1550px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-[1550px] mx-auto px-3 md:px-12 relative z-10">
           
           {/* Section Header */}
           <div className="text-center mb-10">
@@ -76,7 +76,7 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-4 md:gap-10 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-2 md:gap-10 lg:grid-cols-3">
               {featuredProducts.map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}
