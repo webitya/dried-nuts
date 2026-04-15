@@ -13,7 +13,8 @@ import {
     ShoppingBag,
     Scale,
     Calendar,
-    ListChecks
+    ListChecks,
+    Sparkles
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
@@ -33,6 +34,8 @@ export default function ProductPage({ params }) {
     const [selectedVariant, setSelectedVariant] = useState(null);
     const [activeImage, setActiveImage] = useState('');
     const [gallery, setGallery] = useState([]);
+
+    const [isAdding, setIsAdding] = useState(false);
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -63,6 +66,13 @@ export default function ProductPage({ params }) {
         fetchProduct();
     }, [id]);
 
+    const handleAddToCart = () => {
+        if (isAdding) return;
+        setIsAdding(true);
+        addToCart(product, selectedVariant || product.variants[0]);
+        setTimeout(() => setIsAdding(false), 1000);
+    };
+
     if (loading) {
         return (
             <div className="bg-white min-h-screen flex flex-col pt-20">
@@ -88,10 +98,10 @@ export default function ProductPage({ params }) {
         <div className="bg-white min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
             <Navbar />
 
-            <main className="flex-grow pt-24 pb-20">
+            <main className="flex-grow pt-32 pb-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Breadcrumb / Category */}
-                    <div className="flex items-center space-x-2 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 mb-4 border-b border-gray-50 pb-2">
+                    <div className="flex items-center space-x-2 text-xs font-semibold text-gray-400 mb-4 border-b border-gray-50 pb-2">
                         <Link href="/" className="hover:text-black transition-colors">Home</Link>
                         <span>/</span>
                         <Link href="/products" className="hover:text-black transition-colors">Catalogue</Link>
@@ -102,7 +112,7 @@ export default function ProductPage({ params }) {
                     <div className="lg:grid lg:grid-cols-12 lg:gap-x-12 items-start">
                         
                         {/* LEFT: Cinematic Gallery */}
-                        <div className="lg:col-span-6 space-y-4">
+                        <div className="lg:col-span-5 space-y-4">
                             <div className="relative aspect-square bg-white border border-gray-100 rounded-[2rem] overflow-hidden group shadow-sm">
                                 <Image
                                     src={activeImage || (selectedVariant && selectedVariant.images && selectedVariant.images[0]) || '/placeholder.png'}
@@ -122,8 +132,8 @@ export default function ProductPage({ params }) {
                                             product.isVeg ? "bg-green-600" : "bg-red-600"
                                         )} />
                                     </div>
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-gray-900">
-                                        {product.isVeg ? '100% PURE VEG' : 'CONTAINS EGG'}
+                                    <span className="text-[10px] font-bold text-gray-900">
+                                        {product.isVeg ? '100% Pure Veg' : 'Contains Egg'}
                                     </span>
                                 </div>
                             </div>
@@ -146,14 +156,14 @@ export default function ProductPage({ params }) {
                         </div>
 
                         {/* RIGHT: Transactional Info */}
-                        <div className="lg:col-span-6 mt-4 lg:mt-0 lg:sticky lg:top-24 space-y-3">
+                        <div className="lg:col-span-7 mt-4 lg:mt-0 lg:sticky lg:top-32 space-y-3">
                             
                             {/* Header & Pricing */}
                             <div className="space-y-1">
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-orange-600 bg-orange-50/50 px-2 py-0.5 rounded-full inline-block">
+                                <span className="text-[10px] font-bold text-orange-600 bg-orange-50/50 px-2 py-0.5 rounded-full inline-block">
                                     {product.type}
                                 </span>
-                                <h1 className="text-2xl lg:text-3xl font-bold tracking-tight text-gray-900 leading-none uppercase underline decoration-orange-100 decoration-2 underline-offset-2">
+                                <h1 className="text-2xl lg:text-3xl font-bold tracking-tight text-gray-900 leading-none">
                                     {product.name}
                                 </h1>
                                 <div className="pt-1 flex items-baseline space-x-3">
@@ -165,7 +175,7 @@ export default function ProductPage({ params }) {
                                     ) : (
                                         <span className="text-2xl font-bold tracking-tight text-gray-900">₹{selectedVariant?.price || product.variants[0].price}</span>
                                     )}
-                                    <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest bg-gray-50 px-2 py-0.5 rounded">Incl. of tax</span>
+                                    <span className="text-[9px] font-bold text-gray-400 bg-gray-50 px-2 py-0.5 rounded">Incl. of tax</span>
                                 </div>
                             </div>
 
@@ -176,8 +186,8 @@ export default function ProductPage({ params }) {
                                         <Scale size={14} strokeWidth={2.5} />
                                     </div>
                                     <div>
-                                        <p className="text-[7px] font-bold text-gray-400 uppercase tracking-widest leading-none mb-0.5">Weight</p>
-                                        <p className="text-[10px] font-bold text-gray-900 uppercase">{selectedVariant?.weight || product.variants[0].weight}</p>
+                                        <p className="text-[7px] font-bold text-gray-400 leading-none mb-0.5">Weight</p>
+                                        <p className="text-[10px] font-bold text-gray-900">{selectedVariant?.weight || product.variants[0].weight}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center space-x-2.5 group">
@@ -185,8 +195,8 @@ export default function ProductPage({ params }) {
                                         <Calendar size={14} strokeWidth={2.5} />
                                     </div>
                                     <div>
-                                        <p className="text-[7px] font-bold text-gray-400 uppercase tracking-widest leading-none mb-0.5">Shelf Life</p>
-                                        <p className="text-[10px] font-bold text-gray-900 uppercase">{product.shelfLife}</p>
+                                        <p className="text-[7px] font-bold text-gray-400 leading-none mb-0.5">Shelf Life</p>
+                                        <p className="text-[10px] font-bold text-gray-900">{product.shelfLife}</p>
                                     </div>
                                 </div>
                             </div>
@@ -194,8 +204,8 @@ export default function ProductPage({ params }) {
                             {/* Pack Size Selection */}
                             <div className="space-y-3">
                                 <div className="flex justify-between items-center px-1">
-                                    <h3 className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Select Pack Size</h3>
-                                    <span className="text-[8px] font-medium text-gray-300 italic uppercase">Purely Handcrafted</span>
+                                    <h3 className="text-[9px] font-bold text-gray-400">Select Pack Size</h3>
+                                    <span className="text-[8px] font-medium text-gray-300 italic">Purely Handcrafted</span>
                                 </div>
                                 <div className="grid grid-cols-2 gap-3">
                                     {product.variants.map((v) => (
@@ -213,10 +223,10 @@ export default function ProductPage({ params }) {
                                             )}
                                         >
                                             <p className={classNames(
-                                                "text-[10px] font-bold uppercase tracking-widest leading-none mb-1",
+                                                "text-[10px] font-bold leading-none mb-1",
                                                 selectedVariant?.name === v.name ? "text-orange-600" : "text-gray-900"
                                             )}>{v.name}</p>
-                                            <p className="text-[9px] font-medium text-gray-400 uppercase">{v.weight}</p>
+                                            <p className="text-[9px] font-medium text-gray-400">{v.weight}</p>
                                             {selectedVariant?.name === v.name && (
                                                 <div className="absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-orange-600" />
                                             )}
@@ -225,55 +235,75 @@ export default function ProductPage({ params }) {
                                 </div>
                             </div>
 
-                            {/* Description & Ingredients */}
-                            <div className="space-y-4">
-                                <div className="space-y-1">
-                                    <h3 className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">The Tradition</h3>
-                                    <p className="text-xs text-gray-600 leading-relaxed font-medium">
-                                        {product.description}
+                            {/* Description (Truncated) */}
+                            <div className="space-y-1">
+                                <h3 className="text-[9px] font-bold text-gray-400">The Tradition</h3>
+                                <p className="text-xs text-gray-600 leading-relaxed font-medium">
+                                    {product.description?.substring(0, 100)}
+                                    {product.description?.length > 100 && '...'}
+                                </p>
+                            </div>
+
+                            {/* CTAs remain here */}
+                            <div className="space-y-4 pt-4">
+                                {/* Add to Cart CTA */}
+                                <div className="pt-0.5">
+                                    <button
+                                        type="button"
+                                        disabled={isAdding}
+                                        className={classNames(
+                                            "w-full py-3.5 rounded-lg text-[10px] font-bold transition-all shadow-lg active:scale-[0.98] flex items-center justify-center cursor-pointer space-x-3",
+                                            isAdding ? "bg-orange-600 text-white" : "bg-black text-white hover:bg-orange-600"
+                                        )}
+                                        onClick={handleAddToCart}
+                                    >
+                                        <ShoppingBag size={14} strokeWidth={2.5} className={isAdding ? "animate-bounce" : ""} />
+                                        <span>{isAdding ? 'Success!' : 'Add to Bag'}</span>
+                                    </button>
+                                    <p className="text-center text-[7px] text-gray-400 font-bold mt-3 flex items-center justify-center space-x-1">
+                                        <ShieldCheck size={9} className="text-orange-500" />
+                                        <span>Quality Handcrafted Product</span>
                                     </p>
                                 </div>
-
-                                {product.ingredients && product.ingredients.length > 0 && (
-                                    <div className="p-4 bg-gray-50/50 border border-gray-100 rounded-2xl space-y-2">
-                                        <div className="flex items-center space-x-2 text-gray-400">
-                                            <ListChecks size={12} />
-                                            <h3 className="text-[9px] font-bold uppercase tracking-widest">Core Ingredients</h3>
-                                        </div>
-                                        <div className="flex flex-wrap gap-1.5">
-                                            {product.ingredients.map((ing, i) => (
-                                                <span key={i} className="text-[8px] font-bold bg-white text-gray-700 px-2 py-1 rounded-full border border-gray-100 uppercase tracking-tighter">
-                                                    {ing}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
                             </div>
+                        </div>
+                    </div>
 
-                            {/* Allergen Info */}
-                            <div className="flex items-start space-x-3 p-4 bg-orange-50/30 border border-orange-100/50 rounded-2xl">
-                                <Info size={16} className="text-orange-400 mt-0.5 shrink-0" />
-                                <div className="text-[10px] font-medium text-orange-900 leading-relaxed">
-                                    <span className="font-black uppercase tracking-widest text-[9px] block mb-1">Dietary Information</span>
-                                    {product.allergenInfo}
-                                </div>
-                            </div>
-
-                            {/* Add to Cart CTA */}
-                            <div className="pt-0.5">
-                                <button
-                                    type="button"
-                                    className="w-full bg-black text-white py-3.5 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-orange-600 transition-all shadow-lg active:scale-[0.98] flex items-center justify-center cursor-pointer space-x-3"
-                                    onClick={() => addToCart(product, selectedVariant || product.variants[0])}
-                                >
-                                    <ShoppingBag size={14} strokeWidth={2.5} />
-                                    <span>Add to bag</span>
-                                </button>
-                                <p className="text-center text-[7px] text-gray-400 font-bold uppercase tracking-[0.2em] mt-3 flex items-center justify-center space-x-1">
-                                    <ShieldCheck size={9} className="text-orange-500" />
-                                    <span>Quality Handcrafted Product</span>
+                    {/* NEW: Bottom Storytelling & Ingredients Section */}
+                    <div className="mt-8 md:mt-[50px] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 border-t border-gray-100 pt-10">
+                        <div className="lg:col-span-12">
+                            <h2 className="text-xl font-bold text-gray-900 mb-6 border-l-4 border-orange-500 pl-4">The Pure Heritage</h2>
+                        </div>
+                        
+                        <div className="lg:col-span-7 space-y-4">
+                            <h3 className="text-xs font-semibold text-gray-400">Detailed Description</h3>
+                            <div className="prose prose-sm prose-orange max-w-none">
+                                <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line font-medium italic">
+                                    {product.description}
                                 </p>
+                            </div>
+                        </div>
+
+                        <div className="lg:col-span-5">
+                            <div className="bg-gray-50/50 border border-gray-100 rounded-2xl p-6 sticky top-32">
+                                <div className="flex items-center space-x-2 text-orange-600 mb-4">
+                                    <Sparkles size={18} strokeWidth={2.5} />
+                                    <h3 className="text-base font-bold">Premium Highlights</h3>
+                                </div>
+                                <p className="text-[10px] text-gray-400 font-semibold mb-4">Uncompromising quality standards</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {[
+                                        '100% Natural',
+                                        'No Chemicals',
+                                        'Premium Quality',
+                                        'Handpicked',
+                                        'Freshness Guaranteed'
+                                    ].map((feature, i) => (
+                                        <span key={i} className="text-[9px] font-bold bg-white text-gray-900 px-3 py-1.5 rounded-lg border border-gray-100 shadow-sm transition-transform hover:scale-105">
+                                            {feature}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>

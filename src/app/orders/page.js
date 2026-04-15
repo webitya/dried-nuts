@@ -120,7 +120,7 @@ export default function OrdersPage() {
                                             <div className="flex items-center gap-2 mb-1">
                                                 <button
                                                     onClick={(e) => handleCopy(e, order?._id, order?._id)}
-                                                    className="text-sm font-bold text-gray-900 dark:text-white font-mono hover:text-blue-600 transition-colors flex items-center gap-1.5 group/id"
+                                                    className="text-sm font-bold text-gray-900 dark:text-white hover:text-blue-600 transition-colors flex items-center gap-1.5 group/id"
                                                 >
                                                     #{String(order?._id || '').slice(-8).toUpperCase()}
                                                     {copiedId === order?._id ? <Check size={10} className="text-green-500" /> : <Copy size={10} className="text-gray-400 opacity-0 group-hover/id:opacity-100 transition-opacity" />}

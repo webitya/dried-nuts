@@ -11,7 +11,9 @@ import {
   Mail,
   Phone,
   MapPin,
-  ArrowRight
+  ArrowRight,
+  Sparkles,
+  Heart
 } from 'lucide-react';
 
 export default function Footer() {
@@ -34,30 +36,31 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-white text-gray-600 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer className="bg-zinc-950 text-white border-t border-white/5 pt-20 pb-12 overflow-hidden relative">
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange-600/50 to-transparent" />
+      
+      <div className="w-full px-[10px] md:px-5 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
           
           {/* Brand Section */}
-          <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border border-gray-100">
+          <div className="space-y-8 group">
+            <Link href="/" className="flex items-center">
+              <div className="relative h-20 w-40 transition-all duration-500">
                 <Image 
-                  src="/brand-logo.png" 
+                  src="/fusionofdriednutslogo.webp" 
                   alt="Fusion of Dried Nuts Logo" 
                   fill 
-                  className="object-cover"
+                  className="object-contain group-hover:scale-105 transition-transform"
                 />
               </div>
-              <span className="text-2xl font-bold text-gray-900 tracking-tight uppercase">Fusion of Dried Nuts</span>
             </Link>
-            <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
-              Healthy Bites and Happy Moments. Delivering the finest quality premium dried nuts and luxury fruits sourced with love.
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+              Healthy Bites and Happy Moments. At the intersection of traditional wellness and modern quality. Delivering the finest premium dried nuts and fruits sourced with uncompromising standards.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-6">
               {[Instagram, Facebook, Youtube, Twitter].map((Icon, i) => (
-                <Link key={i} href="#" className="p-2 text-gray-400 hover:text-orange-600 transition-colors">
-                  <Icon size={20} />
+                <Link key={i} href="#" className="p-3 bg-white/5 rounded-full text-gray-400 hover:text-orange-500 hover:bg-orange-500/10 transition-all">
+                  <Icon size={18} />
                 </Link>
               ))}
             </div>
@@ -65,13 +68,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">Shop</h4>
+            <h4 className="text-base font-semibold text-white mb-8">Curated Collections</h4>
             <ul className="space-y-4">
               {categories.map((cat) => (
                 <li key={cat}>
-                  <Link href="/products" className="text-sm hover:text-orange-600 transition-colors flex items-center group">
+                  <Link href="/products" className="text-sm text-gray-400 hover:text-white transition-colors flex items-center group">
                     {cat}
-                    <ArrowRight size={14} className="ml-1 opacity-0 group-hover:opacity-100 transition-all" />
+                    <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform opacity-0 group-hover:opacity-100" />
                   </Link>
                 </li>
               ))}
@@ -80,7 +83,7 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h4 className="text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">Support</h4>
+            <h4 className="text-base font-semibold text-white mb-8">Help & Assistance</h4>
             <ul className="space-y-4">
               {[
                 { href: '/track-order', label: 'Track Order' },
@@ -89,7 +92,7 @@ export default function Footer() {
                 { href: '/terms', label: 'Terms & Conditions' },
               ].map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="text-sm hover:text-orange-600 transition-colors">
+                  <Link href={href} className="text-sm text-gray-400 hover:text-white transition-colors">
                     {label}
                   </Link>
                 </li>
@@ -98,34 +101,58 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <h4 className="text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-orange-600 mt-1 flex-shrink-0" />
-                <span className="text-sm">1863 Rajdanga Main Road, E.K.T, Kolkata – 700107</span>
+          <div className="space-y-8">
+            <h4 className="text-base font-semibold text-white">Contact Us</h4>
+            <ul className="space-y-5">
+              <li className="flex items-start gap-4">
+                <div className="p-2.5 bg-white/5 rounded-xl text-orange-500">
+                  <MapPin size={18} />
+                </div>
+                <span className="text-sm text-gray-400 leading-relaxed">1863 Rajdanga Main Road, <br />E.K.T, Kolkata – 700107</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail size={16} className="text-orange-600" />
-                <span className="text-sm break-all">info@fusionofdriednutspvtltd.co.in</span>
+              <li className="flex items-center gap-4">
+                <div className="p-2.5 bg-white/5 rounded-xl text-orange-500">
+                  <Mail size={18} />
+                </div>
+                <span className="text-sm text-gray-400 break-all">info@fusionofdriednuts.co.in</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={16} className="text-orange-600" />
-                <span className="text-sm">+91 73699 35610</span>
+              <li className="flex items-center gap-4">
+                <div className="p-2.5 bg-white/5 rounded-xl text-orange-500">
+                  <Phone size={18} />
+                </div>
+                <span className="text-sm font-semibold text-white">+91 73699 35610</span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-400">
-            © {new Date().getFullYear()} Fusion of Dried Nuts Private Limited. All rights reserved.
+        {/* Bottom Bar: Copyright & Brand Tags */}
+        <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-xs text-gray-600">
+            © {new Date().getFullYear()} Fusion of Dried Nuts. All rights reserved.
           </p>
-          <div className="flex items-center space-x-6 text-xs text-gray-400">
-            <span>Healthy Bites</span>
-            <div className="h-1 w-1 bg-gray-300 rounded-full" />
-            <span>Happy Moments</span>
+          
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2 text-xs font-semibold text-orange-500">
+              <Sparkles size={12} />
+              Healthy Bites
+            </div>
+            <div className="w-1 h-1 bg-white/20 rounded-full" />
+            <div className="text-xs text-gray-400">
+              Happy Moments
+            </div>
+          </div>
+        </div>
+
+        {/* New Row: Webitya Attribution */}
+        <div className="mt-8 pt-8 border-t border-white/5 flex justify-center">
+          <div className="flex items-center gap-2 text-xs text-gray-500">
+            <span>Website Designed & Maintained with</span>
+            <Heart size={12} className="text-red-500 fill-red-500 animate-pulse" />
+            <span>by</span>
+            <Link href="https://webitya.com" target="_blank" className="text-gray-400 hover:text-orange-500 transition-colors">
+              Webitya
+            </Link>
           </div>
         </div>
       </div>

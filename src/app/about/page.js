@@ -12,7 +12,7 @@ export default function About() {
 
       <main>
         {/* Simple Hero Section */}
-        <section className="relative pt-20 pb-12 px-4 border-b border-gray-50">
+        <section className="relative pt-32 pb-12 px-4 border-b border-gray-50">
           <div className="max-w-4xl mx-auto text-center space-y-4">
             <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight leading-none">
               Premium Nuts, <br />
@@ -82,97 +82,6 @@ export default function About() {
                 <h4 className="text-white text-xs font-bold italic mb-1">Guaranteed Authenticity</h4>
                 <p className="text-white/70 text-[10px] uppercase tracking-widest font-bold">From our heart to your home.</p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* The Journey Timeline - NEW SECTION */}
-        <section className="bg-gray-50/50 py-16 border-y border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row gap-12 items-center">
-              <div className="w-full md:w-1/3 space-y-4 text-center md:text-left">
-                <div className="w-12 h-12 bg-orange-600 text-white rounded-2xl flex items-center justify-center mx-auto md:mx-0">
-                  <History size={24} />
-                </div>
-                <h2 className="text-3xl font-black text-gray-900 uppercase">The Journey</h2>
-                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">Our Mile Stones</p>
-              </div>
-              <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-10">
-                {[
-                  { year: '2023', title: 'The Inspiration', desc: 'The first collection of premium dried nuts was curated for a small group of health-conscious enthusiasts.' },
-                  { year: '2024', title: 'The Launch', desc: 'Fusion of Dried Nuts was officially born with a mission to bring healthy bites to all of India.' },
-                  { year: 'Today', title: 'Growing Community', desc: 'Delivering nationwide, connecting thousands to their goal of healthy living.' },
-                ].map((item) => (
-                  <div key={item.year} className="relative pl-8 border-l border-orange-200 py-1">
-                    <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-orange-600 shadow-lg shadow-orange-200" />
-                    <span className="text-xs font-black text-orange-600 mb-1 block tracking-widest">{item.year}</span>
-                    <h4 className="text-sm font-bold text-gray-900 mb-2 uppercase tracking-wide">{item.title}</h4>
-                    <p className="text-[11px] text-gray-500 font-medium leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Founders Vision - NEW SECTION */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-          <div className="bg-orange-600 rounded-[2.5rem] p-10 md:p-16 text-white relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[100px] -mr-32 -mt-32 transition-transform duration-1000 group-hover:scale-150" />
-            <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
-              <div className="flex-1 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/20 rounded-lg text-[10px] font-black uppercase tracking-widest">
-                  <Star size={12} />
-                  <span>Founders Vision</span>
-                </div>
-                <h3 className="text-3xl md:text-5xl font-black tracking-tight leading-tight italic">
-                  "We don't just sell products, we sell a piece of our heritage."
-                </h3>
-                <p className="text-sm md:text-lg text-orange-100 font-medium leading-relaxed max-w-2xl opacity-90">
-                  Our goal is to build Fusion of Dried Nuts into more than a brand. We want it to be a bridge between a fast-paced modern world and the healthy, wholesome recipes of our heritage. Purity is not a feature for us—it is our only path.
-                </p>
-                <div className="pt-4 flex flex-wrap gap-8 items-center border-t border-white/20">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                      <MapPin size={18} />
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest">Authentic Roots</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                      <Users size={18} />
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest">Village Artisans</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Impact Section - NEW SECTION */}
-        <section className="py-16 bg-white border-b border-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-black text-gray-900 tracking-tight uppercase">Empowering Artisans</h2>
-              <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">Beyond the taste</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {[
-                { label: 'Artisans', value: '15+', icon: Utensils, desc: 'Skilled women from local villages' },
-                { label: 'Recipes', value: '40+', icon: History, desc: 'Historical family heritage' },
-                { label: 'Natural Sourcing', value: '100%', icon: Sparkles, desc: 'Farm-direct sourced produce' },
-                { label: 'Community', value: '5K+', icon: Users, desc: 'Healthy bite lovers daily' },
-              ].map((stat) => (
-                <div key={stat.label} className="p-6 rounded-2xl bg-gray-50 space-y-3 transition-all hover:bg-orange-50 hover:shadow-xl hover:shadow-orange-100/30 group">
-                  <div className="w-12 h-12 rounded-xl bg-white border border-gray-100 text-orange-600 flex items-center justify-center mx-auto group-hover:bg-orange-600 group-hover:text-white transition-all">
-                    <stat.icon size={20} />
-                  </div>
-                  <h4 className="text-2xl font-black text-gray-900">{stat.value}</h4>
-                  <p className="text-[10px] font-bold uppercase text-gray-400 tracking-widest">{stat.label}</p>
-                  <p className="text-[9px] text-gray-400 font-medium leading-relaxed">{stat.desc}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>

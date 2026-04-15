@@ -43,26 +43,7 @@ function ProductsContent() {
         <div className="bg-white min-h-screen font-sans selection:bg-orange-100 selection:text-orange-900">
             <Navbar />
 
-            <main className="max-w-7xl mx-auto pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-                {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-gray-50 pb-10">
-                    <div className="max-w-xl">
-                        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight">
-                            {query ? (
-                                <>Search <span className="text-orange-600 italic font-medium">Results.</span></>
-                            ) : (
-                                <>Shop <span className="text-orange-600 italic font-medium">Authentic.</span></>
-                            )}
-                        </h1>
-                        <p className="mt-4 text-gray-500 font-medium leading-relaxed">
-                            {query ? (
-                                <>Showing premium products matching <span className="font-bold text-gray-900 uppercase">"{query}"</span></>
-                            ) : (
-                                <>Discover our curated collection of premium dried nuts and fruits—where nature's best meets modern gourmet standards.</>
-                            )}
-                        </p>
-                    </div>
-                </div>
+            <main className="max-w-7xl mx-auto pt-12 pb-16 px-4 sm:px-6 lg:px-8">
 
                 {loading ? (
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

@@ -245,7 +245,6 @@ export default function ReelsSection() {
             {/* Follow Us badge removed */}
                 <h2
                     className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1A0E05] dark:text-orange-100 mb-4"
-                    style={{ fontFamily: 'var(--font-playfair), serif' }}
                 >
                     Fusion of Dried Nuts – In Motion
                 </h2>

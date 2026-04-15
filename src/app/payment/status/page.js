@@ -105,9 +105,9 @@ function PaymentStatusContent() {
                             <div className="text-center">
                                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Order ID</p>
                                 <div className="flex items-center justify-center space-x-2">
-                                    <code className="text-sm font-mono font-bold text-black dark:text-white bg-white dark:bg-black px-3 py-1 rounded border border-gray-200 dark:border-zinc-700">
+                                    <div className="text-sm font-bold text-black dark:text-white bg-white dark:bg-black px-3 py-1 rounded border border-gray-200 dark:border-zinc-700">
                                         {orderData.orderId}
-                                    </code>
+                                    </div>
                                     <button
                                         onClick={() => {
                                             navigator.clipboard.writeText(orderData.orderId);

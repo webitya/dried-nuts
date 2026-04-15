@@ -1,8 +1,12 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
+import MobileNav from "@/components/MobileNav";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-inter",
+});
 
 export const metadata = {
   title: "Fusion of Dried Nuts | Healthy Bites and Happy Moments",
@@ -12,10 +16,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} font-sans`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans antialiased pb-20 md:pb-0`}>
         <Providers>
           {children}
+          <MobileNav />
           <div id="toast-root"></div>
         </Providers>
       </body>

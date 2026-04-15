@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
 :root {
   --foreground-rgb: 30, 20, 10;
   --background-start-rgb: 255, 251, 242;
@@ -37,7 +42,7 @@ body {
   }
 
   .font-display {
-    font-family: var(--font-inter), ui-sans-serif, system-ui;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   }
 
   .glass {
@@ -194,5 +199,44 @@ body {
 
   .parallax-hover:hover {
     transform: scale(1.02) translateY(-10px);
+  }
+
+  /* Carousel Customization */
+  .carousel-gradient-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 100%);
+  }
+
+  /* Perfect Circles */
+  .circle-mask {
+    border-radius: 50% !important;
+    aspect-ratio: 1 / 1 !important;
+    overflow: hidden !important;
+  }
+
+  .premium-scrollbar::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+  .premium-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .premium-scrollbar::-webkit-scrollbar-thumb {
+    background: #E8730A;
+    border-radius: 10px;
+  }
+
+  .nav-blur {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  @keyframes infinite-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-infinite-scroll {
+    animation: infinite-scroll 40s linear infinite;
   }
 }

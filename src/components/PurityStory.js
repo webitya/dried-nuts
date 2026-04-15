@@ -31,10 +31,10 @@ export default function PurityStory() {
           
           <div className="space-y-12">
             <div>
-              <p className="text-orange-600 text-[10px] font-black uppercase tracking-[0.3em] mb-4">Our Standard</p>
-              <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-tight mb-8">
+              <p className="text-orange-600 text-[10px] font-bold uppercase tracking-wider mb-4">Our Standard</p>
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-tight mb-8">
                 The Uncompromising <br />
-                <span className="text-orange-500 italic font-medium">Path to Purity.</span>
+                <span className="text-orange-500 font-bold">Path to Purity.</span>
               </h2>
               <p className="text-gray-400 font-medium text-lg leading-relaxed max-w-xl">
                 At Fusion of Dried Nuts, we don't believe in industrial shortcuts. Luxury is defined by the patience required to prepare something truly natural.
@@ -48,7 +48,7 @@ export default function PurityStory() {
                     <p.icon size={24} />
                   </div>
                   <div className="space-y-2">
-                    <h4 className="text-sm font-black uppercase tracking-widest leading-none mt-1">{p.title}</h4>
+                    <h4 className="text-sm font-bold uppercase tracking-wide leading-none mt-1">{p.title}</h4>
                     <p className="text-gray-500 text-sm font-medium leading-relaxed max-w-sm">{p.desc}</p>
                   </div>
                 </div>
@@ -62,25 +62,25 @@ export default function PurityStory() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
                 <div className="relative z-20 space-y-4">
                   <div className="w-12 h-1 w-orange-600" />
-                  <h3 className="text-3xl font-black tracking-tight leading-tight">
+                  <h3 className="text-3xl font-bold tracking-tight leading-tight">
                     "Every crunch is a <br /> 
                     testament to our legacy."
                   </h3>
-                  <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">100% Quality Guaranteed</p>
+                  <p className="text-gray-500 text-xs font-bold uppercase tracking-wider">100% Quality Guaranteed</p>
                 </div>
               </div>
 
               {/* Parallax Floating Cards */}
               <div className="absolute top-12 -right-6 bg-white p-4 rounded-2xl shadow-2xl animate-float group-hover:scale-110 transition-transform">
-                <div className="text-orange-600 font-black text-xs uppercase tracking-widest mb-1">Purity Score</div>
-                <div className="text-2xl font-black text-gray-900 tracking-tighter">99.9%</div>
+                <div className="text-orange-600 font-bold text-xs uppercase tracking-wide mb-1">Purity Score</div>
+                <div className="text-2xl font-bold text-gray-900 tracking-tighter">99.9%</div>
               </div>
 
               <div className="absolute bottom-20 -left-6 bg-[#2D241E] border border-white/10 p-5 rounded-3xl shadow-2xl animate-float delay-700">
                 <div className="flex gap-1 text-orange-500 mb-2">
                   {[...Array(5)].map((_, i) => <Check key={i} size={14} className="bg-orange-600 text-white rounded-full p-0.5" />)}
                 </div>
-                <div className="text-[9px] font-black text-white uppercase tracking-widest">Lab Certified</div>
+                <div className="text-[9px] font-bold text-white uppercase tracking-wide">Lab Certified</div>
               </div>
             </div>
           </div>

@@ -182,7 +182,7 @@ export default function OrderDetailPage() {
                         <div className="flex-grow min-w-0">
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <div className="flex flex-wrap items-center gap-3">
-                                    <h1 className="text-sm sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white tracking-tight font-mono break-all line-clamp-1 group/id flex items-center gap-2">
+                                    <h1 className="text-sm sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white tracking-tight break-all line-clamp-1 group/id flex items-center gap-2">
                                         #{orderId.toUpperCase()}
                                         <button onClick={() => copyToClipboard(orderId, 'order_id')} className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded transition-colors shrink-0">
                                             {copiedField === 'order_id' ? <Check size={12} className="text-green-500" /> : <Copy size={12} className="text-gray-400 opacity-0 group-hover/id:opacity-100" />}
@@ -316,7 +316,7 @@ export default function OrderDetailPage() {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2 min-w-0">
-                                    <p className="text-xs sm:text-sm font-mono font-bold text-gray-900 dark:text-white truncate">{order?.trackingNumber}</p>
+                                    <p className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white truncate">{order?.trackingNumber}</p>
                                     <button
                                         onClick={() => copyToClipboard(order?.trackingNumber, 'trackNum')}
                                         className="p-2 hover:bg-white dark:hover:bg-zinc-800 rounded-lg transition-all"

@@ -23,6 +23,26 @@ const FAQS = [
     id: 4,
     question: "Do you ship pan-India?",
     answer: "Yes, we deliver to all major cities and towns across India. Free shipping is available on orders above ₹499."
+  },
+  {
+    id: 5,
+    question: "Do you accept bulk or corporate orders?",
+    answer: "Yes, we specialize in corporate gifting and bulk supplies for events. Please reach out via our contact page for custom pricing and packaging options."
+  },
+  {
+    id: 6,
+    question: "How should I store my dried fruits and nuts?",
+    answer: "To maintain maximum freshness and crunch, store them in an airtight container in a cool, dry place. For longer shelf life, refrigeration is recommended."
+  },
+  {
+    id: 7,
+    question: "What payment methods do you accept?",
+    answer: "We accept all major credit/debit cards, UPI, Net Banking, and popular digital wallets. All transactions are processed through a secure payment gateway."
+  },
+  {
+    id: 8,
+    question: "Is your packaging eco-friendly?",
+    answer: "We prioritize sustainability. Our primary packaging is food-safe and designed to be reused or recycled. We are constantly working on reducing our plastic footprint."
   }
 ];
 
@@ -31,7 +51,7 @@ function FaqItem({ faq, isOpen, toggle }) {
     <div className={`border-b border-gray-100 transition-all duration-300 ${isOpen ? 'bg-gray-50/30' : ''}`}>
       <button
         onClick={toggle}
-        className="w-full py-5 px-6 flex items-center justify-between text-left group transition-all"
+        className="w-full py-4 px-8 flex items-center justify-between text-left group transition-all"
       >
         <span className={`text-sm sm:text-base font-bold tracking-tight transition-colors duration-300 pr-4 ${isOpen ? 'text-orange-600' : 'text-gray-900 group-hover:text-orange-600'}`}>
           {faq.question}
@@ -41,9 +61,9 @@ function FaqItem({ faq, isOpen, toggle }) {
         </div>
       </button>
 
-      <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="px-6 pb-6">
-          <p className="text-gray-500 text-xs sm:text-sm leading-relaxed max-w-2xl font-medium">
+      <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="px-8 pb-6">
+          <p className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-4xl font-medium">
             {faq.answer}
           </p>
         </div>
@@ -56,17 +76,17 @@ export default function FaqsSection() {
   const [openId, setOpenId] = useState(1);
 
   return (
-    <section className="py-16 bg-white border-t border-gray-50">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+    <section className="py-5 bg-[#FEF9F2] border-y border-orange-50/30">
+      <div className="w-full">
         {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-2 tracking-tight">
-            Got questions? <br /> We've got <span className="text-orange-600 italic font-medium">Answers.</span>
+        <div className="text-center py-6 bg-white/40 border-b border-gray-100">
+          <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-1 tracking-tight">
+            Got questions? <br /> We've got <span className="text-orange-600">Answers.</span>
           </h2>
         </div>
 
         {/* FAQ List */}
-        <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+        <div className="bg-transparent">
           {FAQS.map((faq) => (
             <FaqItem
               key={faq.id}
@@ -75,23 +95,6 @@ export default function FaqsSection() {
               toggle={() => setOpenId(openId === faq.id ? null : faq.id)}
             />
           ))}
-        </div>
-
-        {/* Bottom Contact CTA */}
-        <div className="mt-8 p-6 rounded-2xl bg-gray-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center">
-              <HelpCircle size={20} />
-            </div>
-            <div className="text-center sm:text-left">
-              <h4 className="text-sm font-bold">Need more help?</h4>
-              <p className="text-[10px] text-gray-400 font-medium">Our support team is active 24/7.</p>
-            </div>
-          </div>
-          <button className="w-full sm:w-auto px-8 py-3 bg-white text-gray-900 text-[10px] font-bold uppercase tracking-widest rounded-xl hover:bg-orange-600 hover:text-white transition-all flex items-center justify-center gap-2">
-            Contact Support
-            <ArrowRight size={14} />
-          </button>
         </div>
       </div>
     </section>

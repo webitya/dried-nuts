@@ -65,11 +65,11 @@ export default function ProductCard({ product }) {
                     <div className="text-right shrink-0">
                         {selectedVariant.discountPrice ? (
                             <div className="flex flex-col items-end">
-                                <span className="text-lg font-black text-orange-600 tracking-tighter leading-none">₹{selectedVariant.discountPrice}</span>
-                                <span className="text-[10px] font-bold text-gray-300 line-through tracking-tighter">₹{selectedVariant.price}</span>
+                                <span className="text-lg font-bold text-orange-600 tracking-tight leading-none">₹{selectedVariant.discountPrice}</span>
+                                <span className="text-[10px] font-medium text-gray-300 line-through tracking-tight">₹{selectedVariant.price}</span>
                             </div>
                         ) : (
-                            <p className="text-lg font-black text-gray-900 tracking-tighter leading-none">
+                            <p className="text-lg font-bold text-gray-900 tracking-tight leading-none">
                                 ₹{selectedVariant.price.toLocaleString()}
                             </p>
                         )}
@@ -79,7 +79,7 @@ export default function ProductCard({ product }) {
                 {/* Features Tag */}
                 <div className="flex flex-wrap gap-2">
                   {product.features?.slice(0, 2).map((f) => (
-                    <span key={f} className="text-[9px] font-black text-gray-400 uppercase tracking-widest border border-gray-100 px-2 py-0.5 rounded-full">{f}</span>
+                    <span key={f} className="text-[9px] font-bold text-gray-400 uppercase tracking-widest border border-gray-100 px-2 py-0.5 rounded-full">{f}</span>
                   ))}
                 </div>
 
@@ -87,7 +87,7 @@ export default function ProductCard({ product }) {
                 <div className="flex items-center gap-2 pt-2">
                     <button
                         onClick={handleBuyNow}
-                        className="flex-1 bg-black text-white text-[10px] font-black uppercase tracking-[0.2em] py-3.5 rounded-xl hover:bg-orange-600 transition-all active:scale-95 flex items-center justify-center gap-2"
+                        className="flex-1 bg-black text-white text-[10px] font-bold uppercase tracking-wider py-3.5 rounded-xl hover:bg-orange-600 transition-all active:scale-95 flex items-center justify-center gap-2"
                     >
                         Buy Now
                     </button>
@@ -98,6 +98,7 @@ export default function ProductCard({ product }) {
                     >
                         <ShoppingCart size={16} />
                     </button>
+
                 </div>
             </div>
         </div>

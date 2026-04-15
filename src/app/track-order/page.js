@@ -143,7 +143,7 @@ function TrackOrderContent() {
                                 <div className="flex-grow min-w-0">
                                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                                            <h1 className="text-sm sm:text-base md:text-xl font-bold text-gray-900 dark:text-white tracking-tight font-mono break-all line-clamp-1 group flex items-center gap-2">
+                                            <h1 className="text-sm sm:text-base md:text-xl font-bold text-gray-900 dark:text-white tracking-tight break-all line-clamp-1 group flex items-center gap-2">
                                                 #{String(order?._id || '').toUpperCase()}
                                                 <button onClick={() => copyToClipboard(order?._id, 'order_id')} className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded transition-colors shrink-0">
                                                     {copiedField === 'order_id' ? <Check size={12} className="text-green-500" /> : <Copy size={12} className="text-gray-400 opacity-0 group-hover:opacity-100" />}
@@ -254,7 +254,7 @@ function TrackOrderContent() {
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-3">
-                                            <p className="text-xs font-mono font-bold text-gray-900 dark:text-white">{order?.trackingNumber}</p>
+                                            <p className="text-xs font-bold text-gray-900 dark:text-white">{order?.trackingNumber}</p>
                                             <button
                                                 onClick={() => copyToClipboard(order?.trackingNumber, 'track_num')}
                                                 className="p-1.5 hover:bg-white dark:hover:bg-zinc-800 rounded-lg transition-all"

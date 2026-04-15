@@ -29,16 +29,16 @@ export default function Hero() {
           
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left space-y-6 max-w-2xl">
-            <h1 className="text-5xl sm:text-7xl font-black text-gray-900 tracking-tight leading-[1.05] animate-fade-in">
+            <h1 className="text-5xl sm:text-7xl font-bold text-gray-900 tracking-tight leading-[1.05] animate-fade-in">
               Homemade <br />
-              <span className="text-orange-600 italic font-medium">Happiness.</span>
+              <span className="text-orange-600 font-bold">Happiness.</span>
             </h1>
 
             <div className="h-12 flex items-center justify-center lg:justify-start">
               <span className="text-xl sm:text-2xl font-medium text-gray-400 mr-3">Love for</span>
               <div className="relative overflow-hidden h-10 flex items-center">
                 <span
-                  className="text-2xl sm:text-4xl font-black text-gray-900 transition-all duration-500 ease-in-out inline-block"
+                  className="text-2xl sm:text-4xl font-bold text-gray-900 transition-all duration-500 ease-in-out inline-block"
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? 'translateY(0)' : 'translateY(15px)',
@@ -71,15 +71,15 @@ export default function Hero() {
 
             {/* Features Row */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-4 opacity-50 animate-fade-in">
-              <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest">
+              <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide">
                 <ShieldCheck size={14} className="text-orange-600" />
                 <span>100% Natural</span>
               </div>
-              <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest">
+              <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide">
                 <Truck size={14} className="text-orange-600" />
                 <span>Fast Delivery</span>
               </div>
-              <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest">
+              <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide">
                 <Zap size={14} className="text-orange-600" />
                 <span>Freshly Prepared</span>
               </div>
@@ -97,7 +97,7 @@ export default function Hero() {
                 priority
               />
               <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/40 to-transparent">
-                <p className="text-[9px] font-bold text-white/70 uppercase tracking-widest mb-1">Featured Premium Choice</p>
+                <p className="text-[9px] font-bold text-white/70 uppercase tracking-wide mb-1">Featured Premium Choice</p>
                 <p className="text-lg font-bold text-white">Premium Dried Fruits & Nuts</p>
               </div>
             </div>
