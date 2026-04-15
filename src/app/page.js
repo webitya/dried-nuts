@@ -65,12 +65,12 @@ export default function Home() {
 
           {loading ? (
             <div className="grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3">
-              {[...Array(8)].map((_, i) => (
-                <div key={i} className="flex flex-col animate-pulse">
-                  <div className="w-full aspect-[4/5] bg-gray-50 rounded-3xl mb-4" />
-                  <div className="space-y-3">
-                    <div className="h-3 w-20 bg-gray-50 rounded-full" />
-                    <div className="h-4 w-full bg-gray-50 rounded-full" />
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="flex flex-col animate-pulse opacity-40">
+                  <div className="w-full aspect-[4/5] border-2 border-gray-100 rounded-3xl mb-4" />
+                  <div className="space-y-3 px-2">
+                    <div className="h-4 w-full border border-gray-100 rounded-full" />
+                    <div className="h-3 w-2/3 border border-gray-100/50 rounded-full" />
                   </div>
                 </div>
               ))}

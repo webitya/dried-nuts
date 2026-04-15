@@ -75,15 +75,20 @@ export default function ProductPage({ params }) {
 
     if (loading) {
         return (
-            <div className="bg-white min-h-screen flex flex-col pt-20">
+            <div className="bg-white min-h-screen flex flex-col pt-36 md:pt-32">
                 <Navbar />
-                <div className="max-w-7xl mx-auto px-4 py-20 w-full animate-pulse">
+                <div className="max-w-7xl mx-auto px-4 py-20 w-full animate-pulse opacity-40">
                     <div className="lg:grid lg:grid-cols-2 lg:gap-16">
-                        <div className="aspect-square bg-gray-50 rounded-3xl" />
-                        <div className="space-y-6 mt-10 lg:mt-0">
-                            <div className="h-4 w-24 bg-gray-50 mb-4" />
-                            <div className="h-10 w-3/4 bg-gray-50 mb-6" />
-                            <div className="h-20 w-full bg-gray-50" />
+                        <div className="aspect-square border-2 border-gray-100 rounded-[2rem]" />
+                        <div className="space-y-8 mt-10 lg:mt-0">
+                            <div>
+                                <div className="h-3 w-20 border border-gray-100 rounded-full mb-4" />
+                                <div className="h-12 w-3/4 border-2 border-gray-100 rounded-2xl" />
+                            </div>
+                            <div className="space-y-4">
+                                <div className="h-24 w-full border border-gray-100 rounded-3xl" />
+                                <div className="h-24 w-full border border-gray-100 rounded-3xl" />
+                            </div>
                         </div>
                     </div>
                 </div>
