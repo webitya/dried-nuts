@@ -36,11 +36,11 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-zinc-950 text-white border-t border-white/5 pt-20 pb-12 overflow-hidden relative">
+    <footer className="bg-zinc-950 text-white border-t border-white/5 pt-10 md:pt-20 pb-12 overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange-600/50 to-transparent" />
       
       <div className="w-full px-[10px] md:px-5 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-20">
           
           {/* Brand Section */}
           <div className="space-y-8 group">
@@ -127,7 +127,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright & Brand Tags */}
-        <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="mt-10 md:mt-20 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-xs text-gray-600">
             © {new Date().getFullYear()} Fusion of Dried Nuts. All rights reserved.
           </p>
@@ -135,7 +135,7 @@ export default function Footer() {
         </div>
 
         {/* New Row: Webitya Attribution */}
-        <div className="mt-8 pt-8 border-t border-white/5 flex justify-center">
+        <div className="mt-6 md:mt-8 pt-6 border-t border-white/5 flex justify-center">
           <div className="flex items-center gap-2 text-xs text-gray-500">
             <span>Website Designed & Maintained with</span>
             <Heart size={12} className="text-red-500 fill-red-500 animate-pulse" />

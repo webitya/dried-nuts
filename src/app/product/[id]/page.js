@@ -98,7 +98,7 @@ export default function ProductPage({ params }) {
         <div className="bg-white min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
             <Navbar />
 
-            <main className="flex-grow pt-32 pb-20">
+            <main className="flex-grow pt-36 md:pt-32 pb-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Breadcrumb / Category */}
                     <div className="flex items-center space-x-2 text-xs font-semibold text-gray-400 mb-4 border-b border-gray-50 pb-2">
@@ -272,7 +272,6 @@ export default function ProductPage({ params }) {
                             {product.ingredients && product.ingredients.length > 0 && (
                                 <div className="bg-gray-50/50 border border-gray-100 rounded-2xl p-6 sticky top-32">
                                     <div className="flex items-center space-x-2 text-orange-600 mb-4">
-                                        <Sparkles size={18} strokeWidth={2.5} />
                                         <h3 className="text-base font-bold">Premium Highlights</h3>
                                     </div>
                                     <p className="text-[10px] text-gray-400 font-semibold mb-4">Uncompromising quality standards</p>

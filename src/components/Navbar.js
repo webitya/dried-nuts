@@ -268,7 +268,7 @@ export default function Navbar() {
       <div className={`fixed inset-0 z-[200] transition-all duration-700 md:hidden ${mobileMenuOpen ? 'visible' : 'invisible'}`}>
         <div className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-700 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'}`} onClick={() => setMobileMenuOpen(false)} />
         <div className={`absolute top-0 right-0 w-full max-w-sm h-full bg-white shadow-2xl transition-transform duration-700 cubic-bezier(0.77, 0, 0.175, 1) ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="flex flex-col h-full p-8">
+          <div className="flex flex-col h-full p-8 pb-20">
             <div className="flex items-center justify-between mb-12">
               <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                 <div className="relative h-14 w-28">
@@ -289,14 +289,14 @@ export default function Navbar() {
                 { href: '/', label: 'HOME' },
                 { href: '/products', label: 'SHOP' },
                 { href: '/about', label: 'ABOUT US' },
-                { href: '/track-order', label: 'TRACKING' },
+                { href: '/track-order', label: 'TRACK ORDER' },
               ].map(({ href, label }) => {
                 const isActive = pathname === href;
                 return (
                   <Link
                     key={href}
                     href={href}
-                    className={`text-4xl font-bold transition-colors tracking-tight ${
+                    className={`text-2xl font-bold transition-colors tracking-tight ${
                       isActive ? 'text-orange-600' : 'text-gray-900 hover:text-orange-500'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
