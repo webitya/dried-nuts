@@ -59,11 +59,11 @@ function ProductsContent() {
                     <div className="grid grid-cols-2 gap-2 md:gap-10 lg:grid-cols-3">
                         {[...Array(6)].map((_, i) => (
                             <div key={i} className="flex flex-col animate-pulse">
-                                <div className="w-full aspect-square border border-gray-200 rounded-2xl mb-4" />
+                                <div className="w-full aspect-square border border-gray-200 bg-gray-50 rounded-2xl mb-4" />
                                 <div className="space-y-2 px-1">
-                                    <div className="h-4 w-3/4 border border-gray-200 rounded-md" />
-                                    <div className="h-3 w-1/2 border border-gray-200/60 rounded-md" />
-                                    <div className="h-8 w-full border border-gray-200 rounded-xl mt-3" />
+                                    <div className="h-4 w-3/4 border border-gray-200 bg-gray-50 rounded-md" />
+                                    <div className="h-3 w-1/2 border border-gray-200/60 bg-gray-50/50 rounded-md" />
+                                    <div className="h-8 w-full border border-gray-200 bg-gray-50 rounded-xl mt-3" />
                                 </div>
                             </div>
                         ))}
