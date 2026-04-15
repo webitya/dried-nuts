@@ -55,7 +55,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Healthy Bites and Happy Moments. At the intersection of traditional wellness and modern quality. Delivering the finest premium dried nuts and fruits sourced with uncompromising standards.
+              At the intersection of traditional wellness and modern quality. Delivering the finest premium dried nuts and fruits sourced with uncompromising standards.
             </p>
             <div className="flex space-x-6">
               {[Instagram, Facebook, Youtube, Twitter].map((Icon, i) => (
@@ -132,16 +132,6 @@ export default function Footer() {
             © {new Date().getFullYear()} Fusion of Dried Nuts. All rights reserved.
           </p>
           
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 text-xs font-semibold text-orange-500">
-              <Sparkles size={12} />
-              Healthy Bites
-            </div>
-            <div className="w-1 h-1 bg-white/20 rounded-full" />
-            <div className="text-xs text-gray-400">
-              Happy Moments
-            </div>
-          </div>
         </div>
 
         {/* New Row: Webitya Attribution */}

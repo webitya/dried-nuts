@@ -43,7 +43,17 @@ function ProductsContent() {
         <div className="bg-white min-h-screen font-sans selection:bg-orange-100 selection:text-orange-900">
             <Navbar />
 
-            <main className="max-w-[1550px] mx-auto pt-28 pb-16 px-4 sm:px-6 lg:px-8">
+            <main className="max-w-[1550px] mx-auto pt-36 pb-16 px-4 sm:px-6 lg:px-8">
+                
+                {/* Section Header */}
+                <div className="text-center mb-12">
+                    <h1 className="text-3xl md:text-5xl font-bold text-gray-900 uppercase tracking-tight leading-none">
+                        Our Products
+                    </h1>
+                    <div className="flex justify-center mt-6">
+                        <div className="h-1 w-20 bg-orange-500 rounded-full" />
+                    </div>
+                </div>
 
                 {loading ? (
                     <div className="grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3">

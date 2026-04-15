@@ -112,7 +112,7 @@ export default function LoginPage() {
     return (
         <div className="bg-white dark:bg-black min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-grow flex items-center justify-center py-24 px-4 sm:px-6 lg:px-8">
+            <main className="flex-grow flex items-center justify-center pt-40 pb-24 px-4 sm:px-6 lg:px-8">
                 {(status === 'loading' || status === 'authenticated') ? (
                     <div className="flex flex-col items-center space-y-4">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black dark:border-white"></div>
@@ -146,10 +146,10 @@ export default function LoginPage() {
 
                         <div className="mt-8">
                             {/* Social Login Buttons */}
-                            <div className="grid grid-cols-2 gap-3 mb-6">
+                            <div className="flex justify-center mb-6">
                                 <button
                                     onClick={() => handleSocialLogin('Google')}
-                                    className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 cursor-pointer"
+                                    className="max-w-[200px] w-full inline-flex justify-center py-2.5 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 cursor-pointer transition-colors"
                                 >
                                     <span className="sr-only">Sign in with Google</span>
                                     <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -159,17 +159,6 @@ export default function LoginPage() {
                                         <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
                                     </svg>
                                     <span className="ml-2">Google</span>
-                                </button>
-
-                                <button
-                                    onClick={() => handleSocialLogin('Facebook')}
-                                    className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 cursor-pointer"
-                                >
-                                    <span className="sr-only">Sign in with Facebook</span>
-                                    <svg className="w-5 h-5 text-[#1877F2]" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
-                                        <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-                                    </svg>
-                                    <span className="ml-2">Facebook</span>
                                 </button>
                             </div>
 

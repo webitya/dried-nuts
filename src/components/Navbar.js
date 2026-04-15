@@ -25,13 +25,46 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [allProducts, setAllProducts] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
+
+  useEffect(() => {
+    const fetchAllProducts = async () => {
+      try {
+        const res = await fetch('/api/products');
+        const json = await res.json();
+        if (json.success) setAllProducts(json.data);
+      } catch (err) {
+        console.error('Failed to fetch search products:', err);
+      }
+    };
+    fetchAllProducts();
+  }, []);
+
+  useEffect(() => {
+    if (searchQuery.trim().length > 1) {
+      const filtered = allProducts.filter(p => 
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.type.toLowerCase().includes(searchQuery.toLowerCase())
+      ).slice(0, 5);
+      setSuggestions(filtered);
+    } else {
+      setSuggestions([]);
+    }
+  }, [searchQuery, allProducts]);
 
   const handleSearch = (e) => {
     if (e.key === 'Enter' && searchQuery.trim()) {
       router.push(`/products?q=${encodeURIComponent(searchQuery.trim())}`);
-      setSearchOpen(false);
+      setSuggestions([]);
       setSearchQuery('');
     }
+  };
+
+  const handleSuggestionClick = (productId) => {
+    router.push(`/product/${productId}`);
+    setSearchQuery('');
+    setSuggestions([]);
   };
 
   useEffect(() => {
@@ -112,7 +145,7 @@ export default function Navbar() {
               {/* Desktop Cart */}
               <Link
                 href="/cart"
-                className="relative hidden md:flex p-2 transition-all duration-300 hover:scale-110 text-gray-900 hover:text-orange-500"
+                className="relative hidden md:flex p-2 transition-all duration-300 hover:scale-110 text-gray-900 hover:text-orange-500 cursor-pointer"
               >
                 <ShoppingBag size={22} strokeWidth={2} />
                 {cartCount > 0 && (
@@ -126,7 +159,7 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setProfileOpen(!profileOpen)}
-                  className="flex items-center gap-1 p-2 transition-all duration-300 hover:scale-110 text-gray-900 hover:text-orange-500"
+                  className="flex items-center gap-1 p-2 transition-all duration-300 hover:scale-110 text-gray-900 hover:text-orange-500 cursor-pointer"
                 >
                   <User size={22} strokeWidth={2} />
                 </button>

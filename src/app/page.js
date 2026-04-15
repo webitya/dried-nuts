@@ -43,7 +43,7 @@ export default function Home() {
       <CircleCategories />
 
       {/* 4. Home Bestsellers Showcase with Creative Wave Separator */}
-      <section className="bg-white py-24 relative overflow-visible">
+      <section className="bg-white pt-4 pb-24 relative overflow-visible">
         {/* Top Wave Divider */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] -translate-y-[99%]">
           <svg className="relative block w-[calc(100%+1.3px)] h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -52,6 +52,16 @@ export default function Home() {
         </div>
 
         <div className="max-w-[1550px] mx-auto px-6 md:px-12 relative z-10">
+          
+          {/* Section Header */}
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 uppercase tracking-tight leading-none">
+              Our Products
+            </h2>
+            <div className="flex justify-center mt-6">
+              <div className="h-1 w-20 bg-orange-500 rounded-full" />
+            </div>
+          </div>
 
           {loading ? (
             <div className="grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3">
