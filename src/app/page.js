@@ -66,11 +66,17 @@ export default function Home() {
           {loading ? (
             <div className="grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3">
               {[...Array(6)].map((_, i) => (
-                <div key={i} className="flex flex-col animate-pulse">
-                  <div className="w-full aspect-square border border-gray-200 rounded-2xl mb-4" />
+                <div key={i} className="flex flex-col animate-pulse relative">
+                  <div className="w-full aspect-square border-2 border-gray-100 bg-gray-100 rounded-2xl mb-4 flex items-center justify-center">
+                    <div className="relative">
+                      <div className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-orange-100 border-t-orange-400 animate-spin" />
+                      <ShoppingBag className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-orange-200" size={16} />
+                    </div>
+                  </div>
                   <div className="space-y-2 px-1">
-                    <div className="h-4 w-3/4 border border-gray-200 rounded-md" />
-                    <div className="h-3 w-1/2 border border-gray-200/60 rounded-md" />
+                    <div className="h-4 w-3/4 bg-gray-200 rounded-md" />
+                    <div className="h-3 w-1/2 bg-gray-100 rounded-md" />
+                    <div className="h-10 w-full bg-gray-100 rounded-xl mt-3" />
                   </div>
                 </div>
               ))}

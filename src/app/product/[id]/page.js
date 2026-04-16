@@ -77,18 +77,48 @@ export default function ProductPage({ params }) {
         return (
             <div className="bg-white min-h-screen flex flex-col pt-36 md:pt-32">
                 <Navbar />
-                <div className="max-w-7xl mx-auto px-4 py-20 w-full animate-pulse opacity-40">
-                    <div className="lg:grid lg:grid-cols-2 lg:gap-16">
-                        <div className="aspect-square border-2 border-gray-100 rounded-[2rem]" />
-                        <div className="space-y-8 mt-10 lg:mt-0">
-                            <div>
-                                <div className="h-3 w-20 border border-gray-100 rounded-full mb-4" />
-                                <div className="h-12 w-3/4 border-2 border-gray-100 rounded-2xl" />
+                <div className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20 relative">
+                    {/* Central Spinner */}
+                    <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+                        <div className="flex flex-col items-center">
+                            <div className="relative">
+                                <div className="h-16 w-16 rounded-full border-4 border-orange-100 border-t-orange-600 animate-spin" />
+                                <ShoppingBag className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-orange-600" size={24} />
                             </div>
+                        </div>
+                    </div>
+
+                    <div className="lg:grid lg:grid-cols-12 lg:gap-x-12 items-start select-none pointer-events-none">
+                        {/* LEFT: Skeleton Gallery */}
+                        <div className="lg:col-span-5 space-y-4">
+                            <div className="aspect-square bg-gray-200 rounded-[2rem] w-full" />
+                            <div className="flex space-x-2">
+                                {[1, 2, 3, 4].map(i => (
+                                    <div key={i} className="h-14 w-14 lg:h-16 lg:w-16 rounded-xl bg-gray-200 shrink-0" />
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* RIGHT: Skeleton Info */}
+                        <div className="lg:col-span-7 mt-8 lg:mt-0 space-y-6">
                             <div className="space-y-4">
-                                <div className="h-24 w-full border border-gray-100 rounded-3xl" />
-                                <div className="h-24 w-full border border-gray-100 rounded-3xl" />
+                                <div className="h-4 w-24 bg-gray-200 rounded-full" />
+                                <div className="h-10 w-3/4 bg-gray-200 rounded-2xl" />
+                                <div className="h-8 w-32 bg-gray-200 rounded-xl" />
                             </div>
+                            
+                            <div className="h-16 w-full bg-gray-100 rounded-2xl" />
+                            
+                            <div className="space-y-3">
+                                <div className="h-3 w-20 bg-gray-200 rounded-full" />
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="h-20 bg-gray-100 rounded-xl" />
+                                    <div className="h-20 bg-gray-100 rounded-xl" />
+                                </div>
+                            </div>
+
+                            <div className="h-32 w-full bg-gray-100 rounded-3xl" />
+                            <div className="h-14 w-full bg-gray-300 rounded-xl" />
                         </div>
                     </div>
                 </div>
