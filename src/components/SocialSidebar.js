@@ -34,15 +34,15 @@ export default function SocialSidebar() {
   ];
 
   return (
-    <div className="fixed left-0 top-[60%] -translate-y-1/2 z-[9999] hidden md:flex flex-col gap-1 items-start">
+    <div className="fixed left-0 top-[65%] md:top-[60%] -translate-y-1/2 z-[9999] flex flex-col gap-1 items-start">
       {socials.map(({ icon: Icon, href, color, id }) => (
         <Link 
           key={id} 
           href={href} 
           target={href.startsWith('http') ? "_blank" : "_self"}
-          className={`flex items-center justify-center w-11 h-11 ${color} text-white rounded-r-xl transition-all duration-300 shadow-lg hover:w-14 cursor-pointer overflow-hidden`}
+          className={`flex items-center justify-center w-9 h-9 md:w-11 md:h-11 ${color} text-white rounded-r-lg md:rounded-r-xl transition-all duration-300 shadow-lg hover:w-12 md:hover:w-14 cursor-pointer overflow-hidden`}
         >
-          <Icon className="w-5 h-5" />
+          <Icon className="w-4 h-4 md:w-5 md:h-5" />
         </Link>
       ))}
     </div>
