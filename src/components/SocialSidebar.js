@@ -1,13 +1,19 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { 
   Instagram, 
-  Facebook, 
-  MessageCircle
+  Facebook
 } from 'lucide-react';
 
 export default function SocialSidebar() {
+  const pathname = usePathname();
+  
+  // Don't show on admin routes
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
   const socials = [
     { 
       id: 'facebook',
