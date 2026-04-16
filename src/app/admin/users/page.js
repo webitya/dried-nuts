@@ -42,7 +42,7 @@ export default function AdminUsers() {
     if (loading) {
         return (
             <div className="flex items-center justify-center p-20">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-black"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-600"></div>
             </div>
         );
     }
@@ -102,7 +102,7 @@ export default function AdminUsers() {
                                         )}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                        <span className={`px-3 py-1 text-xs font-bold rounded-none ${user.role === 'admin' ? 'bg-black text-white' : 'bg-gray-100 text-gray-600'
+                                        <span className={`px-3 py-1 text-xs font-bold rounded-none ${user.role === 'admin' ? 'bg-orange-600 text-white' : 'bg-gray-100 text-gray-600'
                                             }`}>
                                             {user.role}
                                         </span>

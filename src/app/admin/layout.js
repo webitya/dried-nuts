@@ -66,8 +66,8 @@ export default function AdminLayout({ children }) {
                                 href={item.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className={`flex items-center space-x-3 px-4 py-3 rounded-none transition-colors ${isActive
-                                    ? 'bg-white text-black font-semibold'
-                                    : 'text-gray-400 hover:bg-gray-900 hover:text-white'
+                                    ? 'bg-orange-600 text-white font-semibold'
+                                    : 'text-gray-400 hover:bg-orange-600/10 hover:text-orange-500'
                                     }`}
                             >
                                 <Icon size={20} />

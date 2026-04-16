@@ -17,22 +17,22 @@ import {
 } from 'lucide-react';
 
 export default function Footer() {
-  const [categories, setCategories] = useState(['Almonds', 'Cashews', 'Pistachios', 'Dry Fruits', 'Mixed Nuts']);
+  const [recentProducts, setRecentProducts] = useState([]);
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchRecentProducts = async () => {
       try {
         const res = await fetch('/api/products');
         const json = await res.json();
         if (json.success && json.data.length > 0) {
-          const uniqueTypes = [...new Set(json.data.map(p => p.type))];
-          if (uniqueTypes.length > 0) setCategories(uniqueTypes);
+          const sorted = [...json.data].sort((a,b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+          setRecentProducts(sorted.slice(0, 6));
         }
       } catch (error) {
-        console.error('Failed to fetch categories for footer:', error);
+        console.error('Failed to fetch recent products for footer:', error);
       }
     };
-    fetchCategories();
+    fetchRecentProducts();
   }, []);
 
   return (
@@ -70,14 +70,16 @@ export default function Footer() {
           <div>
             <h4 className="text-base font-semibold text-white mb-8">Curated Collections</h4>
             <ul className="space-y-4">
-              {categories.map((cat) => (
-                <li key={cat}>
-                  <Link href="/products" className="text-sm text-gray-400 hover:text-white transition-colors flex items-center group">
-                    {cat}
+              {recentProducts.length > 0 ? recentProducts.map((product) => (
+                <li key={product._id}>
+                  <Link href={`/product/${product._id}`} className="text-sm text-gray-400 hover:text-white transition-colors flex items-center group">
+                    {product.name}
                     <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform opacity-0 group-hover:opacity-100" />
                   </Link>
                 </li>
-              ))}
+              )) : (
+                 <li className="text-sm text-gray-400">Loading products...</li>
+              )}
             </ul>
           </div>
 
@@ -88,7 +90,9 @@ export default function Footer() {
               {[
                 { href: '/track-order', label: 'Track Order' },
                 { href: '/orders', label: 'My Orders' },
-                { href: '/privacy', label: 'Privacy Policy' },
+                { href: '/shipping', label: 'Shipping Policies' },
+                { href: '/refund', label: 'Refund Policies' },
+                { href: '/privacy', label: 'Privacy Policies' },
                 { href: '/terms', label: 'Terms & Conditions' },
               ].map(({ href, label }) => (
                 <li key={href}>

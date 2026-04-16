@@ -242,7 +242,7 @@ export default function AdminProducts() {
                 {!isFormOpen ? (
                     <button
                         onClick={() => { setIsFormOpen(true); setEditingId(null); setNewProduct(initialProductState); }}
-                        className="flex items-center space-x-2 px-6 py-2.5 bg-black text-white hover:bg-orange-600 transition-all font-black text-[10px] uppercase tracking-widest cursor-pointer shadow-xl shadow-orange-50"
+                        className="flex items-center space-x-2 px-6 py-2.5 bg-orange-600 text-white hover:bg-orange-700 transition-all font-black text-[10px] uppercase tracking-widest cursor-pointer shadow-xl shadow-orange-50"
                     >
                         <Plus size={16} />
                         <span>Add New Product</span>
@@ -430,7 +430,7 @@ export default function AdminProducts() {
                             <button
                                 type="submit"
                                 disabled={saving}
-                                className="w-full md:w-80 bg-black text-white py-5 font-bold uppercase tracking-[0.4em] text-[12px] hover:bg-orange-600 disabled:bg-gray-400 transition-all border border-black flex items-center justify-center shadow-xl"
+                                className="w-full md:w-80 bg-orange-600 text-white py-5 font-bold uppercase tracking-[0.4em] text-[12px] hover:bg-orange-700 disabled:bg-gray-400 transition-all border border-transparent flex items-center justify-center shadow-xl"
                             >
                                 {saving ? <Loader2 className="animate-spin" size={20} /> : (editingId ? 'CONFIRM CHANGES' : 'PUBLISH COLLECTION')}
                             </button>

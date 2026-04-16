@@ -159,7 +159,7 @@ export default function AdminOrders() {
                             key={status}
                             onClick={() => setFilter(status)}
                             className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-tight transition-all ${filter === status
-                                ? 'bg-black text-white shadow-sm'
+                                ? 'bg-orange-600 text-white shadow-sm'
                                 : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300'
                                 }`}
                         >
@@ -266,56 +266,28 @@ export default function AdminOrders() {
                         {/* Modal Body */}
                         <div className="flex-1 overflow-y-auto p-6 space-y-8">
 
-                            {/* Simple Status Progress */}
+                            {/* Simple Status Buttons */}
                             <div className="space-y-4">
-                                <div className="w-full overflow-x-auto pb-6 scrollbar-hide">
-                                    <div className="flex items-center justify-between min-w-[900px] px-8">
-                                        {statusOptions.map((status, index, arr) => {
-                                            const statusPriority = {
-                                                'Pending': 0,
-                                                'Processing': 1,
-                                                'Order Confirmed': 2,
-                                                'Shipped': 3,
-                                                'Delivered': 4,
-                                                'Return/Replacement Initiated': 5,
-                                                'Refund completed': 6,
-                                                'Cancelled': 7
-                                            };
-
-                                            const currentPriority = statusPriority[selectedOrder.status] || 0;
-                                            const stepPriority = statusPriority[status] || 0;
-                                            const isDone = stepPriority <= currentPriority && (selectedOrder.status !== 'Cancelled' || status === 'Cancelled' || stepPriority < statusPriority['Cancelled']);
-
-                                            // Handle cancelled special case for progress line
-                                            const lineDone = stepPriority < currentPriority;
-
-                                            return (
-                                                <div key={status} className="flex-1 flex flex-col items-center relative">
-                                                    {/* Connecting Line */}
-                                                    {index < arr.length - 1 && (
-                                                        <div className={`absolute top-4 left-1/2 w-full h-0.5 ${lineDone ? 'bg-black' : 'bg-gray-100'}`} />
-                                                    )}
-
-                                                    {/* Status Circle */}
-                                                    <button
-                                                        onClick={() => handleUpdateStatus(selectedOrder._id, status)}
-                                                        disabled={updating}
-                                                        className={`w-8 h-8 rounded-full border-2 flex items-center justify-center z-10 transition-all ${isDone
-                                                            ? (status === 'Cancelled' ? 'bg-red-500 border-red-500 text-white' : 'bg-black border-black text-white')
-                                                            : 'bg-white border-gray-200 text-gray-300'
-                                                            } ${status === selectedOrder.status ? 'ring-4 ring-black/5 scale-110' : 'hover:scale-105 hover:border-black'}`}
-                                                    >
-                                                        {isDone ? <CheckCircle2 size={14} /> : <div className="w-1.5 h-1.5 rounded-full bg-current" />}
-                                                    </button>
-
-                                                    {/* Label */}
-                                                    <span className={`mt-3 text-[8px] font-bold uppercase tracking-tighter text-center px-1 leading-tight ${status === selectedOrder.status ? 'text-black' : 'text-gray-400'}`}>
-                                                        {status}
-                                                    </span>
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
+                                <div className="flex flex-wrap gap-2">
+                                    {statusOptions.map((status) => {
+                                        const isActive = status === selectedOrder.status;
+                                        const isCancelled = status === 'Cancelled';
+                                        
+                                        return (
+                                            <button
+                                                key={status}
+                                                onClick={() => handleUpdateStatus(selectedOrder._id, status)}
+                                                disabled={updating}
+                                                className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-tight transition-all border ${
+                                                    isActive 
+                                                        ? (isCancelled ? 'bg-red-600 text-white border-red-600 shadow-sm outline-none ring-2 ring-red-600/20' : 'bg-orange-600 text-white border-orange-600 shadow-sm outline-none ring-2 ring-orange-600/20')
+                                                        : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                                                }`}
+                                            >
+                                                {status}
+                                            </button>
+                                        );
+                                    })}
                                 </div>
                                 {selectedOrder.status === 'Cancelled' && (
                                     <div className="bg-red-50 text-red-600 text-center py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest border border-red-100">
@@ -362,8 +334,7 @@ export default function AdminOrders() {
                                 <button
                                     onClick={handleUpdateTracking}
                                     disabled={updating}
-                                    className="w-full py-2 bg-black text-white rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-gray-800 disabled:opacity-50 transition-all"
-                                >
+                                    className="w-full py-2 bg-orange-600 text-white rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-orange-700 disabled:opacity-50 transition-all"                                >
                                     {updating ? 'Updating...' : 'Save Tracking Information'}
                                 </button>
                             </div>
@@ -469,26 +440,26 @@ export default function AdminOrders() {
                                 </div>
 
                                 {/* Summary Card */}
-                                <div className="bg-black text-white rounded-xl p-5 shadow-lg relative overflow-hidden">
+                                <div className="bg-orange-600 text-white rounded-xl p-5 shadow-lg relative overflow-hidden">
                                     <div className="relative z-10 flex flex-col h-full">
-                                        <div className="flex items-center gap-2 mb-4 text-gray-400">
+                                        <div className="flex items-center gap-2 mb-4 text-orange-100/90">
                                             <FileText size={14} />
                                             <h3 className="text-xs font-bold uppercase tracking-wider">Order Items</h3>
                                         </div>
 
                                         <div className="flex-1 space-y-3 mb-6">
-                                            <div className="flex justify-between text-xs text-gray-400">
+                                            <div className="flex justify-between text-xs text-orange-100">
                                                 <span>Subtotal</span>
                                                 <span>₹{selectedOrder.totalAmount.toLocaleString()}</span>
                                             </div>
-                                            <div className="flex justify-between text-xs text-gray-400">
+                                            <div className="flex justify-between text-xs text-orange-100">
                                                 <span>Shipping</span>
-                                                <span className="text-green-400 text-[10px] font-bold">FREE</span>
+                                                <span className="text-white text-[10px] font-bold">FREE</span>
                                             </div>
                                         </div>
 
-                                        <div className="pt-4 border-t border-white/10 flex justify-between items-end">
-                                            <span className="text-xs font-bold uppercase text-gray-500">Total</span>
+                                        <div className="pt-4 border-t border-white/20 flex justify-between items-end">
+                                            <span className="text-xs font-bold uppercase text-white/90">Total</span>
                                             <span className="text-3xl font-bold tracking-tighter">₹{selectedOrder.totalAmount.toLocaleString()}</span>
                                         </div>
                                     </div>
@@ -507,12 +478,12 @@ export default function AdminOrders() {
                                     {selectedOrder.items.map((item, idx) => (
                                         <div key={idx} className="p-4 flex items-center gap-4 hover:bg-gray-50/50 transition-colors">
                                             <div className="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0 border border-gray-200">
-                                                <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                                                <img src={item.image || '/placeholder.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.png'; }} alt={item.name} className="w-full h-full object-cover" />
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className="text-sm font-semibold text-gray-900 truncate">{item.name}</p>
                                                 <p className="text-[10px] text-gray-500 font-medium">
-                                                    QTY: {item.quantity} • SHADE: {item.variantName}
+                                                    QTY: {item.quantity} {item.variantName ? `• PACK: ${item.variantName}` : ''}
                                                 </p>
                                             </div>
                                             <div className="text-sm font-bold text-gray-900 pr-2">

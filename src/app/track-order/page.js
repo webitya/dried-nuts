@@ -277,7 +277,7 @@ function TrackOrderContent() {
                                 {order?.items?.map((item, idx) => (
                                     <div key={idx} className="flex items-center gap-3 bg-gray-50 dark:bg-zinc-800/50 p-2 rounded-xl border border-dotted border-gray-200 dark:border-gray-800 flex-1 min-w-[140px]">
                                         <div className="w-10 h-10 bg-white dark:bg-zinc-800 rounded-lg overflow-hidden border border-gray-100 dark:border-zinc-800 flex-shrink-0">
-                                            {item?.image ? <img src={item.image} alt="" className="w-full h-full object-cover" /> : <div className="w-full h-full bg-gray-200" />}
+                                            <img src={item?.image || '/placeholder.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.png'; }} alt="" className="w-full h-full object-cover" />
                                         </div>
                                         <div className="min-w-0 pr-2">
                                             <p className="text-[10px] font-bold text-gray-900 dark:text-white truncate uppercase">{item?.name || 'Unknown Item'}</p>

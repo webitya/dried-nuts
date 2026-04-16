@@ -35,7 +35,7 @@ export default function AdminDashboard() {
     if (loading) {
         return (
             <div className="flex items-center justify-center p-20">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-black"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-600"></div>
             </div>
         );
     }
@@ -110,7 +110,7 @@ export default function AdminDashboard() {
                 <div className="bg-white rounded-none shadow-sm border border-gray-100 overflow-hidden">
                     <div className="px-6 py-5 border-b border-gray-100 flex justify-between items-center">
                         <h3 className="text-lg font-bold text-gray-900">Recent Orders</h3>
-                        <Link href="/admin/orders" className="text-sm font-semibold text-black hover:underline flex items-center">
+                        <Link href="/admin/orders" className="text-sm font-semibold text-orange-600 hover:text-orange-700 hover:underline flex items-center">
                             View All <ArrowRight size={16} className="ml-1" />
                         </Link>
                     </div>

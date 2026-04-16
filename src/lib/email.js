@@ -11,13 +11,18 @@ const transporter = nodemailer.createTransport({
 });
 
 const getStatusDetails = (status, order) => {
+    const isCOD = order.paymentMethod === 'COD';
+    const amountStr = `₹${(order.totalAmount || 0).toLocaleString()}`;
+
     switch (status) {
         case 'Order Confirmed':
             return {
                 subject: 'High Five! Your order is confirmed 🥂',
                 title: 'Order Confirmed',
-                message: "Great news! Your payment was successful and your order is now officially confirmed. We're starting to prep your premium collection with care.",
-                color: '#10b981',
+                message: isCOD 
+                    ? `Great news! Your Cash on Delivery (COD) order has been successfully confirmed. Please keep cash ready (${amountStr}) at the time of delivery. We're starting to prep your premium collection with care.`
+                    : `Great news! We have successfully received your online payment of ${amountStr} and your order is now officially confirmed. We're starting to prep your premium collection with care.`,
+                color: '#ea580c', // Brand Orange
                 icon: '✅'
             };
         case 'Processing':
@@ -32,7 +37,7 @@ const getStatusDetails = (status, order) => {
             return {
                 subject: 'On its way! Your order has been shipped 🚚',
                 title: 'Order Shipped',
-                message: `Exciting news! Your order is out for delivery. You can track it using the details below. Stay ready for your healthy bites!`,
+                message: `Exciting news! Your order is out for delivery. You can track it using the details below. ${isCOD ? `Friendly reminder: Please keep ${amountStr} ready for your Cash on Delivery payment.` : 'Your order is fully prepaid.'} Stay ready for your healthy bites!`,
                 color: '#3b82f6',
                 icon: '🚚'
             };
@@ -48,7 +53,9 @@ const getStatusDetails = (status, order) => {
             return {
                 subject: 'Update regarding your order cancellation ❌',
                 title: 'Order Cancelled',
-                message: "Your order has been cancelled. If you didn't request this, please contact our support team immediately. Any payments made will be refunded as per our policy.",
+                message: isCOD 
+                    ? `Your COD order has been cancelled. If you didn't request this, please contact our support team immediately.`
+                    : `Your prepaid order has been cancelled. If you didn't request this, please contact our support team immediately. Any payments made will be refunded as per our policy.`,
                 color: '#ef4444',
                 icon: '✕'
             };
@@ -68,12 +75,22 @@ const getStatusDetails = (status, order) => {
                 color: '#10b981',
                 icon: '💰'
             };
+        case 'Pending':
+            return {
+                subject: 'Order Received - Pending Confirmation ⏳',
+                title: 'Order Pending',
+                message: isCOD 
+                    ? `We have received your Cash on Delivery (COD) order. We will verify and confirm it shortly!`
+                    : `We have received your order. We are waiting for payment confirmation. Check back soon for an update!`,
+                color: '#eab308',
+                icon: '⏳'
+            };
         default:
             return {
-                subject: `Update on your Order #${order._id.toString().slice(-6).toUpperCase()}`,
+                subject: `Update on your Order #${order._id.toString().slice(-6).toUpperCase()} 🔔`,
                 title: 'Order Update',
                 message: `There's a new update on your order. Current status: ${status}. Check the link below for full details.`,
-                color: '#000000',
+                color: '#ea580c',
                 icon: '🔔'
             };
     }
