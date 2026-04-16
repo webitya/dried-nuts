@@ -55,18 +55,35 @@ export default function LoginPage() {
         }
     };
 
-    const handleRegisterStep1 = (e) => {
+    const handleRegisterStep1 = async (e) => {
         e.preventDefault();
-        // Simulate sending OTP
-        setOtpSent(true);
-        // In a real production app, you'd call an API here to send a real SMS/Email OTP
-        console.log(`OTP for ${registerData.phone}: 1234`);
+        setLoading(true);
+        setError('');
+        
+        try {
+            const res = await fetch('/api/send-otp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: registerData.email })
+            });
+            const data = await res.json();
+            
+            if (res.ok) {
+                setOtpSent(true);
+            } else {
+                setError(data.message || 'Failed to send OTP');
+            }
+        } catch (err) {
+            setError('Error sending OTP. Please try again.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleRegisterStep2 = async (e) => {
         e.preventDefault();
-        if (otp !== '1234') {
-            setError('Invalid OTP. Please try 1234.');
+        if (!otp || otp.length < 4) {
+            setError('Please enter a valid OTP.');
             return;
         }
 
@@ -76,7 +93,7 @@ export default function LoginPage() {
             const res = await fetch('/api/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(registerData),
+                body: JSON.stringify({ ...registerData, otp }),
             });
 
             const data = await res.json();
@@ -265,7 +282,7 @@ export default function LoginPage() {
                                     ) : (
                                         <>
                                             <div className="text-center mb-4">
-                                                <p className="text-sm text-gray-600 dark:text-gray-400">Enter the OTP sent to {registerData.phone}</p>
+                                                <p className="text-sm text-gray-600 dark:text-gray-400">Enter the OTP sent to {registerData.email}</p>
                                             </div>
                                             <div>
                                                 <label htmlFor="otp" className="block text-sm font-medium text-gray-700 dark:text-gray-300">OTP Code</label>
@@ -275,7 +292,7 @@ export default function LoginPage() {
                                                     type="text"
                                                     required
                                                     className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black sm:text-sm text-center tracking-widest text-xl"
-                                                    placeholder="1234"
+                                                    placeholder="Enter 6-digit OTP"
                                                     value={otp}
                                                     onChange={(e) => setOtp(e.target.value)}
                                                 />

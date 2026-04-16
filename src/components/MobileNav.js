@@ -3,17 +3,18 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, ShoppingBag, User } from 'lucide-react';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/CartContext';import { useAuth } from '../context/AuthContext';
 
 export default function MobileNav() {
   const pathname = usePathname();
   const { cartCount } = useCart();
+  const { isAuthenticated } = useAuth();
 
   const navItems = [
     { label: 'Home', icon: Home, href: '/' },
     { label: 'Shop', icon: ShoppingBag, href: '/products' },
     { label: 'Cart', icon: ShoppingBag, href: '/cart', isCart: true },
-    { label: 'Account', icon: User, href: '/login' },
+    { label: 'Account', icon: User, href: isAuthenticated ? '/account' : '/login' },
   ];
 
   return (
