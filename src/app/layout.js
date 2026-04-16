@@ -14,12 +14,15 @@ export const metadata = {
   keywords: "dried nuts, fusion of dried nuts, healthy living, premium nuts, luxury dried fruits, kolkata nuts",
 };
 
+import SocialSidebar from "@/components/SocialSidebar";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased pb-20 md:pb-0`}>
         <Providers>
           {children}
+          <SocialSidebar />
           <MobileNav />
           <div id="toast-root"></div>
         </Providers>
