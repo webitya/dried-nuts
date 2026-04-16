@@ -309,3 +309,85 @@ export const sendOrderStatusEmail = async (order, customStatus = null) => {
 export const sendOrderConfirmationEmail = async (order) => {
     return sendOrderStatusEmail(order, 'Order Confirmed');
 };
+
+export const sendBulkOrderEnquiryEmail = async (enquiry) => {
+    const mailOptions = {
+        from: `"Fusion of Dried Nuts" <Info@fusionofdriednutspvtltd.co.in>`,
+        to: process.env.EMAIL_USER, // Send to admin
+        replyTo: 'Info@fusionofdriednutspvtltd.co.in',
+        subject: `New Bulk Order Enquiry: ${enquiry.name} 📦`,
+        html: `
+            <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; max-width: 500px; color: #333;">
+                <h2 style="color: #ea580c; font-size: 18px; margin-top: 0;">New Bulk Enquiry</h2>
+                <p style="font-size: 14px; margin: 8px 0;"><strong>Customer:</strong> ${enquiry.name}</p>
+                <p style="font-size: 14px; margin: 8px 0;"><strong>Email:</strong> ${enquiry.email}</p>
+                <p style="font-size: 14px; margin: 8px 0;"><strong>Phone:</strong> ${enquiry.phone}</p>
+                <p style="font-size: 14px; margin: 8px 0;"><strong>Company:</strong> ${enquiry.company || 'N/A'}</p>
+                <p style="font-size: 14px; margin: 8px 0;"><strong>Interest:</strong> ${enquiry.product}</p>
+                <p style="font-size: 14px; margin: 8px 0;"><strong>Quantity:</strong> ${enquiry.quantity}</p>
+                <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #ddd;">
+                    <p style="font-size: 14px;"><strong>Requirements:</strong></p>
+                    <p style="font-size: 14px; line-height: 1.5; white-space: pre-wrap; color: #555;">${enquiry.message || 'No message provided.'}</p>
+                </div>
+                <br />
+                <a href="${process.env.NEXT_PUBLIC_BASE_URL}/admin/bulk-orders" style="background: black; color: white; padding: 12px 20px; text-decoration: none; border-radius: 4px; display: inline-block; font-size: 13px; font-weight: bold;">View in Admin Panel</a>
+            </div>
+        `
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        return { success: true };
+    } catch (error) {
+        console.error('Bulk Enquiry Email Error:', error);
+        return { success: false, error };
+    }
+};
+
+export const sendBulkOrderStatusUpdateEmail = async (enquiry) => {
+    const isAccepted = enquiry.status === 'Accepted';
+    
+    const mailOptions = {
+        from: `"Fusion of Dried Nuts" <Info@fusionofdriednutspvtltd.co.in>`,
+        to: enquiry.email,
+        replyTo: 'Info@fusionofdriednutspvtltd.co.in',
+        subject: isAccepted 
+            ? `Update: Your Bulk Enquiry has been Accepted 🎉` 
+            : `Update: Regarding your Bulk Enquiry`,
+        html: `
+            <div style="font-family: Arial, sans-serif; padding: 30px; border: 1px solid #eee; max-width: 500px; color: #333;">
+                <h2 style="color: ${isAccepted ? '#16a34a' : '#dc2626'}; font-size: 20px; margin-top: 0;">Enquiry ${enquiry.status}</h2>
+                <p style="font-size: 14px;">Hi ${enquiry.name},</p>
+                <p style="font-size: 14px; line-height: 1.5; color: #555;">
+                    ${isAccepted 
+                        ? 'Your bulk order proposal has been accepted! Our specialists have reviewed your requirements and are ready to proceed.' 
+                        : 'We have reviewed your bulk order enquiry and provided an update below.'}
+                </p>
+                
+                <div style="background-color: #f9fafb; padding: 15px; border-left: 4px solid ${isAccepted ? '#16a34a' : '#dc2626'}; margin: 25px 0;">
+                    <p style="margin: 0; font-size: 11px; text-transform: uppercase; color: #999; font-weight: bold;">Our message to you:</p>
+                    <p style="margin: 8px 0 0 0; font-size: 14px; color: #333; line-height: 1.5;">"${enquiry.adminThought}"</p>
+                </div>
+
+                <p style="font-size: 13px; color: #777; line-height: 1.5;">
+                    Our team will contact you shortly to discuss next steps. If you have any questions, please reply directly to this email.
+                </p>
+
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center;">
+                    <p style="font-size: 12px; color: #999; margin: 0;">
+                        Fusion of Dried Nuts Private Limited<br />
+                        Info@fusionofdriednutspvtltd.co.in
+                    </p>
+                </div>
+            </div>
+        `
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        return { success: true };
+    } catch (error) {
+        console.error('Bulk Status Update Email Error:', error);
+        return { success: false, error };
+    }
+};

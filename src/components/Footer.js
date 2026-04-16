@@ -88,6 +88,7 @@ export default function Footer() {
             <h4 className="text-base font-semibold text-white mb-8">Help & Assistance</h4>
             <ul className="space-y-4">
               {[
+                { href: '/bulk-order', label: 'Bulk Order Enquiry' },
                 { href: '/track-order', label: 'Track Order' },
                 { href: '/orders', label: 'My Orders' },
                 { href: '/shipping', label: 'Shipping Policies' },

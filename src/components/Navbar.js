@@ -102,6 +102,7 @@ export default function Navbar() {
                   { href: '/', label: 'HOME' },
                   { href: '/products', label: 'SHOP' },
                   { href: '/about', label: 'ABOUT US' },
+                  { href: '/bulk-order', label: 'BULK ORDER' },
                 ].map(({ href, label }) => {
                   const isActive = pathname === href;
                   return (
@@ -287,6 +288,7 @@ export default function Navbar() {
                 { href: '/', label: 'HOME' },
                 { href: '/products', label: 'SHOP' },
                 { href: '/about', label: 'ABOUT US' },
+                { href: '/bulk-order', label: 'BULK ORDER' },
                 { href: '/track-order', label: 'TRACK ORDER' },
               ].map(({ href, label }) => {
                 const isActive = pathname === href;

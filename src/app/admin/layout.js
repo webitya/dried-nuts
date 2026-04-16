@@ -9,7 +9,8 @@ import {
     Users,
     LogOut,
     Menu,
-    X
+    X,
+    ShoppingBag
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -27,6 +28,7 @@ export default function AdminLayout({ children }) {
         { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
         { name: 'Products', href: '/admin/products', icon: Package },
         { name: 'Orders', href: '/admin/orders', icon: ShoppingCart },
+        { name: 'Bulk Orders', href: '/admin/bulk-orders', icon: ShoppingBag },
         { name: 'Users', href: '/admin/users', icon: Users },
     ];
 
