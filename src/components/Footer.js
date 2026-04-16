@@ -110,11 +110,14 @@ export default function Footer() {
                 </div>
                 <span className="text-sm text-gray-400 leading-relaxed">1863 Rajdanga Main Road, <br />E.K.T, Kolkata – 700107</span>
               </li>
-              <li className="flex items-center gap-4">
-                <div className="p-2.5 bg-white/5 rounded-xl text-orange-500">
+              <li className="flex items-start gap-4">
+                <div className="p-2.5 bg-white/5 rounded-xl text-orange-500 mt-1">
                   <Mail size={18} />
                 </div>
-                <span className="text-sm text-gray-400 break-all">info@fusionofdriednuts.co.in</span>
+                <div className="flex flex-col">
+                  <a href="mailto:Info@fusionofdriednutspvtltd.co.in" className="text-sm text-gray-400 break-all hover:text-white transition-colors">Info@fusionofdriednutspvtltd.co.in</a>
+                  <a href="mailto:fusionofdriednuts19pvtltd@gmail.com" className="text-sm text-gray-400 break-all hover:text-white transition-colors mt-1">fusionofdriednuts19pvtltd@gmail.com</a>
+                </div>
               </li>
               <li className="flex items-center gap-4">
                 <div className="p-2.5 bg-white/5 rounded-xl text-orange-500">
@@ -129,7 +132,7 @@ export default function Footer() {
         {/* Bottom Bar: Copyright & Brand Tags */}
         <div className="mt-10 md:mt-20 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-xs text-gray-600">
-            © {new Date().getFullYear()} Fusion of Dried Nuts. All rights reserved.
+            © {new Date().getFullYear()} Fusion of Dried Nuts Private Limited. All rights reserved.
           </p>
           
         </div>
