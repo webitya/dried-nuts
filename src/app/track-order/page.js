@@ -190,7 +190,7 @@ function TrackOrderContent() {
                                                             )}
 
                                                             {/* Status Circle */}
-                                                            <div className={`relative z-10 w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${isDone ? 'bg-orange-600 border-orange-600 text-white' :
+                                                            <div className={`relative z-10 shrink-0 w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${isDone ? 'bg-orange-600 border-orange-600 text-white' :
                                                                 'bg-white dark:bg-zinc-900 border-gray-300 dark:border-zinc-700 text-gray-400'
                                                                 } ${isActive ? 'ring-4 ring-orange-500/10 scale-110 shadow-lg' : ''} ${(isActive || isUpcoming) && (currentStatus !== 'Delivered' && currentStatus !== 'Refund completed' && currentStatus !== 'Cancelled') ? 'animate-tracking-pulse' : ''
                                                                 }`}>

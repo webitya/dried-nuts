@@ -82,7 +82,7 @@ export default function OrdersPage() {
     return (
         <div className="bg-white dark:bg-black min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-grow max-w-4xl mx-auto pt-24 pb-16 px-4 w-full">
+            <main className="flex-grow max-w-4xl mx-auto pt-36 pb-16 px-4 w-full">
                 <div className="flex items-center justify-between mb-8 border-b border-gray-100 dark:border-gray-800 pb-4">
                     <div>
                         <h1 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Purchase History</h1>
@@ -107,11 +107,7 @@ export default function OrdersPage() {
                                 <div className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                     <div className="flex items-center gap-4">
                                         <div className="h-14 w-11 bg-gray-50 dark:bg-zinc-800 rounded-lg border border-gray-100 dark:border-gray-800 overflow-hidden flex-shrink-0 relative">
-                                            {order?.items?.[0]?.image ? (
-                                                <img src={order.items[0].image} alt="" className="h-full w-full object-cover" />
-                                            ) : (
-                                                <div className="h-full w-full flex items-center justify-center text-gray-300"><Package size={16} /></div>
-                                            )}
+                                            <img src={order?.items?.[0]?.image || '/placeholder.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.png'; }} alt="" className="h-full w-full object-cover" />
                                             {order?.items?.length > 1 && (
                                                 <div className="absolute bottom-0 right-0 bg-black/80 text-white text-[8px] px-1 font-bold rounded-tl-md">+{order.items.length - 1}</div>
                                             )}

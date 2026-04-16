@@ -180,29 +180,27 @@ export default function Navbar() {
               {/* Profile */}
               <div className="relative">
                 <button
-                  onClick={() => setProfileOpen(!profileOpen)}
+                  onClick={() => {
+                    if (isAuthenticated) {
+                      setProfileOpen(!profileOpen);
+                    } else {
+                      router.push('/login');
+                    }
+                  }}
                   className="flex items-center gap-1 p-2 transition-all duration-300 hover:scale-110 text-gray-900 hover:text-orange-500 cursor-pointer"
                 >
                   <User size={22} strokeWidth={2} />
                 </button>
 
-                {profileOpen && (
-                  <div className="absolute right-0 mt-4 w-64 bg-white rounded-2xl shadow-2xl py-4 border border-gray-100 z-50 animate-fade-in">
-                    {isAuthenticated ? (
-                      <>
-                        <div className="px-6 py-3 border-b border-gray-50 mb-2">
-                          <p className="text-[10px] font-bold text-orange-600 uppercase tracking-wider mb-1">Authenticated</p>
-                          <p className="text-sm font-bold text-gray-900 truncate">{user?.name}</p>
-                        </div>
-                        <Link href="/account" className="block px-6 py-2.5 text-xs font-semibold text-gray-600 hover:bg-orange-50 hover:text-orange-600 transition-colors uppercase tracking-wide">Dashboard</Link>
-                        <Link href="/orders" className="block px-6 py-2.5 text-xs font-semibold text-gray-600 hover:bg-orange-50 hover:text-orange-600 transition-colors uppercase tracking-wide">Purchase History</Link>
-                        <button onClick={logout} className="w-full text-left px-6 py-3 text-xs font-bold text-red-500 hover:bg-red-50 transition-colors uppercase tracking-wide mt-2 border-t border-gray-50">Sign Out</button>
-                      </>
-                    ) : (
-                      <div className="p-3">
-                        <Link href="/login" className="block w-full py-3.5 text-center bg-black text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-orange-600 transition-all shadow-xl shadow-black/10">Login/Signup</Link>
-                      </div>
-                    )}
+                {profileOpen && isAuthenticated && (
+                  <div className="absolute right-0 mt-4 w-64 bg-white rounded-2xl shadow-2xl py-2 border border-gray-100 z-50 animate-fade-in">
+                    <div className="px-6 py-3 border-b border-gray-50 mb-2">
+                      <p className="text-sm font-bold text-gray-900 truncate">{user?.name}</p>
+                      <p className="text-xs text-gray-500 truncate mt-0.5">{user?.email}</p>
+                    </div>
+                    <Link href="/account" className="block px-6 py-2.5 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">Profile</Link>
+                    <Link href="/orders" className="block px-6 py-2.5 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">My Orders</Link>
+                    <button onClick={() => { logout(); setProfileOpen(false); }} className="w-full text-left px-6 py-3 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors mt-2 border-t border-gray-50">Logout</button>
                   </div>
                 )}
               </div>
@@ -307,13 +305,47 @@ export default function Navbar() {
               })}
             </nav>
             <div className="mt-auto pt-10 border-t border-gray-100">
-              <Link 
-                href="/login" 
-                className="block w-full py-4 text-center bg-black text-white rounded-2xl font-bold uppercase tracking-widest hover:bg-orange-600 transition-all text-[10px]" 
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Login / Signup
-              </Link>
+              {isAuthenticated ? (
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 px-2 mb-4 cursor-default">
+                    <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold uppercase">
+                      {user?.name?.[0] || 'U'}
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-gray-900 line-clamp-1">{user?.name}</p>
+                      <p className="text-xs text-gray-500 line-clamp-1">{user?.email}</p>
+                    </div>
+                  </div>
+                  <Link 
+                    href="/account" 
+                    className="block w-full py-3.5 text-center bg-gray-50 text-gray-900 rounded-xl font-medium hover:bg-orange-50 transition-all text-sm border border-gray-100" 
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Profile
+                  </Link>
+                  <Link 
+                    href="/orders" 
+                    className="block w-full py-3.5 text-center bg-gray-50 text-gray-900 rounded-xl font-medium hover:bg-orange-50 transition-all text-sm border border-gray-100" 
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    My Orders
+                  </Link>
+                  <button 
+                    onClick={() => { logout(); setMobileMenuOpen(false); }}
+                    className="block w-full py-3.5 text-center bg-red-50 text-red-600 rounded-xl font-medium hover:bg-red-100 transition-all text-sm border border-red-100 mt-2" 
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link 
+                  href="/login" 
+                  className="block w-full py-4 text-center bg-black text-white rounded-2xl font-bold uppercase tracking-widest hover:bg-orange-600 transition-all text-[10px]" 
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Login / Signup
+                </Link>
+              )}
             </div>
           </div>
         </div>

@@ -168,7 +168,7 @@ export default function OrderDetailPage() {
         <div className="bg-white dark:bg-black min-h-screen flex flex-col">
             <Navbar />
 
-            <main className="flex-grow w-full max-w-5xl mx-auto pt-24 pb-12 px-4">
+            <main className="flex-grow w-full max-w-5xl mx-auto pt-36 pb-12 px-4">
                 {/* Compact Breadcrumb */}
                 <div className="mb-6">
                     <Link href="/orders" className="inline-flex items-center text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">
@@ -214,7 +214,7 @@ export default function OrderDetailPage() {
                                     <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-xl shadow-xl z-20 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
                                         <div className="p-2 space-y-1">
                                             <a
-                                                href={`mailto:info@fusionofdriednutspvtltd.co.in?subject=Help with Order #${orderId.toUpperCase()}`}
+                                                href={`mailto:fusionofdriednuts19pvtltd@gmail.com?subject=Help with Order #${orderId.toUpperCase()}`}
                                                 className="flex items-center gap-3 px-3 py-2.5 text-[10px] font-bold uppercase tracking-widest text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-zinc-800 hover:text-black dark:hover:text-white rounded-lg transition-colors"
                                             >
                                                 <Mail size={14} />
@@ -279,7 +279,7 @@ export default function OrderDetailPage() {
                                                         )}
 
                                                         {/* Status Circle */}
-                                                        <div className={`relative z-10 w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${isDone ? 'bg-black border-black text-white dark:bg-white dark:border-white dark:text-black' :
+                                                        <div className={`relative z-10 shrink-0 w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${isDone ? 'bg-black border-black text-white dark:bg-white dark:border-white dark:text-black' :
                                                             'bg-white dark:bg-zinc-900 border-gray-300 dark:border-zinc-700 text-gray-400'
                                                             } ${isActive ? 'ring-4 ring-black/5 dark:ring-white/5 scale-110 shadow-lg' : ''} ${(isActive || isUpcoming) && (currentStatus !== 'Delivered' && currentStatus !== 'Refund completed' && currentStatus !== 'Cancelled') ? 'animate-tracking-pulse' : ''
                                                             }`}>
@@ -341,7 +341,7 @@ export default function OrderDetailPage() {
                                 {order.items?.map((item, idx) => (
                                     <div key={idx} className="flex items-center gap-4 py-4 first:pt-0 last:pb-0">
                                         <div className="w-16 h-20 bg-gray-50 dark:bg-zinc-800 rounded-lg overflow-hidden border border-gray-100 flex-shrink-0">
-                                            {item?.image ? <img src={item.image} alt="" className="w-full h-full object-cover" /> : <div className="w-full h-full bg-gray-200" />}
+                                            <img src={item?.image || '/placeholder.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.png'; }} alt="" className="w-full h-full object-cover" />
                                         </div>
                                         <div className="flex-grow pr-4">
                                             <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1 uppercase tracking-tight">{item?.name || 'Unknown Item'}</h3>
