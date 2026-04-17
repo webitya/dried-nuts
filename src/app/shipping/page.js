@@ -84,8 +84,8 @@ export default function ShippingPolicyPage() {
               <h3 className="text-sm font-bold tracking-wider text-gray-900 mb-2">Corporate Logistics HQ</h3>
               <p className="text-sm text-gray-600">
                 Fusion of Dried Nuts Private Limited<br />
-                1863 Rajdanga Main Road, E.K.T<br />
-                Kolkata, WB - 700107
+                Block- GD, 1st Floor, 1863 Rajdanga Main Road, E.K.T<br />
+                Kolkata, Kol-700107 West Bengal
               </p>
             </div>
           </div>

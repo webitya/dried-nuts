@@ -130,7 +130,7 @@ export default function Footer() {
                 <div className="p-2.5 bg-white/5 rounded-xl text-orange-500">
                   <MapPin size={18} />
                 </div>
-                <span className="text-sm text-gray-400 leading-relaxed">1863 Rajdanga Main Road, <br />E.K.T, Kolkata – 700107</span>
+                <span className="text-sm text-gray-400 leading-relaxed">Block- GD, 1st Floor, 1863 Rajdanga Main Road, <br />E.K.T Kolkata, Kol-700107 West Bengal</span>
               </li>
               <li className="flex items-start gap-4">
                 <div className="p-2.5 bg-white/5 rounded-xl text-orange-500 mt-1">
