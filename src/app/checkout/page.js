@@ -79,7 +79,7 @@ export default function CheckoutPage() {
                     quantity: item.quantity,
                     price: activePrice,
                     variantName: item.variant.name,
-                    image: item.variant.image
+                    image: (item.variant.images && item.variant.images[0]) || (item.images && item.images[0]) || '/placeholder.png'
                 };
             }),
             totalAmount: subtotal,

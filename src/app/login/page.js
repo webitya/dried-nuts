@@ -127,12 +127,12 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="bg-white dark:bg-black min-h-screen flex flex-col">
+        <div className="bg-white min-h-screen flex flex-col">
             <Navbar />
             <main className="flex-grow flex items-center justify-center pt-40 pb-24 px-4 sm:px-6 lg:px-8">
                 {(status === 'loading' || status === 'authenticated') ? (
                     <div className="flex flex-col items-center space-y-4">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black dark:border-white"></div>
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black"></div>
                         <p className="text-gray-500 uppercase tracking-widest text-xs animate-pulse">
                             {status === 'authenticated' ? 'Redirecting...' : 'Verifying Session...'}
                         </p>
@@ -146,15 +146,15 @@ export default function LoginPage() {
                         )}
 
                         {/* Tabs */}
-                        <div className="flex border-b border-gray-200 dark:border-gray-700">
+                        <div className="flex border-b border-gray-200">
                             <button
-                                className={`flex-1 py-4 text-center text-sm font-medium uppercase tracking-widest ${activeTab === 'login' ? 'border-b-2 border-black dark:border-white text-black dark:text-white' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'}`}
+                                className={`flex-1 py-4 text-center text-sm font-medium uppercase tracking-widest ${activeTab === 'login' ? 'border-b-2 border-black text-black' : 'text-gray-500 hover:text-gray-700'}`}
                                 onClick={() => setActiveTab('login')}
                             >
                                 Login
                             </button>
                             <button
-                                className={`flex-1 py-4 text-center text-sm font-medium uppercase tracking-widest ${activeTab === 'register' ? 'border-b-2 border-black dark:border-white text-black dark:text-white' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'}`}
+                                className={`flex-1 py-4 text-center text-sm font-medium uppercase tracking-widest ${activeTab === 'register' ? 'border-b-2 border-black text-black' : 'text-gray-500 hover:text-gray-700'}`}
                                 onClick={() => setActiveTab('register')}
                             >
                                 Create Account
@@ -183,14 +183,14 @@ export default function LoginPage() {
                                     <div className="w-full border-t border-gray-300" />
                                 </div>
                                 <div className="relative flex justify-center text-sm">
-                                    <span className="px-2 bg-white dark:bg-black text-gray-500">Or continue with</span>
+                                    <span className="px-2 bg-white text-gray-500">Or continue with</span>
                                 </div>
                             </div>
 
                             {activeTab === 'login' ? (
                                 <form className="space-y-6" onSubmit={handleLogin}>
                                     <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email address</label>
+                                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email address</label>
                                         <input
                                             id="email"
                                             name="email"
@@ -203,7 +203,7 @@ export default function LoginPage() {
                                     </div>
 
                                     <div>
-                                        <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
+                                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
                                         <input
                                             id="password"
                                             name="password"
@@ -226,7 +226,7 @@ export default function LoginPage() {
                                     {!otpSent ? (
                                         <>
                                             <div>
-                                                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Full Name</label>
+                                                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
                                                 <input
                                                     id="name"
                                                     name="name"
@@ -238,7 +238,7 @@ export default function LoginPage() {
                                                 />
                                             </div>
                                             <div>
-                                                <label htmlFor="reg-email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email address</label>
+                                                <label htmlFor="reg-email" className="block text-sm font-medium text-gray-700">Email address</label>
                                                 <input
                                                     id="reg-email"
                                                     name="email"
@@ -250,7 +250,7 @@ export default function LoginPage() {
                                                 />
                                             </div>
                                             <div>
-                                                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Phone Number</label>
+                                                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number</label>
                                                 <input
                                                     id="phone"
                                                     name="phone"
@@ -262,7 +262,7 @@ export default function LoginPage() {
                                                 />
                                             </div>
                                             <div>
-                                                <label htmlFor="reg-password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Set Password</label>
+                                                <label htmlFor="reg-password" className="block text-sm font-medium text-gray-700">Set Password</label>
                                                 <input
                                                     id="reg-password"
                                                     name="password"
@@ -282,10 +282,10 @@ export default function LoginPage() {
                                     ) : (
                                         <>
                                             <div className="text-center mb-4">
-                                                <p className="text-sm text-gray-600 dark:text-gray-400">Enter the OTP sent to {registerData.email}</p>
+                                                <p className="text-sm text-gray-600">Enter the OTP sent to {registerData.email}</p>
                                             </div>
                                             <div>
-                                                <label htmlFor="otp" className="block text-sm font-medium text-gray-700 dark:text-gray-300">OTP Code</label>
+                                                <label htmlFor="otp" className="block text-sm font-medium text-gray-700">OTP Code</label>
                                                 <input
                                                     id="otp"
                                                     name="otp"
@@ -303,7 +303,7 @@ export default function LoginPage() {
                                                 </button>
                                             </div>
                                             <div className="text-center mt-2">
-                                                <button type="button" onClick={() => setOtpSent(false)} className="text-sm text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white underline cursor-pointer">
+                                                <button type="button" onClick={() => setOtpSent(false)} className="text-sm text-gray-500 hover:text-black underline cursor-pointer">
                                                     Change Details
                                                 </button>
                                             </div>

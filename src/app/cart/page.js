@@ -16,15 +16,15 @@ export default function CartPage() {
     }, 0);
 
     return (
-        <div className="bg-white dark:bg-black min-h-screen">
+        <div className="bg-white min-h-screen">
             <Navbar />
 
             <main className="max-w-7xl mx-auto pt-24 pb-8 sm:pt-32 sm:pb-16 px-4 sm:px-6 lg:px-8">
-                <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-12">Shopping Bag</h1>
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-8 sm:mb-12">Shopping Bag</h1>
 
                 {cart.length === 0 ? (
                     <div className="text-center py-20">
-                        <p className="text-lg text-gray-500 dark:text-gray-400 mb-8 font-light">Your shopping bag is currently empty.</p>
+                        <p className="text-lg text-gray-500 mb-8 font-light">Your shopping bag is currently empty.</p>
                         <Link href="/products" className="inline-block bg-black text-white px-10 py-3.5 rounded-xl hover:bg-gray-800 transition-all font-bold uppercase tracking-widest text-xs cursor-pointer">
                             Explore Collection
                         </Link>
@@ -36,9 +36,9 @@ export default function CartPage() {
                                 {cart.map((item, index) => {
                                     const activePrice = item.variant.discountPrice || item.variant.price;
                                     return (
-                                        <li key={`${item._id}-${item.variant.name}-${index}`} className="group flex py-4 border-b border-gray-100 dark:border-zinc-900 last:border-0">
+                                        <li key={`${item._id}-${item.variant.name}-${index}`} className="group flex py-4 border-b border-gray-100 last:border-0">
                                             <div className="flex-shrink-0">
-                                                <div className="w-20 h-28 sm:w-24 sm:h-32 rounded-lg bg-gray-50 dark:bg-zinc-900 relative overflow-hidden shadow-sm">
+                                                <div className="w-20 h-28 sm:w-24 sm:h-32 rounded-lg bg-gray-50 relative overflow-hidden shadow-sm">
                                                     <Image
                                                         src={(item.variant.images && item.variant.images[0]) || (item.images && item.images[0]) || '/placeholder.png'}
                                                         alt={item.name}
@@ -51,8 +51,8 @@ export default function CartPage() {
                                             <div className="ml-4 sm:ml-6 flex-1 flex flex-col">
                                                 <div className="flex justify-between items-start">
                                                     <div className="min-w-0 flex-1">
-                                                        <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white uppercase truncate">
-                                                            <Link href={`/product/${item._id}`} className="hover:text-gray-600 dark:hover:text-gray-400 transition-colors cursor-pointer">
+                                                        <h3 className="text-sm sm:text-base font-bold text-gray-900 uppercase truncate">
+                                                            <Link href={`/product/${item._id}`} className="hover:text-gray-600 transition-colors cursor-pointer">
                                                                 {item.name}
                                                             </Link>
                                                         </h3>
@@ -75,10 +75,10 @@ export default function CartPage() {
                                                 </div>
 
                                                 <div className="mt-auto flex items-center justify-between">
-                                                    <div className="flex items-center border border-gray-200 dark:border-zinc-800 rounded-md">
+                                                    <div className="flex items-center border border-gray-200 rounded-md">
                                                         <button
                                                             onClick={() => updateQuantity(item._id, item.variant.name, item.quantity - 1)}
-                                                            className="p-1.5 hover:bg-gray-50 dark:hover:bg-zinc-900 transition-colors disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
+                                                            className="p-1.5 hover:bg-gray-50 transition-colors disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
                                                             disabled={item.quantity <= 1}
                                                         >
                                                             <MinusIcon className="h-3.5 w-3.5" />
@@ -86,12 +86,12 @@ export default function CartPage() {
                                                         <span className="w-8 text-center text-xs font-bold">{item.quantity}</span>
                                                         <button
                                                             onClick={() => updateQuantity(item._id, item.variant.name, item.quantity + 1)}
-                                                            className="p-1.5 hover:bg-gray-50 dark:hover:bg-zinc-900 transition-colors cursor-pointer"
+                                                            className="p-1.5 hover:bg-gray-50 transition-colors cursor-pointer"
                                                         >
                                                             <PlusIcon className="h-3.5 w-3.5" />
                                                         </button>
                                                     </div>
-                                                    <p className="text-sm font-bold text-gray-900 dark:text-white">₹{(activePrice * item.quantity).toLocaleString()}</p>
+                                                    <p className="text-sm font-bold text-gray-900">₹{(activePrice * item.quantity).toLocaleString()}</p>
                                                 </div>
                                             </div>
                                         </li>
@@ -102,21 +102,21 @@ export default function CartPage() {
 
                         {/* Order summary */}
                         <section className="lg:col-span-4 lg:sticky lg:top-24 h-fit">
-                            <div className="bg-gray-50 dark:bg-zinc-900 rounded-xl p-6 sm:p-8 border border-gray-100 dark:border-zinc-800 shadow-sm">
+                            <div className="bg-gray-50 rounded-xl p-6 sm:p-8 border border-gray-100 shadow-sm">
                                 <h2 className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-6">Order Summary</h2>
 
                                 <div className="space-y-4">
                                     <div className="flex items-center justify-between text-sm">
                                         <span className="text-gray-500 font-medium">Subtotal</span>
-                                        <span className="font-bold text-gray-900 dark:text-white uppercase tracking-tight">₹{subtotal.toLocaleString()}</span>
+                                        <span className="font-bold text-gray-900 uppercase tracking-tight">₹{subtotal.toLocaleString()}</span>
                                     </div>
-                                    <div className="flex items-center justify-between text-sm border-b border-gray-50 dark:border-zinc-800 pb-4">
+                                    <div className="flex items-center justify-between text-sm border-b border-gray-50 pb-4">
                                         <span className="text-gray-500 font-medium">Shipping</span>
                                         <span className="text-green-600 font-bold uppercase text-[10px] tracking-[0.2em]">FREE SHIPPING</span>
                                     </div>
-                                    <div className="pt-4 border-t border-gray-100 dark:border-zinc-800 flex items-center justify-between">
-                                        <span className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider">Estimated Total</span>
-                                        <span className="text-lg font-bold text-gray-900 dark:text-white">₹{subtotal.toLocaleString()}</span>
+                                    <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                        <span className="text-sm font-bold text-gray-900 uppercase tracking-wider">Estimated Total</span>
+                                        <span className="text-lg font-bold text-gray-900">₹{subtotal.toLocaleString()}</span>
                                     </div>
                                 </div>
 

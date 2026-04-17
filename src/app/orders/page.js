@@ -60,8 +60,8 @@ export default function OrdersPage() {
 
     if (loading) {
         return (
-            <div className="bg-white dark:bg-black min-h-screen flex items-center justify-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-2 border-black border-t-transparent dark:border-white dark:border-t-transparent"></div>
+            <div className="bg-white min-h-screen flex items-center justify-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-2 border-black border-t-transparent"></div>
             </div>
         );
     }
@@ -80,21 +80,21 @@ export default function OrdersPage() {
     };
 
     return (
-        <div className="bg-white dark:bg-black min-h-screen flex flex-col">
+        <div className="bg-white min-h-screen flex flex-col">
             <Navbar />
             <main className="flex-grow max-w-4xl mx-auto pt-36 pb-16 px-4 w-full">
-                <div className="flex items-center justify-between mb-8 border-b border-gray-100 dark:border-gray-800 pb-4">
+                <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-4">
                     <div>
-                        <h1 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Purchase History</h1>
+                        <h1 className="text-xl font-bold text-gray-900 tracking-tight">Purchase History</h1>
                         <p className="text-xs text-gray-500 mt-1 uppercase font-medium tracking-wider">Manage your recent orders</p>
                     </div>
                 </div>
 
                 {(!orders || orders.length === 0) ? (
-                    <div className="text-center py-20 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-gray-800">
-                        <ShoppingBag size={40} className="mx-auto text-gray-300 dark:text-gray-700 mb-4" />
-                        <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-6">Your order history is empty.</p>
-                        <Link href="/products" className="inline-block bg-black dark:bg-white text-white dark:text-black px-8 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-all">Start Shopping</Link>
+                    <div className="text-center py-20 bg-gray-50 rounded-2xl border border-gray-100">
+                        <ShoppingBag size={40} className="mx-auto text-gray-300 mb-4" />
+                        <p className="text-sm font-medium text-gray-500 mb-6">Your order history is empty.</p>
+                        <Link href="/products" className="inline-block bg-black text-white px-8 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-all">Start Shopping</Link>
                     </div>
                 ) : (
                     <div className="space-y-4">
@@ -102,12 +102,21 @@ export default function OrdersPage() {
                             <Link
                                 href={`/orders/${order?._id}`}
                                 key={order?._id}
-                                className="block bg-white dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-black dark:hover:border-white transition-all group overflow-hidden shadow-sm hover:shadow-md"
+                                className="block bg-white rounded-2xl border border-gray-100 hover:border-black transition-all group overflow-hidden shadow-sm hover:shadow-md"
                             >
                                 <div className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                     <div className="flex items-center gap-4">
-                                        <div className="h-14 w-11 bg-gray-50 dark:bg-zinc-800 rounded-lg border border-gray-100 dark:border-gray-800 overflow-hidden flex-shrink-0 relative">
-                                            <img src={order?.items?.[0]?.image || '/placeholder.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.png'; }} alt="" className="h-full w-full object-cover" />
+                                        <div className="h-14 w-11 bg-gray-50 rounded-lg border border-gray-100 overflow-hidden flex-shrink-0 relative flex items-center justify-center">
+                                            {order?.items?.[0]?.image ? (
+                                                <img 
+                                                    src={order.items[0].image} 
+                                                    onError={(e) => { e.target.parentElement.innerHTML = '<div class="flex items-center justify-center w-full h-full text-gray-200"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path><path d="M12 22V12"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="m7.5 4.5 7.4 4.3"></path></svg></div>'; }} 
+                                                    alt="" 
+                                                    className="h-full w-full object-cover" 
+                                                />
+                                            ) : (
+                                                <Package size={20} className="text-gray-200" />
+                                            )}
                                             {order?.items?.length > 1 && (
                                                 <div className="absolute bottom-0 right-0 bg-black/80 text-white text-[8px] px-1 font-bold rounded-tl-md">+{order.items.length - 1}</div>
                                             )}
@@ -116,7 +125,7 @@ export default function OrdersPage() {
                                             <div className="flex items-center gap-2 mb-1">
                                                 <button
                                                     onClick={(e) => handleCopy(e, order?._id, order?._id)}
-                                                    className="text-sm font-bold text-gray-900 dark:text-white hover:text-blue-600 transition-colors flex items-center gap-1.5 group/id"
+                                                    className="text-sm font-bold text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-1.5 group/id"
                                                 >
                                                     #{String(order?._id || '').slice(-8).toUpperCase()}
                                                     {copiedId === order?._id ? <Check size={10} className="text-green-500" /> : <Copy size={10} className="text-gray-400 opacity-0 group-hover/id:opacity-100 transition-opacity" />}
@@ -133,15 +142,15 @@ export default function OrdersPage() {
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center justify-between sm:justify-end gap-6 sm:text-right border-t sm:border-0 pt-3 sm:pt-0 border-gray-100 dark:border-gray-800">
+                                    <div className="flex items-center justify-between sm:justify-end gap-6 sm:text-right border-t sm:border-0 pt-3 sm:pt-0 border-gray-100">
                                         <div>
                                             <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">Total</p>
-                                            <p className="text-base font-bold text-gray-900 dark:text-white">₹{(order?.totalAmount || 0).toLocaleString()}</p>
+                                            <p className="text-base font-bold text-gray-900">₹{(order?.totalAmount || 0).toLocaleString()}</p>
                                             {order?.paymentMethod === 'COD' && (
-                                                <p className="text-[8px] font-bold text-yellow-600 dark:text-yellow-500 uppercase tracking-tighter mt-0.5">Pay on Delivery</p>
+                                                <p className="text-[8px] font-bold text-yellow-600 uppercase tracking-tighter mt-0.5">Pay on Delivery</p>
                                             )}
                                         </div>
-                                        <div className="p-2 bg-gray-50 dark:bg-zinc-800 rounded-lg group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-colors">
+                                        <div className="p-2 bg-gray-50 rounded-lg group-hover:bg-black group-hover:text-white transition-colors">
                                             <ChevronRight size={18} />
                                         </div>
                                     </div>
