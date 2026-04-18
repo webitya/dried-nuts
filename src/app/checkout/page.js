@@ -179,7 +179,7 @@ export default function CheckoutPage() {
 
     if (cart.length === 0) {
         return (
-            <div className="bg-white dark:bg-black min-h-screen">
+            <div className="bg-white min-h-screen text-gray-900">
                 <Navbar />
                 <main className="max-w-7xl mx-auto py-24 px-4 text-center">
                     <h1 className="text-4xl font-bold mb-4 uppercase">Your bag is empty</h1>
@@ -192,7 +192,7 @@ export default function CheckoutPage() {
     }
 
     return (
-        <div className="bg-white dark:bg-black min-h-screen">
+        <div className="bg-white min-h-screen text-gray-900">
             <Script 
                 src="https://checkout.razorpay.com/v1/checkout.js" 
                 strategy="lazyOnload" 
@@ -200,10 +200,10 @@ export default function CheckoutPage() {
             <Navbar />
 
             <main className="max-w-7xl mx-auto pt-36 sm:pt-40 pb-16 px-4 sm:px-6 lg:px-8">
-                <h1 className="text-xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-8 uppercase tracking-tight">Checkout</h1>
+                <h1 className="text-xl sm:text-3xl font-bold text-gray-900 mb-8 uppercase tracking-tight">Checkout</h1>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-x-8">
-                    <div className="lg:col-span-7 bg-gray-50 dark:bg-zinc-900 p-4 sm:p-5 rounded-lg border border-gray-100 dark:border-gray-800 order-2 lg:order-1">
+                    <div className="lg:col-span-7 bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-100 order-2 lg:order-1">
                         <h2 className="text-xs font-bold text-gray-400 mb-4 uppercase tracking-wider">Shipping</h2>
                         <form onSubmit={handleSubmit} className="space-y-3">
                             <div className="space-y-3">
@@ -219,7 +219,7 @@ export default function CheckoutPage() {
                                                 autoComplete="shipping name"
                                                 value={formData.name}
                                                 onChange={handleChange}
-                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm"
+                                                className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm text-gray-900"
                                                 placeholder="Enter your full name"
                                             />
                                         </div>
@@ -236,7 +236,7 @@ export default function CheckoutPage() {
                                                 autoComplete="shipping email"
                                                 value={formData.email}
                                                 onChange={handleChange}
-                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm"
+                                                className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm text-gray-900"
                                                 placeholder="Enter your email address"
                                             />
                                         </div>
@@ -250,7 +250,7 @@ export default function CheckoutPage() {
                                                 autoComplete="shipping tel"
                                                 value={formData.phone}
                                                 onChange={handleChange}
-                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm"
+                                                className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm text-gray-900"
                                                 placeholder="Enter your phone number"
                                             />
                                         </div>
@@ -266,7 +266,7 @@ export default function CheckoutPage() {
                                             autoComplete="shipping street-address"
                                             value={formData.address}
                                             onChange={handleChange}
-                                            className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-black dark:focus:border-white transition-all shadow-sm"
+                                            className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-black transition-all shadow-sm text-gray-900"
                                             placeholder="Enter your delivery address"
                                         />
                                     </div>
@@ -280,7 +280,7 @@ export default function CheckoutPage() {
                                                 id="landmark"
                                                 value={formData.landmark}
                                                 onChange={handleChange}
-                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm"
+                                                className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm text-gray-900"
                                                 placeholder="Enter a nearby landmark"
                                             />
                                         </div>
@@ -294,7 +294,7 @@ export default function CheckoutPage() {
                                                 autoComplete="shipping postal-code"
                                                 value={formData.zip}
                                                 onChange={handleChange}
-                                                className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm"
+                                                className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all shadow-sm text-gray-900"
                                                 placeholder="Enter 6-digit PIN code"
                                             />
                                         </div>
@@ -310,7 +310,7 @@ export default function CheckoutPage() {
                                             autoComplete="shipping address-level2"
                                             value={formData.city}
                                             onChange={handleChange}
-                                            className="w-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm outline-none focus:border-black dark:focus:border-white transition-all shadow-sm"
+                                            className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-black transition-all shadow-sm text-gray-900"
                                             placeholder="Enter your city"
                                         />
                                     </div>
@@ -321,7 +321,7 @@ export default function CheckoutPage() {
                                         <button
                                             type="button"
                                             onClick={() => setFormData({ ...formData, paymentMethod: 'ONLINE' })}
-                                            className={`flex items-center justify-center space-x-3 py-3 px-4 rounded-xl border transition-all text-xs font-bold ${formData.paymentMethod === 'ONLINE' ? 'border-orange-600 bg-orange-600 text-white shadow-lg' : 'border-gray-200 bg-white text-gray-600 hover:border-orange-200'}`}
+                                            className={`flex items-center justify-center space-x-3 py-3 px-4 rounded-xl border transition-all text-xs font-bold cursor-pointer ${formData.paymentMethod === 'ONLINE' ? 'border-orange-600 bg-orange-600 text-white shadow-lg' : 'border-gray-200 bg-white text-gray-600 hover:border-orange-200'}`}
                                         >
                                             <div className="flex gap-1">
                                                 {['/p1.png', '/p2.png', '/p3.png'].map((img, i) => (
@@ -335,7 +335,7 @@ export default function CheckoutPage() {
                                         <button
                                             type="button"
                                             onClick={() => setFormData({ ...formData, paymentMethod: 'COD' })}
-                                            className={`flex items-center justify-center space-x-2 py-3 px-4 rounded-xl border transition-all text-xs font-bold ${formData.paymentMethod === 'COD' ? 'border-orange-600 bg-orange-600 text-white shadow-lg' : 'border-gray-200 bg-white text-gray-600 hover:border-orange-200'}`}
+                                            className={`flex items-center justify-center space-x-2 py-3 px-4 rounded-xl border transition-all text-xs font-bold cursor-pointer ${formData.paymentMethod === 'COD' ? 'border-orange-600 bg-orange-600 text-white shadow-lg' : 'border-gray-200 bg-white text-gray-600 hover:border-orange-200'}`}
                                         >
                                             <Banknote size={14} />
                                             <span>CASH (COD)</span>
@@ -344,7 +344,7 @@ export default function CheckoutPage() {
                                 </div>
                             </div>
 
-                            <div className="mt-5 border-t border-gray-100 dark:border-gray-800 pt-4">
+                            <div className="mt-5 border-t border-gray-100 pt-4">
                                 <button
                                     type="submit"
                                     disabled={saving}
@@ -365,7 +365,7 @@ export default function CheckoutPage() {
 
                     <div className="lg:col-span-5 order-1 lg:order-2">
                         <h2 className="text-xs font-bold text-gray-400 mb-4 uppercase tracking-wider">Summary</h2>
-                        <div className="bg-gray-50 dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-gray-100 dark:border-gray-800 space-y-4">
+                        <div className="bg-gray-50 rounded-lg p-4 sm:p-5 border border-gray-100 space-y-4">
                             <ul className="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                                 {cart.map((item, index) => {
                                     const activePrice = item.variant.discountPrice || item.variant.price;
@@ -376,16 +376,16 @@ export default function CheckoutPage() {
                                                     <img src={(item.variant.images && item.variant.images[0]) || (item.images && item.images[0]) || '/placeholder.png'} alt={item.name} className="object-cover w-full h-full" />
                                                 </div>
                                                 <div className="min-w-0">
-                                                    <p className="text-xs font-bold text-gray-900 dark:text-white truncate">{item.name}</p>
+                                                    <p className="text-xs font-bold text-gray-900 truncate">{item.name}</p>
                                                     <p className="text-[10px] text-gray-400">Variant: {item.variant.name} • Qty: {item.quantity}</p>
                                                 </div>
                                             </div>
-                                            <span className="text-xs font-bold text-gray-900 dark:text-white">₹{(activePrice * item.quantity).toLocaleString()}</span>
+                                            <span className="text-xs font-bold text-gray-900">₹{(activePrice * item.quantity).toLocaleString()}</span>
                                         </li>
                                     );
                                 })}
                             </ul>
-                            <div className="border-t border-gray-100 dark:border-gray-800 pt-4 flex justify-between items-center font-bold text-gray-900 dark:text-white text-base">
+                            <div className="border-t border-gray-100 pt-4 flex justify-between items-center font-bold text-gray-900 text-base">
                                 <span className="uppercase text-xs tracking-wider text-gray-400">Total Amount</span>
                                 <span>₹{subtotal.toLocaleString()}</span>
                             </div>

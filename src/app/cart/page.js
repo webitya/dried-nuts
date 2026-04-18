@@ -16,7 +16,7 @@ export default function CartPage() {
     }, 0);
 
     return (
-        <div className="bg-white min-h-screen">
+        <div className="bg-white min-h-screen text-gray-900">
             <Navbar />
 
             <main className="max-w-7xl mx-auto pt-24 pb-8 sm:pt-32 sm:pb-16 px-4 sm:px-6 lg:px-8">
@@ -81,14 +81,14 @@ export default function CartPage() {
                                                             className="p-1.5 hover:bg-gray-50 transition-colors disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
                                                             disabled={item.quantity <= 1}
                                                         >
-                                                            <MinusIcon className="h-3.5 w-3.5" />
+                                                            <MinusIcon className="h-4 w-4 text-gray-600" />
                                                         </button>
                                                         <span className="w-8 text-center text-xs font-bold">{item.quantity}</span>
                                                         <button
                                                             onClick={() => updateQuantity(item._id, item.variant.name, item.quantity + 1)}
                                                             className="p-1.5 hover:bg-gray-50 transition-colors cursor-pointer"
                                                         >
-                                                            <PlusIcon className="h-3.5 w-3.5" />
+                                                            <PlusIcon className="h-4 w-4 text-gray-600" />
                                                         </button>
                                                     </div>
                                                     <p className="text-sm font-bold text-gray-900">₹{(activePrice * item.quantity).toLocaleString()}</p>
